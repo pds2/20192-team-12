@@ -103,20 +103,19 @@ dentro de uma região geográfica. Um país é caracterizado por seu
 
 ### Cartões CRC
 
-|**Classe**|Embarcador|
+|Classe|Embarcador|
 | --- | --- |
 |**Responsabilidades**|**Colaborações**|
 |produto|Município|
 |quantidade|Estado|
 |custo|País|
 
-
 &nbsp;
 
 |Classe|Modal|
 | --- | --- |
-|Subclasses:|Rodoviário, Aquaviário/Aéreo|
-|Responsabilidades|Colaborações|
+|**Subclasses:**|**Rodoviário, Aquaviário/Aéreo**|
+|**Responsabilidades**|**Colaborações**|
 |preço||
 |capacidade||
 |velocidade||
@@ -125,8 +124,8 @@ dentro de uma região geográfica. Um país é caracterizado por seu
 
 |Classe|Modal Rodoviário|
 | --- | --- |
-|Superclasse:|Modal|
-|Responsabilidades|Colaborações|
+|**Superclasse:**|Modal|
+|**Responsabilidades**|**Colaborações**|
 |preço||
 |capacidade||
 |velocidade||
@@ -137,8 +136,8 @@ dentro de uma região geográfica. Um país é caracterizado por seu
 
 |Classe|Modal Aquaviário/Aéreo|
 | --- | --- |
-|Superclasse:|Modal|
-|Responsabilidades|Colaborações|
+|**Superclasse:**|Modal|
+|**Responsabilidades**|**Colaborações**|
 |preço||
 |capacidade||
 |velocidade||
@@ -148,7 +147,7 @@ dentro de uma região geográfica. Um país é caracterizado por seu
 
 |Classe|Operacao de Transporte|
 | --- | --- |
-|Responsabilidades|Colaborações|
+|**Responsabilidades**|**Colaborações**|
 |preço total|Embarcador|
 |preço unitário|País|
 |rota||
@@ -158,7 +157,7 @@ dentro de uma região geográfica. Um país é caracterizado por seu
 
 |Classe|Rota|
 | --- | --- |
-|Responsabilidades|Colaborações|
+|**Responsabilidades**|**Colaborações**|
 |origem|Municipio|
 |destino|Modal|
 |distância||
@@ -169,24 +168,23 @@ dentro de uma região geográfica. Um país é caracterizado por seu
 
 |Classe|Municipio|
 | --- | --- |
-|Responsabilidades|Colaborações|
+|**Responsabilidades**|**Colaborações**|
 |nome|Pais|
 |latitude||
 |longitude||
 
 &nbsp;
 
-|Classe|Estado|
+|**Classe**|Estado|
 | --- | --- |
-|Responsabilidades|Colaborações|
+|**Responsabilidades**|**Colaborações**|
 |nome|País|
 
 &nbsp;
 
-|Classe|Pais|
+|**Classe**|Pais|
 | --- | --- |
-|Responsabilidades|Colaborações|
+|**Responsabilidades**|**Colaborações**|
 |nome||
 |continente||
 |tem acordo comercial||
-
