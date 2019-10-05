@@ -1,4 +1,4 @@
-# Sistema de Alocação de Demanda de Transporte 
+## Sistema de Alocação de Demanda de Transporte 
 
 ## Descrição 
 &nbsp;
@@ -10,7 +10,7 @@ considerando os preços dos serviços, tempo de transporte e capacidade
 dos diversos modais disponíveis (rodoviário, ferroviário, aéreo e
 aquaviário).
 
-## User Stories
+### User Stories
 &nbsp;
 -   **Embarcador**
 
@@ -101,9 +101,10 @@ dentro de uma região geográfica. Um país é caracterizado por seu
 
 &nbsp;
 
-## Cartões CRC
+### Cartões CRC
 
 |**Classe**|Embarcador|
+| --- | --- |
 |**Responsabilidades**|**Colaborações**|
 |produto|Município|
 |quantidade|Estado|
