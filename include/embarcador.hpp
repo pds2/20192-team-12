@@ -22,7 +22,7 @@ class Embarcador {
     	
     public:
 
-    	Embarcador();  
+    	Embarcador();
     	Embarcador(std::string, std::string, float);
     	~Embarcador();
 
@@ -33,7 +33,7 @@ class Embarcador {
     	std::string getOrigem();
         std::string getDestino();
         float getQuantidade();
-
+        
     	void obterRota();
 };
 
