@@ -76,9 +76,9 @@ Critérios de aceitação:
 - Calcular a distância;
 - Calcular o tempo total de transporte, em horas;
 
-#### Operador Multimodal
+#### Operador de Trasnporte
 
-Como **operador multimodal**,  é responsável por realizar receber as solicitações (**operações de transporte**) de todos os **embarcadores** e dar a resposta adequada indicando se uma determinada **conexão** é possível ou não. Caso a conexão seja possível será calculada a rota que melhor se ajusta à demanda do embarcador - minimização de custo ou de tempo. 
+Como **operador de transporte**,  é responsável por realizar receber as solicitações (**operações de transporte**) de todos os **embarcadores** e dar a resposta adequada indicando se uma determinada **conexão** é possível ou não. Caso a conexão seja possível será calculada a rota que melhor se ajusta à demanda do embarcador - minimização de custo ou de tempo. 
 
 Critérios de aceitação:
 - Exibir o número de pontos de parada;
@@ -151,14 +151,14 @@ Critérios de aceitação:
 |velocidade||
 |taxa do terminal||
 
-|Classe|Operação de Transporte|
+|Classe|Operador de Transporte|
 | --- | --- |
 |**Responsabilidades**|**Colaborações**|
-|tipo de carga|Embarcador|
-|quantidade a transportar|Município|
-|rota|País|
+|quantidade a transportar|Localidade|
+|rota|Embarcador|
 |preço unitário||
 |preço total||
+|||
 
 |Classe|Rota|
 | --- | --- |
@@ -169,21 +169,10 @@ Critérios de aceitação:
 |tempo de percurso||
 |caminho||
 
-|Classe|Municipio|
+|Classe|Localidade|
 | --- | --- |
 |**Responsabilidades**|**Colaborações**|
-|nome|Pais|
-|latitude||
-|longitude||
-
-|**Classe**|Estado|
-| --- | --- |
-|**Responsabilidades**|**Colaborações**|
-|nome|País|
-
-|**Classe**|Pais|
-| --- | --- |
-|**Responsabilidades**|**Colaborações**|
-|nome||
-|continente||
+|municipio||
+|estado||
+|pais||
 |tem acordo comercial||
