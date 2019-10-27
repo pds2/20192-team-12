@@ -51,3 +51,15 @@ bool Rodoviario::isPedagio(){
 float Rodoviario::getValorPedagio(){
     return _valor_pedagio;
 }
+void Aquaviario::setValorTerminal(float valor_terminal){
+    this->_valor_terminal = valor_terminal;
+}
+float Aquaviario::getValorTerminal(){
+    return this->_valor_terminal;
+}
+void Aereo::setValorTerminal(float valor_terminal){
+     this->_valor_terminal = valor_terminal;
+}
+float Aereo::getValorTerminal(){
+    return this->_valor_terminal;
+}

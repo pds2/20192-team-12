@@ -69,7 +69,8 @@ class Aquaviario: public Modal {
         float _valor_terminal;
 
     public:
-        Aquaviario();
+        Aquaviario(): Aquaviario(0){}
+        Aquaviario(float valor_terminal): _valor_terminal(valor_terminal){}
         ~Aquaviario();
 
         void setValorTerminal(float);
@@ -78,5 +79,19 @@ class Aquaviario: public Modal {
 
         void obterCusto() override;
 };
+class Aereo: public Modal {
+    private:
+        float _valor_terminal;
 
+    public:
+        Aereo(): Aereo(0){}
+        Aereo(float valor_terminal): _valor_terminal(valor_terminal){}
+        ~Aereo();
+
+        void setValorTerminal(float);
+
+        float getValorTerminal();
+
+        void obterCusto() override;
+};
 #endif
