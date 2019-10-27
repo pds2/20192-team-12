@@ -26,9 +26,9 @@ class Modal {
     public:  
         Modal(): Modal("rodoviario", 0.075, 35, 60){}        
     	Modal(std::string nome_modal, float preco, float capacidade, float velocidade): _tipo_modal(nome_modal),
-                                                 _preco(preco),
-                                                 _capacidade(capacidade),
-                                                 _velocidade(velocidade){}
+                                                                                        _preco(preco),
+                                                                                        _capacidade(capacidade),
+                                                                                        _velocidade(velocidade){}
     	~Modal();
 
     	void setTipoModal(std::string);
@@ -74,9 +74,7 @@ class Aquaviario: public Modal {
         ~Aquaviario();
 
         void setValorTerminal(float);
-
         float getValorTerminal();
-
         void obterCusto() override;
 };
 class Aereo: public Modal {
@@ -89,9 +87,7 @@ class Aereo: public Modal {
         ~Aereo();
 
         void setValorTerminal(float);
-
         float getValorTerminal();
-
         void obterCusto() override;
 };
 #endif
