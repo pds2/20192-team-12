@@ -1,6 +1,6 @@
 #ifndef MODAL_H
 #define MODAL_H
-
+#include <iostream>
 /*
 Esta classe representa uma conexão entre duas localidades e
 o meio de transporte que as conecta.
@@ -23,10 +23,12 @@ class Modal {
         float _capacidade;
         float _velocidade;
     	
-    public:
-
-    	Modal();  
-    	Modal(std::string, float, float, float);
+    public:  
+        Modal(): Modal("rodoviario", 0.075, 35, 60){}        
+    	Modal(std::string nome_modal, float preco, float capacidade, float velocidade): _tipo_modal(nome_modal),
+                                                 _preco(preco),
+                                                 _capacidade(capacidade),
+                                                 _velocidade(velocidade){}
     	~Modal();
 
     	void setTipoModal(std::string);
@@ -59,7 +61,7 @@ class Rodoviario: public Modal {
         float getValorPedagio();
 
         void obterCusto() override;
-} 
+};
 
 class Aquaviario: public Modal {
     private:
@@ -74,6 +76,6 @@ class Aquaviario: public Modal {
         float getValorTerminal();
 
         void obterCusto() override;
-} 
+};
 
 #endif
