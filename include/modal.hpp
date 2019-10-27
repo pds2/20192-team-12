@@ -51,7 +51,8 @@ class Rodoviario: public Modal {
         float _valor_pedagio;
 
     public:
-        Rodoviario();
+        Rodoviario(): Rodoviario(0, 0 ){};
+        Rodoviario(bool pedagio, float valor_pedagio): _pedagio(pedagio), _valor_pedagio(valor_pedagio){}
         ~Rodoviario();
 
         void setPedagio(bool);

@@ -39,3 +39,15 @@ float Modal::getCapacidade(){
 float Modal::getVelocidade(){
     return this->_velocidade;
 }
+void Rodoviario::setPedagio(bool tem_pedagio){
+    this->_pedagio = tem_pedagio;
+}
+void Rodoviario::setValorPedagio(float pedagio){
+    this->_valor_pedagio = pedagio;
+}
+bool Rodoviario::isPedagio(){
+    return _pedagio;
+}
+float Rodoviario::getValorPedagio(){
+    return _valor_pedagio;
+}
