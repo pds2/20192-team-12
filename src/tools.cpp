@@ -8,12 +8,28 @@ void lerArquivo(std::istream &arquivo){
     std::string entrada;
     arquivo.clear();
     arquivo.seekg(0, std::ios::beg);
+    int counter = 0;
+    int rows, columns;
     while(!arquivo.eof()){
         getline(arquivo, linha);
         std::istringstream iss_linha(linha);
         for(std::string entrada; iss_linha >> entrada;){
-            std::cout << entrada << std::endl;
+            std::cout << entrada << " ";
+            if (counter == 0){
+                rows = std::stoi(entrada);
+            }
+            if (counter == 1){
+                columns = std::stoi(entrada);
+                std::cout << std::endl;
+            }
+            if (counter != 0 && counter != 1){
+                if( (counter - 2) % columns == (columns - 1)){
+                    std::cout << std::endl;
+                }
+            }            
+            counter++;
         }
+
     }    
 }
 
