@@ -14,7 +14,7 @@ void lerArquivo(std::istream &arquivo){
         getline(arquivo, linha);
         std::istringstream iss_linha(linha);
         for(std::string entrada; iss_linha >> entrada;){
-            std::cout << entrada << " ";
+            std::cout << entrada.substr(0,1)<< " " << entrada << " ";
             if (counter == 0){
                 rows = std::stoi(entrada);
             }
@@ -23,6 +23,9 @@ void lerArquivo(std::istream &arquivo){
                 std::cout << std::endl;
             }
             if (counter != 0 && counter != 1){
+                if (entrada.substr(0,1) == ""){
+
+                }
                 if( (counter - 2) % columns == (columns - 1)){
                     std::cout << std::endl;
                 }
