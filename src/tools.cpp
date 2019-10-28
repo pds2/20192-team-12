@@ -1,9 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <stdexcept>
+#include <vector>
 #include "../include/tools.hpp"
 
-void lerArquivo(std::istream &arquivo){
+void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
     std::string linha;   
     std::string entrada;
     arquivo.clear();
@@ -37,13 +39,16 @@ void lerArquivo(std::istream &arquivo){
                     // std::cout << str << std::endl;
 
                     entrada = str;
+                    if ((counter - 2) % columns == 1) {
+                            vector.push_back(entrada);
+                    }
                 }
                 // if (entrada.substr(entrada.size() - 1, 1) == "|"){
-                std::cout << " " << entrada;
+                // std::cout << " " << entrada;
 
                 // }                
                 if( (counter - 2) % columns == (columns - 1)){
-                    std::cout << std::endl;
+                    // std::cout << std::endl;
                 }
             }            
             counter++;

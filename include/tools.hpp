@@ -4,7 +4,9 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-void lerArquivo(std::istream &arquivo);
+#include <vector>
+
+void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector);
 void lerArestas(std::istream &arestas);
 void lerLocalidades(std::istream &localidades);
 
