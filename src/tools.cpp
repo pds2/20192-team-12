@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <vector>
 #include "../include/tools.hpp"
+#include "../include/usuario.hpp"
 
 void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
     std::string linha;   

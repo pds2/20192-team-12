@@ -14,7 +14,7 @@ já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal
 */
 #include <iostream>
 #include "../include/modal.hpp"
-
+#include <stdexcept>
 void Modal::setTipoModal(std::string tipo_modal){
     this->_tipo_modal = tipo_modal;
 }

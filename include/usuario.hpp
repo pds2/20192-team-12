@@ -15,7 +15,10 @@ class Usuario {
         void setSenha(std::string senha);
         std::string getNome();
         std::string getLogin();
-        void cadastraUsuario(std::string nome, std::string login, std::string senha);
-        void verificaUsuario(std::string login, std::string senha);
-        
+        void cadastrarUsuario();
+        void verificarUsuario(std::string login, std::string senha);        
+};
+class ArquivoNaoExiste : public std::exception {
+    public:
+    virtual const char* what() const noexcept override;
 };
