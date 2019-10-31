@@ -1,28 +1,28 @@
 #include "embarcador.hpp"
 #include <iostream>
 
-void setOrigem(std::string origem){
+void Embarcador::setOrigem(std::string origem){
     this->_origem = origem;
 }
 
-void setDestino(std::string destino){
+void Embarcador::setDestino(std::string destino){
     this->_destino = destino;
 }
 
-void setQuantidade(float quantidade){
+void Embarcador::setQuantidade(float quantidade){
     this->_quantidade = quantidade;
 }
 
-std::string getOrigem(){
+std::string Embarcador::getOrigem(){
     return this->_origem;
 }
-std::string getDestino(){
+std::string Embarcador::getDestino(){
     return this->_destino;
 }
-float getQuantidade(){
+float Embarcador::getQuantidade(){
     return this->_quantidade;
 }
 /*
 Aguardando implementacao do metodo de obter rotas
 */
-void obterRota();
+void Embarcador::obterRota(){}
