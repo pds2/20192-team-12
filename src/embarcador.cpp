@@ -1,4 +1,5 @@
 #include "embarcador.hpp"
+#include <iostream>
 
 void setOrigem(std::string origem){
     this->_origem = origem;
