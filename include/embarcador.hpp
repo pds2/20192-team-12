@@ -22,8 +22,10 @@ class Embarcador {
     	
     public:
 
-    	Embarcador();
-    	Embarcador(std::string, std::string, float);
+    	Embarcador(): Embarcador("BELO HORIZONTE", "SAO PAULO", 35){}
+    	Embarcador(std::string origem, std::string destino, float quantidade): _origem(origem),
+                                                                               _destino(destino),
+                                                                               _quantidade(quantidade){}
     	~Embarcador();
 
     	void setOrigem(std::string);
