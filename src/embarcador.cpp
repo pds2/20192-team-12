@@ -10,7 +10,11 @@ void Embarcador::setDestino(std::string destino){
 }
 
 void Embarcador::setQuantidade(float quantidade){
-    this->_quantidade = quantidade;
+	try{
+    	this->_quantidade = quantidade;
+	}catch(std::invalid_argument &e){
+		std::cout << "A quantidade deve ser um valor numérico!";
+	}	
 }
 
 std::string Embarcador::getOrigem(){
