@@ -22,4 +22,7 @@ std::string getDestino(){
 float getQuantidade(){
     return this->_quantidade;
 }
+/*
+Aguardando implementacao do metodo de obter rotas
+*/
 void obterRota();
