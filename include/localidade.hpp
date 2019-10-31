@@ -22,7 +22,7 @@ class Localidade {
     	
     public:
 
-    	Localidade():Embarcador("2", "BELO HORIZONTE", -19.891053, -43.951401, "MG", "BRASIL"){}
+    	Localidade():Localidade("2", "BELO HORIZONTE", -19.891053, -43.951401, "MG", "BRASIL"){}
     	Localidade(std::string codigo_municipio,
                    std::string municipio,
                    float lat,
