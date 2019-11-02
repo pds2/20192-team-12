@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <exception>
 #include <typeinfo>
-Embarcador::Embarcador(int origem, int destino, float quantidade){
+Solicitacao::Solicitacao(int origem, int destino, float quantidade){
     if (origem < 0 || destino < 0 || quantidade < 0){
         throw std::invalid_argument("Os valores nao podem ser negativos!");
     }
@@ -16,10 +16,10 @@ Embarcador::Embarcador(int origem, int destino, float quantidade){
         std::cout << "Os paramentros quantidade, origem e destino devem ser numericos\n";
     }
 }
-Embarcador::Embarcador(): Embarcador('2', 24, 35.0){}
+Solicitacao::Solicitacao(): Solicitacao('2', 24, 35.0){}
 
 // void Embarcador::setOrigem(std::string origem){
-void Embarcador::setOrigem(int origem){
+void Solicitacao::setOrigem(int origem){
     // if (origem == NULL){
     //     throw std::invalid_argument("o argumento nao pode ser vazio.");
     // }
@@ -31,7 +31,7 @@ void Embarcador::setOrigem(int origem){
 }
 
 // void Embarcador::setDestino(std::string destino){
-void Embarcador::setDestino(int destino){
+void Solicitacao::setDestino(int destino){
     // if (destino == NULL){
     //     throw std::invalid_argument("o argumento nao pode ser vazio.");
     // }    
@@ -41,7 +41,7 @@ void Embarcador::setDestino(int destino){
     this->_destino = destino;
 }
 
-void Embarcador::setQuantidade(float quantidade){
+void Solicitacao::setQuantidade(float quantidade){
     // if (quantidade == NULL){
     //     throw std::invalid_argument("o argumento nao pode ser vazio.");
     // }      
@@ -55,14 +55,14 @@ void Embarcador::setQuantidade(float quantidade){
 	}	
 }
 
-int Embarcador::getOrigem(){
+int Solicitacao::getOrigem(){
 // std::string Embarcador::getOrigem(){
     return this->_origem;
 }
 // std::string Embarcador::getDestino(){
-int Embarcador::getDestino(){
+int Solicitacao::getDestino(){
     return this->_destino;
 }
-float Embarcador::getQuantidade(){
+float Solicitacao::getQuantidade(){
     return this->_quantidade;
 }
