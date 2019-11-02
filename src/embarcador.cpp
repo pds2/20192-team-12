@@ -1,14 +1,19 @@
 #include "../include/embarcador.hpp"
 #include <iostream>
 #include <stdexcept>
-
+#include <exception>
+#include <typeinfo>
 Embarcador::Embarcador(int origem, int destino, float quantidade){
-    try {    
+    if (origem < 0 || destino < 0 || quantidade < 0){
+        throw std::invalid_argument("Os valores nao podem ser negativos!");
+    }
+    try {
         this->_origem = origem;
         this->_destino = destino;
         this->_quantidade = quantidade;
     }catch (std::invalid_argument &ia){
-        std::cout << "Os paramentros quantidade, origem e destino deverm ser numericos\n";
+    // }catch (std::ios_base::failure const& ex){
+        std::cout << "Os paramentros quantidade, origem e destino devem ser numericos\n";
     }
 }
 Embarcador::Embarcador(): Embarcador('2', 24, 35.0){}

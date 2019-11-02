@@ -26,7 +26,7 @@ class Localidade {
     	Localidade(std::string, std::string, float, float, std::string, std::string);
     	~Localidade();
 
-    	void setCodigoMunicipio(std::string);
+        void setCodigoMunicipio(std::string);
         void setMunicipio(std::string);
         void setLat(float);
         void setLong(float);
