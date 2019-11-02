@@ -17,8 +17,10 @@ as duas localidades desejadas
 
 class Embarcador {
     private: 
-    	std::string _origem;
-        std::string _destino;
+    	// std::string _origem;
+     //    std::string _destino;  
+        int _origem;
+        int _destino;
         float _quantidade;
     	
     public:
@@ -27,12 +29,16 @@ class Embarcador {
     	Embarcador(int, int, float);
     	~Embarcador(){};
 
-    	void setOrigem(std::string);
-        void setDestino(std::string);
+    	// void setOrigem(std::string);
+     //    void setDestino(std::strin);
+        void setOrigem(int);
+        void setDestino(int);
         void setQuantidade(float quantidade);
 
-    	std::string getOrigem();
-        std::string getDestino();
+    	int getOrigem();
+        // std::string getOrigem();
+        int getDestino();
+        // std::string getDestino();
         float getQuantidade();
         
     	void obterRota();

@@ -18,15 +18,36 @@ Embarcador::Embarcador(int origem, int destino, float quantidade){
 }
 Embarcador::Embarcador(): Embarcador('2', 24, 35.0){}
 
-void Embarcador::setOrigem(std::string origem){
+// void Embarcador::setOrigem(std::string origem){
+void Embarcador::setOrigem(int origem){
+    // if (origem == NULL){
+    //     throw std::invalid_argument("o argumento nao pode ser vazio.");
+    // }
+    if (origem < 0){
+        throw std::invalid_argument("O codigo da origem nao pode ser negativo.");
+    }
+
     this->_origem = origem;
 }
 
-void Embarcador::setDestino(std::string destino){
+// void Embarcador::setDestino(std::string destino){
+void Embarcador::setDestino(int destino){
+    // if (destino == NULL){
+    //     throw std::invalid_argument("o argumento nao pode ser vazio.");
+    // }    
+    if (destino < 0){
+        throw std::invalid_argument("O codigo do destino nao pode ser negativo.");
+    }    
     this->_destino = destino;
 }
 
 void Embarcador::setQuantidade(float quantidade){
+    // if (quantidade == NULL){
+    //     throw std::invalid_argument("o argumento nao pode ser vazio.");
+    // }      
+    if (quantidade < 0){
+        throw std::invalid_argument("A quantidade de carga nao pode ser negativa.");
+    }    
 	try{
     	this->_quantidade = quantidade;
 	}catch(const std::invalid_argument& ia){
@@ -34,10 +55,12 @@ void Embarcador::setQuantidade(float quantidade){
 	}	
 }
 
-std::string Embarcador::getOrigem(){
+int Embarcador::getOrigem(){
+// std::string Embarcador::getOrigem(){
     return this->_origem;
 }
-std::string Embarcador::getDestino(){
+// std::string Embarcador::getDestino(){
+int Embarcador::getDestino(){
     return this->_destino;
 }
 float Embarcador::getQuantidade(){
