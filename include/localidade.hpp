@@ -13,7 +13,7 @@ Esta classe representa uma localidade que possui as seguintes propriedades:
 
 class Localidade {
     private: 
-        std::string _codigo_municipio;
+        int _codigo_municipio;
         std::string _municipio;
         float _lat;
         float _long;
@@ -23,17 +23,17 @@ class Localidade {
     public:
 
     	Localidade();
-    	Localidade(std::string, std::string, float, float, std::string, std::string);
+    	Localidade(int, std::string, float, float, std::string, std::string);
     	~Localidade();
 
-        void setCodigoMunicipio(std::string);
+        void setCodigoMunicipio(int);
         void setMunicipio(std::string);
         void setLat(float);
         void setLong(float);
         void setEstado(std::string);
         void setPais(std::string);
 
-    	std::string getCodigoMunicipio();
+    	int getCodigoMunicipio();
         std::string getMunicipio();
         float getLat();
         float getLong();
