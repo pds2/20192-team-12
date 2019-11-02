@@ -16,9 +16,26 @@ já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal
 #include "../include/modal.hpp"
 #include <stdexcept>
 //Contrutores da classe Modal
-Modal::Modal(): Modal("rodoviario", 0.075, 35, 60){} // Default: modal rodoviario
-Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade):
-            _tipo_modal(nome_modal), _preco(preco), _capacidade(capacidade), _velocidade(velocidade){}
+Modal::Modal(){
+    /*Construtor sem argumentos
+        Padrao: rodoviario;
+    */
+
+    // Modal("rodoviario", 0.075, 35, 60){} // Default: modal rodoviario
+    this->_tipo_modal = "rodoviario";
+    this->_preco = 0.075;
+    this->_capacidade = 35;
+    this->_velocidade = 60;
+}
+Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade){
+    if (preco < 0 || capacidade < 0 || velocidade < 0){
+        throw std::invalid_argument("As variaveis preco, capacidade e velocidade nao podem ser negativas!");
+    }
+    this->_tipo_modal = nome_modal;
+    this->_preco = preco;
+    this->_capacidade = capacidade;
+    this->_velocidade = velocidade;
+}
 Modal::~Modal(){}
 
 //Metodos da classe Modal
@@ -55,7 +72,16 @@ void Modal::obterTempo(){
 //Construtores da classe Rodoviario
 
 Rodoviario::Rodoviario(): Rodoviario(0, 0 ){};
-Rodoviario::Rodoviario(bool pedagio, float valor_pedagio): _pedagio(pedagio), _valor_pedagio(valor_pedagio){}
+Rodoviario::Rodoviario(bool pedagio, float valor_pedagio){
+    if (pedagio != true || pedagio != false){
+        throw std::invalid_argument("A variavel pedagio tem que ser true ou false.");
+    }
+    if (valor_pedagio < 0){
+        throw std::invalid_argument("O valor do pedagio nao pode ser negativo.");
+    }
+    this->_pedagio = pedagio;
+    this->_valor_pedagio = valor_pedagio;
+} 
 Rodoviario::~Rodoviario(){}
 //Metodos da classe Rodoviario
 void Rodoviario::setPedagio(bool tem_pedagio){
