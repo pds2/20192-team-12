@@ -1,19 +1,19 @@
 #include "doctest.h"
 
-#include "../include/embarcador.hpp"
+#include "../include/solicitacao.hpp"
 // #include <string>
 /* EM DESENVOLVIMENTO */
 
 TEST_CASE("01 - Testes de contorno") {
-    CHECK_NOTHROW(Embarcador()); // argumento vazio
-    CHECK_NOTHROW(Embarcador(-1, 1, 2)); // argumento negativo
+    CHECK_NOTHROW(Solicitacao()); // argumento vazio
+    CHECK_NOTHROW(Solicitacao(-1, 1, 2)); // argumento negativo
     // CHECK_NOTHROW(Embarcador("a", 1, 2)); // quantidade literal  (VERIFICAR)
 
-    Embarcador e(1000, 1, 2);
+    Solicitacao s(1000, 1, 2);
 
-    CHECK_NOTHROW(e.setOrigem(-1));
-    CHECK_NOTHROW(e.setDestino(-1));
-    CHECK_NOTHROW(e.setQuantidade(-1));
+    CHECK_NOTHROW(s.setOrigem(-1));
+    CHECK_NOTHROW(s.setDestino(-1));
+    CHECK_NOTHROW(s.setQuantidade(-1));
 }
 // TEST_CASE("02 - Testando setters e getters"){
 
