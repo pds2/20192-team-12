@@ -38,8 +38,8 @@ class Modal {
         float getCapacidade();
         float getVelocidade();
 
-    	virtual void obterCusto() = 0;
-        void obterTempo();
+    	virtual float obterCusto() = 0;
+        float obterTempo();
 };
 
 class Rodoviario: public Modal {
