@@ -17,8 +17,6 @@ as duas localidades desejadas
 
 class Solicitacao {
     private: 
-    	// std::string _origem;
-     //    std::string _destino;  
         int _origem;
         int _destino;
         float _quantidade;
@@ -29,16 +27,12 @@ class Solicitacao {
     	Solicitacao(int, int, float);
     	~Solicitacao(){};
 
-    	// void setOrigem(std::string);
-     //    void setDestino(std::strin);
         void setOrigem(int);
         void setDestino(int);
         void setQuantidade(float quantidade);
 
     	int getOrigem();
-        // std::string getOrigem();
         int getDestino();
-        // std::string getDestino();
         float getQuantidade();
 };
 // class ParametroNaoNumerico : public std::exception {
