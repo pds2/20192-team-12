@@ -1,5 +1,5 @@
-#ifndef EMBARCADOR_H
-#define EMBARCADOR_H
+#ifndef SOLICITACAO_H
+#define SOLICITACAO_H
 #include <iostream>
 #include <stdexcept> 
 /*
@@ -15,33 +15,25 @@ um informativo de que não é possível transportar o produto entre
 as duas localidades desejadas
 */
 
-class Embarcador {
+class Solicitacao {
     private: 
-    	// std::string _origem;
-     //    std::string _destino;  
         int _origem;
         int _destino;
         float _quantidade;
     	
     public:
 
-    	Embarcador();
-    	Embarcador(int, int, float);
-    	~Embarcador(){};
+    	Solicitacao();
+    	Solicitacao(int, int, float);
+    	~Solicitacao(){};
 
-    	// void setOrigem(std::string);
-     //    void setDestino(std::strin);
         void setOrigem(int);
         void setDestino(int);
         void setQuantidade(float quantidade);
 
     	int getOrigem();
-        // std::string getOrigem();
         int getDestino();
-        // std::string getDestino();
         float getQuantidade();
-        
-    	void obterRota();
 };
 // class ParametroNaoNumerico : public std::exception {
 //     public:
