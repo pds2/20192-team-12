@@ -48,8 +48,8 @@ class Rodoviario: public Modal {
         float _valor_pedagio;
 
     public:
-        Rodoviario(): Rodoviario(0, 0 ){};
-        Rodoviario(bool pedagio, float valor_pedagio): _pedagio(pedagio), _valor_pedagio(valor_pedagio){}
+        Rodoviario();
+        Rodoviario(bool, float);
         ~Rodoviario();
 
         void setPedagio(bool);
@@ -66,8 +66,8 @@ class Aquaviario: public Modal {
         float _valor_terminal;
 
     public:
-        Aquaviario(): Aquaviario(0){}
-        Aquaviario(float valor_terminal): _valor_terminal(valor_terminal){}
+        Aquaviario();
+        Aquaviario(float);
         ~Aquaviario();
 
         void setValorTerminal(float);
@@ -79,8 +79,8 @@ class Aereo: public Modal {
         float _valor_terminal;
 
     public:
-        Aereo(): Aereo(0){}
-        Aereo(float valor_terminal): _valor_terminal(valor_terminal){}
+        Aereo();
+        Aereo(float);
         ~Aereo();
 
         void setValorTerminal(float);

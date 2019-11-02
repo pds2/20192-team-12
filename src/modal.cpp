@@ -16,10 +16,12 @@ já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal
 #include "../include/modal.hpp"
 #include <stdexcept>
 //Contrutores da classe Modal
-Modal::Modal(): Modal("rodoviario", 0.075, 35, 60){}
+Modal::Modal(): Modal("rodoviario", 0.075, 35, 60){} // Default: modal rodoviario
 Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade):
             _tipo_modal(nome_modal), _preco(preco), _capacidade(capacidade), _velocidade(velocidade){}
-//Metodos da classe Moal
+Modal::~Modal(){}
+
+//Metodos da classe Modal
 void Modal::setTipoModal(std::string tipo_modal){
     this->_tipo_modal = tipo_modal;
 }
@@ -44,6 +46,18 @@ float Modal::getCapacidade(){
 float Modal::getVelocidade(){
     return this->_velocidade;
 }
+void Modal::obterCusto(){
+
+}
+void Modal::obterTempo(){
+
+}
+//Construtores da classe Rodoviario
+
+Rodoviario::Rodoviario(): Rodoviario(0, 0 ){};
+Rodoviario::Rodoviario(bool pedagio, float valor_pedagio): _pedagio(pedagio), _valor_pedagio(valor_pedagio){}
+Rodoviario::~Rodoviario(){}
+//Metodos da classe Rodoviario
 void Rodoviario::setPedagio(bool tem_pedagio){
     this->_pedagio = tem_pedagio;
 }
@@ -56,15 +70,37 @@ bool Rodoviario::isPedagio(){
 float Rodoviario::getValorPedagio(){
     return _valor_pedagio;
 }
+void Rodoviario::obterCusto(){
+
+}
+//Construtores da classe Aquaviario
+Aquaviario::Aquaviario(): Aquaviario(0){}
+Aquaviario::Aquaviario(float valor_terminal): _valor_terminal(valor_terminal){}
+Aquaviario::~Aquaviario(){}
+
+//Implementacao dos metodos da classe Aquaviario
 void Aquaviario::setValorTerminal(float valor_terminal){
     this->_valor_terminal = valor_terminal;
 }
 float Aquaviario::getValorTerminal(){
     return this->_valor_terminal;
 }
+void Aquaviario::obterCusto(){
+
+}
+
+//Construtores da classe Aereo
+Aereo::Aereo(): Aereo(0){}
+Aereo::Aereo(float valor_terminal): _valor_terminal(valor_terminal){}
+Aereo::~Aereo(){}
+
+//Implementacao dos metodos da classe Aereo
 void Aereo::setValorTerminal(float valor_terminal){
      this->_valor_terminal = valor_terminal;
 }
 float Aereo::getValorTerminal(){
     return this->_valor_terminal;
+}
+void Aereo::obterCusto(){
+
 }
