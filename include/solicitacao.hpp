@@ -3,16 +3,8 @@
 #include <iostream>
 #include <stdexcept> 
 /*
-Esta classe representa o usuário do sistema, o qual
-realiza uma solicitação de transporte de uma determinada
-quantidade de carga entre duas localidades. Obtém como
-resposta:
-1) Caso haja uma rota entre as duas localidades, a rota que apresenta
-o menor custo financeiro e a rota que apresenta o menor
-tempo necessário;
-2) Caso não haja uma rota entre as duas localidades, recebe
-um informativo de que não é possível transportar o produto entre
-as duas localidades desejadas
+Esta classe representa uma solicitação de transporte de uma determinada
+quantidade de carga entre duas localidades. 
 */
 
 class Solicitacao {
