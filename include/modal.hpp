@@ -38,7 +38,7 @@ class Modal {
         float getCapacidade();
         float getVelocidade();
 
-    	virtual void obterCusto();
+    	virtual void obterCusto() = 0;
         void obterTempo();
 };
 
@@ -58,7 +58,7 @@ class Rodoviario: public Modal {
         bool isPedagio();
         float getValorPedagio();
 
-        void obterCusto() override;
+        float obterCusto();
 };
 
 class Aquaviario: public Modal {
@@ -72,8 +72,10 @@ class Aquaviario: public Modal {
 
         void setValorTerminal(float);
         float getValorTerminal();
-        void obterCusto() override;
+
+        float obterCusto();
 };
+
 class Aereo: public Modal {
     private:
         float _valor_terminal;
@@ -85,6 +87,7 @@ class Aereo: public Modal {
 
         void setValorTerminal(float);
         float getValorTerminal();
-        void obterCusto() override;
+
+        float obterCusto();
 };
 #endif
