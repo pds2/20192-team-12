@@ -22,18 +22,8 @@ class Localidade {
     	
     public:
 
-    	Localidade():Localidade("2", "BELO HORIZONTE", -19.891053, -43.951401, "MG", "BRASIL"){}
-    	Localidade(std::string codigo_municipio,
-                   std::string municipio,
-                   float lat,
-                   float lng,
-                   std::string estado,
-                   std::string pais): _codigo_municipio(codigo_municipio),
-                                      _municipio(municipio),
-                                      _lat(lat),
-                                      _long(lng),
-                                      _estado(estado),
-                                      _pais(pais){}
+    	Localidade();
+    	Localidade(std::string, std::string, float, float, std::string, std::string);
     	~Localidade();
 
     	void setCodigoMunicipio(std::string);
