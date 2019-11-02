@@ -1,6 +1,7 @@
 #ifndef EMBARCADOR_H
 #define EMBARCADOR_H
-
+#include <iostream>
+#include <stdexcept> 
 /*
 Esta classe representa o usuário do sistema, o qual
 realiza uma solicitação de transporte de uma determinada
@@ -22,11 +23,9 @@ class Embarcador {
     	
     public:
 
-    	Embarcador(): Embarcador("BELO HORIZONTE", "SAO PAULO", 35){}
-    	Embarcador(std::string origem, std::string destino, float quantidade): _origem(origem),
-                                                                               _destino(destino),
-                                                                               _quantidade(quantidade){}
-    	~Embarcador();
+    	Embarcador();
+    	Embarcador(int, int, float);
+    	~Embarcador(){};
 
     	void setOrigem(std::string);
         void setDestino(std::string);
@@ -38,5 +37,11 @@ class Embarcador {
         
     	void obterRota();
 };
-
+// class ParametroNaoNumerico : public std::exception {
+//     public:
+//     virtual const char* what() const noexcept override;
+// };
+// const char* ParametroNaoNumerico::what() const noexcept {
+// return "O parametro deve ser numerico!";
+// }
 #endif

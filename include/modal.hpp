@@ -24,11 +24,8 @@ class Modal {
         float _velocidade;
     	
     public:  
-        Modal(): Modal("rodoviario", 0.075, 35, 60){}        
-    	Modal(std::string nome_modal, float preco, float capacidade, float velocidade): _tipo_modal(nome_modal),
-                                                                                        _preco(preco),
-                                                                                        _capacidade(capacidade),
-                                                                                        _velocidade(velocidade){}
+        Modal();      
+    	Modal(std::string, float, float, float);
     	~Modal();
 
     	void setTipoModal(std::string);
