@@ -66,7 +66,3 @@ int Embarcador::getDestino(){
 float Embarcador::getQuantidade(){
     return this->_quantidade;
 }
-/*
-Aguardando implementacao do metodo de obter rotas
-*/
-void Embarcador::obterRota(){}

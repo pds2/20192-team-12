@@ -40,8 +40,6 @@ class Embarcador {
         int getDestino();
         // std::string getDestino();
         float getQuantidade();
-        
-    	void obterRota();
 };
 // class ParametroNaoNumerico : public std::exception {
 //     public:
