@@ -15,6 +15,7 @@ já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal
 #include <iostream>
 #include "../include/modal.hpp"
 #include <stdexcept>
+#include <cmath>
 
 //Contrutores da classe Modal
 Modal::Modal(){
@@ -107,8 +108,9 @@ bool Rodoviario::isPedagio(){
 float Rodoviario::getValorPedagio(){
     return _valor_pedagio;
 }
-void Rodoviario::obterCusto(){
-
+float Rodoviario::obterCusto(float quantidade){
+    // quantidade de viagens vezes o custo
+    return cmath::ceil(quantidade / this->_capacidade) * (this->_distancia * this->_preco + this->_valor_pedagio);
 }
 
 //Construtores da classe Aquaviario
@@ -132,8 +134,9 @@ void Aquaviario::setValorTerminal(float valor_terminal){
 float Aquaviario::getValorTerminal(){
     return this->_valor_terminal;
 }
-void Aquaviario::obterCusto(){
-
+float Aquaviario::obterCusto(){
+    // quantidade de viagens vezes o custo
+    return cmath::ceil(quantidade / this->_capacidade) * (this->_distancia * this->_preco + this->_valor_terminal);
 }
 
 //Construtores da classe Aereo
@@ -156,6 +159,7 @@ void Aereo::setValorTerminal(float valor_terminal){
 float Aereo::getValorTerminal(){
     return this->_valor_terminal;
 }
-void Aereo::obterCusto(){
-
+float Aereo::obterCusto(){
+    // quantidade de viagens vezes o custo
+    return cmath::ceil(quantidade / this->_capacidade) * (this->_distancia * this->_preco + this->_valor_terminal);
 }

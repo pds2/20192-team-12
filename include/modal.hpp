@@ -42,8 +42,9 @@ class Modal {
         float getVelocidade();
         int getDistancia();
 
-    	virtual float obterCusto() = 0;
-        
+        // recebe a quantidade a ser transportada
+    	virtual float obterCusto(float) = 0;
+
         // retorna tempo em minutos
         float obterTempo();
 };
@@ -64,7 +65,7 @@ class Rodoviario: public Modal {
         bool isPedagio();
         float getValorPedagio();
 
-        float obterCusto();
+        float obterCusto(float);
 };
 
 class Aquaviario: public Modal {
@@ -79,7 +80,7 @@ class Aquaviario: public Modal {
         void setValorTerminal(float);
         float getValorTerminal();
 
-        float obterCusto();
+        float obterCusto(float);
 };
 
 class Aereo: public Modal {
@@ -94,6 +95,6 @@ class Aereo: public Modal {
         void setValorTerminal(float);
         float getValorTerminal();
 
-        float obterCusto();
+        float obterCusto(float);
 };
 #endif
