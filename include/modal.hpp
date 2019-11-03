@@ -11,6 +11,7 @@ Todos esses três meios de transporte possuem as seguintes informações:
 2) Preço: Reais/Km;
 3) Capacidade: em Kg;
 4) Velocidade: Km/h;
+5) Distância em Km;
 
 O modal rodoviário tem como especificidade o fato de poder ter pedágio; 
 já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal.
@@ -22,21 +23,24 @@ class Modal {
     	float _preco;
         float _capacidade;
         float _velocidade;
+        int _distancia;
     	
     public:  
         Modal();      
-    	Modal(std::string, float, float, float);
+    	Modal(std::string, float, float, float, int);
     	~Modal();
 
     	void setTipoModal(std::string);
         void setPreco(float);
         void setCapacidade(float);
         void setVelocidade(float);
+        void setDistancia(int);
 
     	std::string getTipoModal();
         float getPreco();
         float getCapacidade();
         float getVelocidade();
+        int getDistancia();
 
     	virtual float obterCusto() = 0;
         float obterTempo();
@@ -49,7 +53,7 @@ class Rodoviario: public Modal {
 
     public:
         Rodoviario();
-        Rodoviario(std::string, float, float, float, bool, float);
+        Rodoviario(std::string, float, float, float, int, bool, float);
         ~Rodoviario();
 
         void setPedagio(bool);
@@ -67,7 +71,7 @@ class Aquaviario: public Modal {
 
     public:
         Aquaviario();
-        Aquaviario(std::string, float, float, float, float);
+        Aquaviario(std::string, float, float, float, int, float);
         ~Aquaviario();
 
         void setValorTerminal(float);
@@ -82,7 +86,7 @@ class Aereo: public Modal {
 
     public:
         Aereo();
-        Aereo(std::string, float, float, float, float);
+        Aereo(std::string, float, float, float, int, float);
         ~Aereo();
 
         void setValorTerminal(float);
