@@ -65,9 +65,6 @@ float Modal::getCapacidade(){
 float Modal::getVelocidade(){
     return this->_velocidade;
 }
-void Modal::obterCusto(){
-
-}
 void Modal::obterTempo(){
 
 }
