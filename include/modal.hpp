@@ -43,6 +43,8 @@ class Modal {
         int getDistancia();
 
     	virtual float obterCusto() = 0;
+        
+        // retorna tempo em minutos
         float obterTempo();
 };
 

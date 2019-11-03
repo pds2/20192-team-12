@@ -73,8 +73,8 @@ float Modal::getVelocidade(){
 int Modal::getDistancia(){
     return this->_distancia;
 }
-void Modal::obterTempo(){
-
+float Modal::obterTempo(){
+    return this->_distancia / this->_velocidade * 60;
 }
 
 //Construtores da classe Rodoviario
