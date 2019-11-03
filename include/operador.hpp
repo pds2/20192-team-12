@@ -29,7 +29,8 @@ class Operador {
         Operador(int);
         ~Operador();
 
-    	void obter_rota();
+        // origem, destino, quantidade
+    	void obterRota(int, int, float);
 };
 
 #endif
