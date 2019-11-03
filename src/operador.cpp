@@ -104,14 +104,14 @@ int Operador::printSolutionPath(int dist[], int parent[], int src) {
 // Function that implements Dijkstra's single source shortest path algorithm 
 // for a graph represented using adjacency matrix representation 
 void Operador::dijkstra(int src, int dest, float quantidade) { 
-    int dist[this->_V]; // The output array. dist[i] will hold the shortest 
+    int dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
     // distance from src to i 
 
-    bool sptSet[this->_V]; // sptSet[i] will be true if vertex i is included in shortest 
+    bool sptSet = new bool[this->_V]; // sptSet[i] will be true if vertex i is included in shortest 
     // path tree or shortest distance from src to i is finalized 
 
     // Parent array to store shortest path tree 
-    int parent[this->_V]; 
+    int parent = new int[this->_V]; 
 
     // Initialize all distances as INFINITE and stpSet[] as false 
     for (int i = 0; i < this->_V; i++) 
@@ -148,6 +148,10 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
     // print the constructed distance array 
     Operador::printSolution(dist); 
     Operador::printSolutionPath(dist, parent, src); 
+
+    delete[] dist;
+    delete[] sptSet;
+    delete[] parent;
 } 
 
 void Operador::obterRota(int src, int dest, float quantidade) {
