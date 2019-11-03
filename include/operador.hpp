@@ -21,7 +21,18 @@ as duas localidades desejadas
 
 class Operador {
     private: 
-        Modal **matriz;
+    	int _V;
+        Modal **_graph;
+
+        void popularMatriz();
+   
+        int printSolution(*int);
+        void printPath(*int, int);
+        int printSolutionPath(*int, *int, int);
+
+        int minDistance(*int, *bool);
+
+        void dijkstra(int, int, float);
     	
     public:
 
