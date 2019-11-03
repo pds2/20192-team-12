@@ -32,8 +32,8 @@ Modal::Modal(){
 }
 
 Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade, int distancia){
-    if (preco < 0 || capacidade < 0 || velocidade < 0){
-        throw std::invalid_argument("As variaveis preco, capacidade e velocidade nao podem ser negativas!");
+    if (preco < 0 || capacidade < 0 || velocidade < 0 || distancia < 0){
+        throw std::invalid_argument("As variaveis preco, capacidade, velocidade e distancia nao podem ser negativas!");
     }
     this->_tipo_modal = nome_modal;
     this->_preco = preco;
