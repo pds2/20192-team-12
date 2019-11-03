@@ -15,6 +15,7 @@ já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal
 #include <iostream>
 #include "../include/modal.hpp"
 #include <stdexcept>
+
 //Contrutores da classe Modal
 Modal::Modal(){
     /*Construtor sem argumentos
@@ -27,6 +28,7 @@ Modal::Modal(){
     this->_capacidade = 35;
     this->_velocidade = 60;
 }
+
 Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade){
     if (preco < 0 || capacidade < 0 || velocidade < 0){
         throw std::invalid_argument("As variaveis preco, capacidade e velocidade nao podem ser negativas!");
@@ -69,20 +71,24 @@ void Modal::obterCusto(){
 void Modal::obterTempo(){
 
 }
-//Construtores da classe Rodoviario
 
-Rodoviario::Rodoviario(): Rodoviario(0, 0 ){};
-Rodoviario::Rodoviario(bool pedagio, float valor_pedagio){
+//Construtores da classe Rodoviario
+Rodoviario::Rodoviario(): Modal(), _pedagio = 0, _valor_pedagio = 0 {}
+
+Rodoviario::Rodoviario(std::string nome_modal, float preco, float capacidade, float velocidade, bool pedagio, float valor_pedagio){
     if (pedagio != true || pedagio != false){
         throw std::invalid_argument("A variavel pedagio tem que ser true ou false.");
     }
     if (valor_pedagio < 0){
         throw std::invalid_argument("O valor do pedagio nao pode ser negativo.");
     }
+    Modal(nome_modal, preco, capacidade, velocidade);
     this->_pedagio = pedagio;
     this->_valor_pedagio = valor_pedagio;
 } 
+
 Rodoviario::~Rodoviario(){}
+
 //Metodos da classe Rodoviario
 void Rodoviario::setPedagio(bool tem_pedagio){
     this->_pedagio = tem_pedagio;
@@ -99,12 +105,22 @@ float Rodoviario::getValorPedagio(){
 void Rodoviario::obterCusto(){
 
 }
+
 //Construtores da classe Aquaviario
-Aquaviario::Aquaviario(): Aquaviario(0){}
-Aquaviario::Aquaviario(float valor_terminal): _valor_terminal(valor_terminal){}
+Aquaviario::Aquaviario(): Modal(), _valor_terminal = 0 {}
+ 
+Aquaviario::Aquaviario(std::string nome_modal, float preco, float capacidade, float velocidade, float valor_terminal): {
+    if (valor_terminal < 0){
+        throw std::invalid_argument("O valor do terminal nao pode ser negativo.");
+    }
+    Modal(nome_modal, preco, capacidade, velocidade);
+    this->_valor_terminal = valor_terminal;
+
+}
+
 Aquaviario::~Aquaviario(){}
 
-//Implementacao dos metodos da classe Aquaviario
+//Metodos da classe Aquaviario
 void Aquaviario::setValorTerminal(float valor_terminal){
     this->_valor_terminal = valor_terminal;
 }
@@ -116,11 +132,19 @@ void Aquaviario::obterCusto(){
 }
 
 //Construtores da classe Aereo
-Aereo::Aereo(): Aereo(0){}
-Aereo::Aereo(float valor_terminal): _valor_terminal(valor_terminal){}
+Aereo::Aereo(): Modal(), _valor_terminal = 0 {}
+
+Aereo::Aereo(std::string nome_modal, float preco, float capacidade, float velocidade, float valor_terminal): {
+    if (valor_terminal < 0){
+        throw std::invalid_argument("O valor do terminal nao pode ser negativo.");
+    }
+    Modal(nome_modal, preco, capacidade, velocidade);
+    this->_valor_terminal = valor_terminal;
+}
+
 Aereo::~Aereo(){}
 
-//Implementacao dos metodos da classe Aereo
+//Metodos da classe Aereo
 void Aereo::setValorTerminal(float valor_terminal){
      this->_valor_terminal = valor_terminal;
 }

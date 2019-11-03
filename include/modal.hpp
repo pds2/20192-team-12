@@ -49,7 +49,7 @@ class Rodoviario: public Modal {
 
     public:
         Rodoviario();
-        Rodoviario(bool, float);
+        Rodoviario(std::string, float, float, float, bool, float);
         ~Rodoviario();
 
         void setPedagio(bool);
@@ -67,7 +67,7 @@ class Aquaviario: public Modal {
 
     public:
         Aquaviario();
-        Aquaviario(float);
+        Aquaviario(std::string, float, float, float, float);
         ~Aquaviario();
 
         void setValorTerminal(float);
@@ -82,7 +82,7 @@ class Aereo: public Modal {
 
     public:
         Aereo();
-        Aereo(float);
+        Aereo(std::string, float, float, float, float);
         ~Aereo();
 
         void setValorTerminal(float);
