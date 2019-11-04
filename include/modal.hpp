@@ -20,35 +20,65 @@ já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal
 class Modal {
     protected: 
         std::string _tipo_modal;
-    	float _preco;
+        float _preco;
         float _capacidade;
         float _velocidade;
         int _distancia;
-    	
+        
     public:  
         Modal();      
-    	Modal(std::string, float, float, float, int);
-    	~Modal();
+        Modal(std::string, float, float, float, int);
+        ~Modal();
 
-    	void setTipoModal(std::string);
+        void setTipoModal(std::string);
         void setPreco(float);
         void setCapacidade(float);
         void setVelocidade(float);
         void setDistancia(int);
 
-    	std::string getTipoModal();
+        std::string getTipoModal();
         float getPreco();
         float getCapacidade();
         float getVelocidade();
         int getDistancia();
 
         // recebe a quantidade a ser transportada
-    	virtual float obterCusto(float) = 0;
+        virtual float obterCusto(float) = 0;
 
         // retorna tempo em minutos
         float obterTempo();
 };
+class Ferroviario {
+    protected: 
+        std::string _tipo_modal;
+        float _preco;
+        float _capacidade;
+        float _velocidade;
+        int _distancia;
+        
+    public:  
+        Ferroviario();      
+        Ferroviario(std::string, float, float, float, int);
+        ~Ferroviario();
 
+        void setTipoModal(std::string);
+        void setPreco(float);
+        void setCapacidade(float);
+        void setVelocidade(float);
+        void setDistancia(int);
+
+        std::string getTipoModal();
+        float getPreco();
+        float getCapacidade();
+        float getVelocidade();
+        int getDistancia();
+
+        // recebe a quantidade a ser transportada
+        float obterCusto(float);
+
+        // retorna tempo em minutos
+        float obterTempo();
+};
 class Rodoviario: public Modal {
     private:
         bool _pedagio;

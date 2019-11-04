@@ -1,7 +1,7 @@
 #ifndef OPERADOR_H
 #define OPERADOR_H
 
-#include <"modal.hpp">
+#include "../include/modal.hpp"
 
 /*
 Esta classe representa o Operador Nacional que realiza a logística
