@@ -1,7 +1,10 @@
 #include "doctest.h"
 #include "../include/modal.hpp"
 
-/* EM DESENVOLVIMENTO */
+/* EM DESENVOLVIMENTO 
+ testes incompletos e apresentando erros devido a mudanca de parametros
+ correcao sera realizada posteriormente
+*/
 
 TEST_CASE("01 - Testes de contorno") {
     // Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade)
