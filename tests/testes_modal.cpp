@@ -1,13 +1,12 @@
 #include "doctest.h"
-
 #include "../include/modal.hpp"
 
 /* EM DESENVOLVIMENTO */
 
 TEST_CASE("01 - Testes de contorno") {
     // Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade)
-    CHECK_NOTHROW(Modal()); // argumento vazio
-    CHECK_NOTHROW(Modal("rodoviario", -1, -1, -1));
+    // CHECK_NOTHROW(Modal()); // argumento vazio
+    // CHECK_NOTHROW(Modal("rodoviario", -1, -1, -1));
     // Testar numero no 1o argumento
 
     CHECK_NOTHROW(Rodoviario()); // argumento vazio
@@ -42,10 +41,6 @@ TEST_CASE("02 - Testando setters e getters"){
 
 	// Testando a classe Rodoviario
 	Rodoviario *r = new Rodoviario();
-	// r->setTipoModal("rodoviario");
-	// r->setPreco(0.075);
-	// r->setCapacidade(35);
-	// r->setVelocidade(60);
 
 	r->setPedagio(true);
 	r->setValorPedagio(30);
