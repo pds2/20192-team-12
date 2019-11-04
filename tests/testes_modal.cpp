@@ -26,7 +26,7 @@ TEST_CASE("02 - Testando setters e getters"){
 	// Aereo ae("aereo", 0.1, 100, 800);
 
 	// Testando a classe Modal
-	Modal *f = new Modal();
+	Ferroviario *f = new Ferroviario();
 	// f->setTipoModal("rodoviario");
 	// f->setPreco(0.075);
 	// f->setCapacidade(35);
