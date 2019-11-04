@@ -15,15 +15,15 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_NOTHROW(s.setDestino(-1));
     CHECK_NOTHROW(s.setQuantidade(-1));
 }
-// TEST_CASE("02 - Testando setters e getters"){
+TEST_CASE("02 - Testando setters e getters"){
 
-//     Embarcador e(1000, 1, 2);
+    Solicitacao s(1000, 1, 2);
 
-//     e.setQuantidade(100);
-//     e.setOrigem(2);
-//     e.setDestino(3);
+    s.setQuantidade(100);
+    s.setOrigem(2);
+    s.setDestino(3);
 
-//     CHECK(e.getQuantidade() == 100);
-//     CHECK(e.getOrigem() == 2);
-//     CHECK(e.getDestino() == 3);
-// }
+    CHECK(s.getQuantidade() == 100);
+    CHECK(s.getOrigem() == 2);
+    CHECK(s.getDestino() == 3);
+}
