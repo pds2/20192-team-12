@@ -13,13 +13,20 @@ TEST_CASE("01 - Testes de contorno") {
     // Testar numero no 1o argumento
 
     CHECK_NOTHROW(Rodoviario()); // argumento vazio
-    CHECK_NOTHROW(Rodoviario(-1, -1));
+    CHECK_NOTHROW(Rodoviario("rodoviario", -1, -1, -1, -1, false, -1));
+	
+	Rodoviario *r = new Rodoviario();
+
+    CHECK_NOTHROW(r->setPedagio(-1));
+    CHECK_NOTHROW(r->setValorPedagio(-1));
+	
+	delete r;
 
     CHECK_NOTHROW(Aquaviario()); // argumento vazio
-    CHECK_NOTHROW(Aquaviario(-1));
+    CHECK_NOTHROW(Aquaviario("aquaviario", -1, -1, -1, -1, -1));
 
     CHECK_NOTHROW(Aereo()); // argumento vazio
-    CHECK_NOTHROW(Aereo(-1));
+    CHECK_NOTHROW(Aereo("aereo", -1, -1, -1, -1, -1));
 }
 TEST_CASE("02 - Testando setters e getters"){
 
