@@ -1,9 +1,10 @@
 #include "doctest.h"
 #include "../include/modal.hpp"
 
-/* EM DESENVOLVIMENTO 
- testes incompletos e apresentando erros devido a mudanca de parametros
- correcao sera realizada posteriormente
+/*
+
+EM DESENVOLVIMENTO
+
 */
 
 TEST_CASE("01 - Testes de contorno") {
@@ -16,17 +17,41 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_NOTHROW(Rodoviario("rodoviario", -1, -1, -1, -1, false, -1));
 	
 	Rodoviario *r = new Rodoviario();
-
+	
+	CHECK_NOTHROW(r->setCapacidade(-1));
+    CHECK_NOTHROW(r->setPreco(-1));
+    CHECK_NOTHROW(r->setVelocidade(-1));
+    CHECK_NOTHROW(r->setDistancia(-1));
     CHECK_NOTHROW(r->setPedagio(-1));
     CHECK_NOTHROW(r->setValorPedagio(-1));
 	
-	delete r;
+	// delete r;
 
     CHECK_NOTHROW(Aquaviario()); // argumento vazio
     CHECK_NOTHROW(Aquaviario("aquaviario", -1, -1, -1, -1, -1));
 
+	Aquaviario *aq = new Aquaviario();
+
+    CHECK_NOTHROW(aq->setCapacidade(-1));
+    CHECK_NOTHROW(aq->setPreco(-1));
+    CHECK_NOTHROW(aq->setVelocidade(-1));
+    CHECK_NOTHROW(aq->setDistancia(-1));
+    CHECK_NOTHROW(aq->setValorTerminal(-1));
+    // CHECK_NOTHROW(aq->setTipoModal("rodoviario"));
+	
+	// delete aq;
+	
     CHECK_NOTHROW(Aereo()); // argumento vazio
     CHECK_NOTHROW(Aereo("aereo", -1, -1, -1, -1, -1));
+	
+	Aquaviario *ar = new Aquaviario();
+
+    CHECK_NOTHROW(ar->setCapacidade(-1));
+    CHECK_NOTHROW(ar->setPreco(-1));
+    CHECK_NOTHROW(ar->setVelocidade(-1));
+    CHECK_NOTHROW(ar->setDistancia(-1));
+    CHECK_NOTHROW(ar->setValorTerminal(-1));
+	// delete ar;
 }
 TEST_CASE("02 - Testando setters e getters"){
 
@@ -47,7 +72,7 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(f->getCapacidade() == 70000);
 	CHECK(f->getVelocidade() == 20);
 
-	delete f;
+	// delete f;
 
 	// Testando a classe Rodoviario
 	Rodoviario *r = new Rodoviario();
@@ -62,7 +87,7 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(r->isPedagio() == true);
 	CHECK(r->getValorPedagio() == 30);
 	
-	delete r;
+	// delete r;
 
 	// Testando a classe Modal
 	Aquaviario *aq = new Aquaviario();
@@ -76,7 +101,7 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(aq->getCapacidade() == 1000);
 	CHECK(aq->getVelocidade() == 40);
 
-	delete aq;
+	// delete aq;
 
 	// Testando a classe Modal
 	Modal *ar = new Aereo();
@@ -90,6 +115,6 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(ar->getCapacidade() == 100);
 	CHECK(ar->getVelocidade() == 800);
 
-	delete ar;
+	// delete ar;
 
 }
