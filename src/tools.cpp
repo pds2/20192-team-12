@@ -4,7 +4,21 @@
 #include <stdexcept>
 #include <vector>
 #include "../include/tools.hpp"
-
+std::string Type::get_type(std::string){
+    return "std::string";
+}
+std::string Type::get_type(int){
+    return "int";
+}
+std::string Type::get_type(float){
+    return "float";
+}
+std::string Type::get_type(double){
+    return "double";
+}
+std::string Type::get_type(std::ifstream){
+    return "istream_file";
+}
 void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
     std::string linha;   
     std::string entrada;
@@ -55,33 +69,5 @@ void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
         }
 
     }    
-}
-
-void lerLocalidades(std::istream &localidades){
-    std::string linha;   
-    std::string entrada;
-    localidades.clear();
-    localidades.seekg(0, std::ios::beg);
-    while(!localidades.eof()){
-        getline(localidades, linha);
-        std::istringstream iss_linha(linha);
-        for(std::string entrada; iss_linha >> entrada;){
-            std::cout << entrada << std::endl;
-        }
-    }     
-}
-
-void lerArestas(std::istream &arestas){
-    std::string linha;   
-    std::string entrada;
-    arestas.clear();
-    arestas.seekg(0, std::ios::beg);
-    while(!arestas.eof()){
-        getline(arestas, linha);
-        std::istringstream iss_linha(linha);
-        for(std::string entrada; iss_linha >> entrada;){
-            std::cout << entrada << std::endl;
-        }
-    } 
 }
     
