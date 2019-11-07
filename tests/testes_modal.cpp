@@ -12,7 +12,18 @@ TEST_CASE("01 - Testes de contorno") {
     // CHECK_NOTHROW(Modal()); // argumento vazio
     // CHECK_NOTHROW(Modal("rodoviario", -1, -1, -1));
     // Testar numero no 1o argumento
+    CHECK_NOTHROW(Ferroviario()); // argumento vazio
+    CHECK_NOTHROW(Ferroviario(-1));
+	
+	Ferroviario *f = new Ferroviario();
+	
+	CHECK_NOTHROW(f->setCapacidade(-1));
+    CHECK_NOTHROW(f->setPreco(-1));
+    CHECK_NOTHROW(f->setVelocidade(-1));
+    CHECK_NOTHROW(f->setDistancia(-1));
 
+	delete f;
+	
     CHECK_NOTHROW(Rodoviario()); // argumento vazio
     CHECK_NOTHROW(Rodoviario("rodoviario", -1, -1, -1, -1, false, -1));
 	

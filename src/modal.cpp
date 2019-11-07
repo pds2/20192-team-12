@@ -88,22 +88,18 @@ Ferroviario::Ferroviario(){
     this->_capacidade = 70000;
     this->_velocidade = 20;
 }
-Ferroviario::Ferroviario(std::string nome_modal, float preco, float capacidade, float velocidade, int distancia){
-    if (preco < 0 || capacidade < 0 || velocidade < 0){
-        throw std::invalid_argument("As variaveis preco, capacidade e velocidade nao podem ser negativas!");
+Ferroviario::Ferroviario(int distancia){
+    if (distancia < 0){
+        throw std::invalid_argument("A distancia nao pode ser negativa!");
     }
-    this->_tipo_modal = nome_modal;
-    this->_preco = preco;
-    this->_capacidade = capacidade;
-    this->_velocidade = velocidade;
+    this->_tipo_modal = "ferroviario";
+    this->_preco = 0.05;
+    this->_capacidade = 70000;
+    this->_velocidade = 20;
     this->_distancia = distancia;
 }
 Ferroviario::~Ferroviario(){}
 
-//Metodos da classe Ferroviario
-void Ferroviario::setTipoModal(std::string tipo_modal){
-    this->_tipo_modal = tipo_modal;
-}
 void Ferroviario::setPreco(float preco){
     if (preco < 0 ){
         throw std::invalid_argument("O preco nao pode ser negativo.");
@@ -122,6 +118,13 @@ void Ferroviario::setVelocidade(float velocidade){
     }    
     this->_velocidade = velocidade;
 }
+void Ferroviario::setDistancia(int distancia){
+    if (distancia < 0 ){
+        throw std::invalid_argument("A distancia nao pode ser negativa.");
+    }    
+    this->_distancia = distancia;    
+    
+}
 std::string Ferroviario::getTipoModal(){
     return this->_tipo_modal;
 }
@@ -134,6 +137,7 @@ float Ferroviario::getCapacidade(){
 float Ferroviario::getVelocidade(){
     return this->_velocidade;
 }
+
 float Ferroviario::obterCusto(float quantidade){
     return ceil(quantidade / this->_capacidade) * (this->_distancia * this->_preco);
 }
