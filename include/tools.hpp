@@ -5,13 +5,14 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-class Type{
+class Tipo{
 	public:
-		std::string get_type(std::string);
-		std::string get_type(int);
-		std::string get_type(float);
-		std::string get_type(double);
-		std::string get_type(std::istream);
+		std::string getTipo(std::string);
+		std::string getTipo(int);
+		std::string getTipo(float);
+		std::string getTipo(double);
+		std::string getTipo(std::istream);
+		std::string getTipo(std::ifstream);
 };
 void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector);
 #endif

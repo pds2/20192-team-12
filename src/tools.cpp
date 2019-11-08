@@ -4,19 +4,22 @@
 #include <stdexcept>
 #include <vector>
 #include "../include/tools.hpp"
-std::string Type::get_type(std::string){
+std::string Tipo::getTipo(std::string){
     return "std::string";
 }
-std::string Type::get_type(int){
+std::string Tipo::getTipo(int){
     return "int";
 }
-std::string Type::get_type(float){
+std::string Tipo::getTipo(float){
     return "float";
 }
-std::string Type::get_type(double){
+std::string Tipo::getTipo(double){
     return "double";
 }
-std::string Type::get_type(std::ifstream){
+std::string Tipo::getTipo(std::ifstream){
+    return "istream_file";
+}
+std::string Tipo::getTipo(std::istream){
     return "istream_file";
 }
 void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){

@@ -25,7 +25,7 @@ TEST_CASE("01 - Testes de contorno") {
 	delete f;
 	
     CHECK_NOTHROW(Rodoviario()); // argumento vazio
-    CHECK_NOTHROW(Rodoviario("rodoviario", -1, -1, -1, -1, false, -1));
+    CHECK_NOTHROW(Rodoviario(-1, false, -1));
 	
 	Rodoviario *r = new Rodoviario();
 	
@@ -39,7 +39,7 @@ TEST_CASE("01 - Testes de contorno") {
 	// delete r;
 
     CHECK_NOTHROW(Aquaviario()); // argumento vazio
-    CHECK_NOTHROW(Aquaviario("aquaviario", -1, -1, -1, -1, -1));
+    CHECK_NOTHROW(Aquaviario(-1, -1));
 
 	Aquaviario *aq = new Aquaviario();
 
@@ -48,14 +48,13 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_NOTHROW(aq->setVelocidade(-1));
     CHECK_NOTHROW(aq->setDistancia(-1));
     CHECK_NOTHROW(aq->setValorTerminal(-1));
-    // CHECK_NOTHROW(aq->setTipoModal("rodoviario"));
 	
 	// delete aq;
 	
     CHECK_NOTHROW(Aereo()); // argumento vazio
-    CHECK_NOTHROW(Aereo("aereo", -1, -1, -1, -1, -1));
+    CHECK_NOTHROW(Aereo(-1, -1));
 	
-	Aquaviario *ar = new Aquaviario();
+	Aereo *ar = new Aereo();
 
     CHECK_NOTHROW(ar->setCapacidade(-1));
     CHECK_NOTHROW(ar->setPreco(-1));
@@ -66,24 +65,13 @@ TEST_CASE("01 - Testes de contorno") {
 }
 TEST_CASE("02 - Testando setters e getters"){
 
-	// Modal f("ferroviario", 0.05, 70000, 20);
-	// Rodoviario r("rodoviario", 0.075, 35, 60);
-	// Aquaviario aq("aquaviario", 04375, 1000, 40);
-	// Aereo ae("aereo", 0.1, 100, 800);
-
-	// Testando a classe Modal
+	// Testando a classe Ferroviario
 	Ferroviario *f = new Ferroviario();
-	// f->setTipoModal("rodoviario");
-	// f->setPreco(0.075);
-	// f->setCapacidade(35);
-	// f->setVelocidade(60);
 
 	CHECK(f->getTipoModal() == "ferroviario");
 	CHECK(f->getPreco() == (float) 0.05);
 	CHECK(f->getCapacidade() == 70000);
 	CHECK(f->getVelocidade() == 20);
-
-	// delete f;
 
 	// Testando a classe Rodoviario
 	Rodoviario *r = new Rodoviario();
@@ -97,35 +85,21 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(r->getVelocidade() == 60);
 	CHECK(r->isPedagio() == true);
 	CHECK(r->getValorPedagio() == 30);
-	
-	// delete r;
+	std::cout << "Here\n";
 
-	// Testando a classe Modal
+	// Testando a classe Aquaviario
 	Aquaviario *aq = new Aquaviario();
-	// aq->setTipoModal("aquaviario");
-	// aq->setPreco(0.075);
-	// aq->setCapacidade(35);
-	// aq->setVelocidade(60);
 
 	CHECK(aq->getTipoModal() == "aquaviario");
 	CHECK(aq->getPreco() == (float) 0.04375);
 	CHECK(aq->getCapacidade() == 1000);
 	CHECK(aq->getVelocidade() == 40);
 
-	// delete aq;
-
-	// Testando a classe Modal
-	Modal *ar = new Aereo();
-	// ar->setTipoModal("rodoviario");
-	// ar->setPreco(0.075);
-	// ar->setCapacidade(35);
-	// ar->setVelocidade(60);
+	// Testando a classe Aereo
+	Aereo *ar = new Aereo();
 
 	CHECK(ar->getTipoModal() == "aereo");
 	CHECK(ar->getPreco() == (float) 0.1);
 	CHECK(ar->getCapacidade() == 100);
 	CHECK(ar->getVelocidade() == 800);
-
-	// delete ar;
-
 }

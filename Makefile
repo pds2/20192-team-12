@@ -12,7 +12,7 @@ SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(OBJDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
 TSTSOURCES := $(shell find $(TSTDIR) -type f -name *.$(SRCEXT))
 
-CFLAGS := -g -Wall -O3 -std=c++11
+CFLAGS := -g -Wall -O3 -std=c++11 
 INC := -I include/ -I third_party/
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
@@ -26,7 +26,7 @@ main: $(OBJECTS)
 tests: $(OBJECTS)
 	@mkdir -p $(BINDIR)
 	$(CC) $(CFLAGS) $(INC) $(TESTER) $(TSTSOURCES) $^ -o $(BINDIR)/tester
-	$(BINDIR)/tester
+	$(BINDIR)/tester -s
 
 valgrind: main
 	valgrind --leak-check=full --track-origins=yes $(BINDIR)/main
