@@ -6,9 +6,9 @@ Desenvolvimento de um sistema que, dada uma demanda de transporte de uma certa q
 
 ### User Stories
 
-#### Embarcador
+#### Solicitação
 
-Como **embarcador** - agente dos setores econômicos primário, secundário ou terciário - tem a necessidade de transportar uma **quantidade** de um **produto** específico, em toneladas, do **município** *A*, para outro **município** *B*, com o menor custo, em R\$, ou no menor **tempo,** em dias. Como exemplo de embarcador podemos ter um produtor rural, uma indústria, uma mineradora, um comerciante ou atravessador, uma distribuidora de combustíveis, ou seja, qualquer agente capaz de contratar um transportador.
+Como **solicitação** do embarcador - agente dos setores econômicos primário, secundário ou terciário - tem a necessidade de transportar uma **quantidade** de um **produto** específico, em toneladas, do **município** *A*, para outro **município** *B*, com o menor custo, em R\$, ou no menor **tempo,** em dias. Como exemplo de embarcador podemos ter um produtor rural, uma indústria, uma mineradora, um comerciante ou atravessador, uma distribuidora de combustíveis, ou seja, qualquer agente capaz de contratar um transportador.
 
 Critérios de aceitação:
 - Exibir o produto  e a quantidade a ser transportada;
@@ -61,6 +61,7 @@ Como **operação de transporte**, promete realizar o transporte de um **tipo de
 
 Critérios de aceitação:
 - Exibir o tipo de carga e a quantidade a ser transportada;
+- Exibir a quantidade a ser transportada;
 - Exibir a origem e destino da viagem;
 - Exibir a rota;
 - Exibir o(s) modal(is) utilizado(s) e o respectivo preço unitário;
