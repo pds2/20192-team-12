@@ -4,13 +4,10 @@
 /*
 
 EM DESENVOLVIMENTO
-
+TESTAR OBTER CUSTO PARA TODAS AS CLASSES
 */
 
 TEST_CASE("01 - Testes de contorno") {
-    // Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade)
-    // CHECK_NOTHROW(Modal()); // argumento vazio
-    // CHECK_NOTHROW(Modal("rodoviario", -1, -1, -1));
     // Testar numero no 1o argumento
     CHECK_NOTHROW(Ferroviario()); // argumento vazio
     CHECK_NOTHROW(Ferroviario(-1));
@@ -63,7 +60,7 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_NOTHROW(ar->setValorTerminal(-1));
 	// delete ar;
 }
-TEST_CASE("02 - Testando setters e getters"){
+TEST_CASE("02 - Classe Ferroviario - Teste positivo"){
 
 	// Testando a classe Ferroviario
 	Ferroviario *f = new Ferroviario();
@@ -72,6 +69,8 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(f->getPreco() == (float) 0.05);
 	CHECK(f->getCapacidade() == 70000);
 	CHECK(f->getVelocidade() == 20);
+}
+TEST_CASE("03 - Classe Rodoviario - Teste positivo"){
 
 	// Testando a classe Rodoviario
 	Rodoviario *r = new Rodoviario();
@@ -86,6 +85,9 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(r->isPedagio() == true);
 	CHECK(r->getValorPedagio() == 30);
 	std::cout << "Here\n";
+
+}
+TEST_CASE("04 - Classe Aquaviario - Teste positivo"){
 
 	// Testando a classe Aquaviario
 	Aquaviario *aq = new Aquaviario();
@@ -102,4 +104,16 @@ TEST_CASE("02 - Testando setters e getters"){
 	CHECK(ar->getPreco() == (float) 0.1);
 	CHECK(ar->getCapacidade() == 100);
 	CHECK(ar->getVelocidade() == 800);
+}
+TEST_CASE("05 - Classe Aereo - Teste positivo"){
+
+	// Testando a classe Aereo
+	Aereo *ar = new Aereo();
+
+	CHECK(ar->getTipoModal() == "aereo");
+	CHECK(ar->getPreco() == (float) 0.1);
+	CHECK(ar->getCapacidade() == 100);
+	CHECK(ar->getVelocidade() == 800);
+
+	
 }

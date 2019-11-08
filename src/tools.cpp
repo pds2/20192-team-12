@@ -22,6 +22,18 @@ std::string Tipo::getTipo(std::ifstream){
 std::string Tipo::getTipo(std::istream){
     return "istream_file";
 }
+std::string getTipo(Ferroviario){
+    return "ferroviario";
+}
+std::string getTipo(Rodoviario){
+    return "rodoviario";
+}
+std::string getTipo(Aquaviario){
+    return "aquaviario";
+}
+std::string getTipo(Aereo){
+    return "aereo";
+}
 void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
     std::string linha;   
     std::string entrada;

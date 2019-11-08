@@ -27,7 +27,6 @@ Modal::Modal(){
         Padrao: rodoviario;
     */
 
-    // Modal("rodoviario", 0.075, 35, 60, 100){} // Default: modal rodoviario
     this->_tipo_modal = "rodoviario";
     this->_preco = 0.075;
     this->_capacidade = 35;
@@ -152,9 +151,9 @@ Rodoviario::Rodoviario(){
     this->_preco = 0.075;
     this->_capacidade = 35;
     this->_velocidade = 60;
+    this->_distancia = 0;
     this->_pedagio = 0;
     this->_valor_pedagio = 0;
-    this->_distancia = 0;
 } 
 
 Rodoviario::Rodoviario(int distancia, bool pedagio, float valor_pedagio){
@@ -190,10 +189,10 @@ void Rodoviario::setValorPedagio(float valor_pedagio){
     this->_valor_pedagio = valor_pedagio;
 }
 bool Rodoviario::isPedagio(){
-    return _pedagio;
+    return this->_pedagio;
 }
 float Rodoviario::getValorPedagio(){
-    return _valor_pedagio;
+    return this->_valor_pedagio;
 }
 float Rodoviario::obterCusto(float quantidade){
     // quantidade de viagens vezes o custo
