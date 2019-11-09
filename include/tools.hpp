@@ -5,7 +5,8 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
-#include "../include/modal.hpp"
+#include "modal.hpp"
+#include "localidade.hpp"
 
 class Tipo{
 	public:
@@ -25,12 +26,13 @@ class Tipo{
 class Screen{
 	private:
 		unsigned int _bar_size = 100;
-		std::vector <std::string> _vector;
+		std::vector <Localidade> _vector; // novo vetor
+		// std::vector <std::string> _vector; // antigo vetor
 	public:
-		Screen(std::vector <std::string> &);
+		Screen(std::vector <Localidade> &);
 		~Screen();
 		void setBarSize(unsigned int);
-		void setVector(std::vector <std::string> &);
+		void setVector(std::vector <Localidade> &);
 		void showMainMenu(Screen*);
 		void showContinueMenu(Screen*);
 		void showSubMenu();
@@ -40,6 +42,27 @@ class Screen{
 		void showWarning(std::string);
 		
 };
+
+Localidade searchMunicipio(int, std::vector  <Localidade>& );
 void lerArquivo(std::istream &, std::vector <std::string> &);
+void lerLocalidades(std::istream &, std::vector <Localidade> &);
 void menu(std::vector <std::string>&);
+// class Screen{
+// 	private:
+// 		unsigned int _bar_size = 100;
+// 		std::vector <std::string> _vector;
+// 	public:
+// 		Screen(std::vector <std::string> &);
+// 		~Screen();
+// 		void setBarSize(unsigned int);
+// 		void setVector(std::vector <std::string> &);
+// 		void showMainMenu(Screen*);
+// 		void showContinueMenu(Screen*);
+// 		void showSubMenu();
+// 		void showBar(std::string);
+// 		void showVector(int, int);
+// 		void showTitle(std::string, unsigned int, std::string);
+// 		void showWarning(std::string);
+		
+// };
 #endif

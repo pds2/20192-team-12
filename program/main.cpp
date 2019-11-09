@@ -8,6 +8,7 @@
 #include <typeinfo>
 #include "tools.hpp"
 #include "modal.hpp"
+#include "localidade.hpp"
 #include "solicitacao.hpp"
 #include "tools.hpp"
 // #include "usuario.hpp"
@@ -17,7 +18,8 @@
 */
 int main(){
     std::string linha;
-    std::vector <std::string> vec_local; // matriz para armazenar os dados de entrada
+    std::vector <std::string> vec_local2; // matriz para armazenar os dados de entrada
+    std::vector <Localidade> vec_local; // matriz para armazenar os dados de entrada
     std::vector <std::string> vec_arestas; // matriz para armazenar os dados de entrada
     // std::string nome_usr, senha;
     // Usuario usr = new Usuario(nome, );
@@ -25,8 +27,10 @@ int main(){
     std::string caminho = "./data/";
     std::ifstream arq_local(caminho + "localidades.txt");
     std::ifstream arq_arestas(caminho + "arestas.txt");
-    int origem, // localidade de origem
-        destino; // localidade de destino
+    int cod_origem, // codigo da localidade de origem
+        cod_destino; // codigo da localidade de destino
+    Localidade origem,  // localidade de origem
+               destino;  // localidade de destino
     float quantidade; // quantidade a ser transportada
     int spaces = 100; // elemento da tela
     std::string aviso; // elemento da tela
@@ -37,9 +41,11 @@ int main(){
         // return 1;
     }else{
         lerArquivo(arq_arestas, vec_arestas);
-        lerArquivo(arq_local, vec_local);
+        lerArquivo(arq_local, vec_local2);
+        lerLocalidades(arq_local, vec_local);
     }  
 
+    // INICIO BLOCO
     // limpando a tela
     n_local = (int) vec_local.size();
     Screen *tela = new Screen(vec_local);
@@ -70,17 +76,17 @@ int main(){
         }
         tela->showBar("-");
 
-        origem = -1;
+        cod_origem = -1;
         std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
-        while (origem < 1 || origem >= n_local){
+        while (cod_origem < 1 ||cod_origem >= n_local){
             char c ;
-            if ( !( std::cin >> origem) || ( std::cin.get(c) && !std::isspace(c))){
+            if ( !( std::cin >> cod_origem) || ( std::cin.get(c) && !std::isspace(c))){
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 tela->showWarning("ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n");
                 tela->showWarning("2. Digite novamente o codigo da origem: ");
-                origem = -1;
-            }else if(origem < 1 || (origem >= n_local)){
+                cod_origem = -1;
+            }else if(cod_origem < 1 || (cod_origem >= n_local)){
                 aviso = "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
                                 std::to_string(n_local) + ".\n";
                 tela->showWarning(aviso);
@@ -89,17 +95,17 @@ int main(){
         } 
         tela->showBar("-");
 
-        destino = -1;
+        cod_destino = -1;
         std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
-        while (destino < 1 || destino >= n_local){
+        while (cod_destino < 1 || cod_destino >= n_local){
             char c ;
-            if ( !( std::cin >> destino) || ( std::cin.get(c) && !std::isspace(c))){
+            if ( !( std::cin >> cod_destino) || ( std::cin.get(c) && !std::isspace(c))){
                 std::cin.clear();
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 tela->showWarning("ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n");
                 tela->showWarning("3. Digite novamente o codigo da destino: ");
-                destino = -1;
-            }else if(destino < 1 || (destino >= n_local)){
+                cod_destino = -1;
+            }else if(cod_destino < 1 || (cod_destino >= n_local)){
                 aviso = "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
                                 std::to_string(n_local) + ".\n";
                 tela->showWarning(aviso);
@@ -108,12 +114,21 @@ int main(){
         }
         title = "DADOS DA SOLICITACAO\n";
         tela->showTitle(title, spaces, "*");    
-
-        std::cout << "Origem: " << origem << "\nDestino: " << destino  << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
+        origem = searchMunicipio(cod_origem, vec_local);
+        destino = searchMunicipio(cod_destino, vec_local);
+        std::cout << "Origem: " << origem.getCodigoMunicipio() << " - "
+                  << origem.getMunicipio() << "/" 
+                  << origem.getEstado() << " - "
+                  << origem.getPais()
+                  << "\nDestino: " << destino.getCodigoMunicipio() << " - "
+                  << destino.getMunicipio() << "/" 
+                  << destino.getEstado() << " - "
+                  << destino.getPais()
+                  << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
         title = "RESULTADO DA SOLICITACAO";
         tela->showTitle(title, spaces, "*");
     
-        Solicitacao s(origem, destino, quantidade); 
+        Solicitacao s(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade); 
         tela->showWarning("Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1\n");
         tela->showWarning("Rota 2: localidade1 -> localidade4 -> localidade3 - preco2 - tempo2\n");
         // std::system("clear");
@@ -135,12 +150,21 @@ int main(){
                 tela->showWarning("ATENCAO! Digite uma opcao valida.\n");
                 tela->showWarning("Digite uma opcao do menu: ");            
             }
+            if (entrada == 2){
+                break;
+            }
         }
     }
 
     std::cout << std::endl;
     arq_local.close();
     arq_arestas.close();
+
+    tela->showWarning("Programa finalizado com sucesso!\n"); 
+    delete tela;
+
+    // FIM BLOCO
+
     /*
     ENTRADA DO USUARIO
     std::cout << "Digite o login do usuario: ";
@@ -173,7 +197,6 @@ int main(){
     // for (unsigned int i = 0; i < vec_local.size(); i++){
     //     std::cout << vec_local[i] << "\n";
     // }
-    tela->showWarning("Programa finalizado com sucesso!\n"); 
-    delete tela;
+
     return 1;
 }

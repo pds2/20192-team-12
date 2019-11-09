@@ -35,6 +35,7 @@ std::string Localidade::getMunicipio(){
     return this->_municipio;
 
 }
+
 float Localidade::getLat(){
     return this->_lat;
 }

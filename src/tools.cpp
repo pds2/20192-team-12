@@ -5,10 +5,12 @@
 #include <stdexcept>
 #include <limits>
 #include <cctype>
+#include <string> 
 #include <vector>
 #include "tools.hpp"
 #include "modal.hpp"
 #include "solicitacao.hpp"
+#include "localidade.hpp"
 
 std::string Tipo::getTipo(std::string){
     return "string";
@@ -41,14 +43,14 @@ std::string getTipo(Aereo){
     return "aereo";
 }
 
-Screen::Screen(std::vector <std::string> &vector){
+Screen::Screen(std::vector <Localidade> &vector){
     this->_vector = vector;
 }
 Screen::~Screen(){}
 void Screen::setBarSize(unsigned int tamanho){
     this->_bar_size = tamanho;
 }
-void Screen::setVector(std::vector <std::string> &vector){
+void Screen::setVector(std::vector <Localidade> &vector){
     this->_vector = vector;
 }
 void Screen::showTitle(std::string title, unsigned int spaces, std::string symbol){
@@ -174,7 +176,8 @@ void Screen::showBar(std::string simbolo){
 void Screen::showVector(int columns, int padding){
     int rows = (int) this->_vector.size();    
     for (int i = 0; i < rows; i++){
-        std::cout << std::setw(2) << std::right << i << " - " << std::setw(padding) << std::left << this->_vector[i];
+        std::cout << std::setw(2) << std::right << this->_vector[i].getCodigoMunicipio() << " - " << std::setw(padding) << std::left
+                  << this->_vector[i].getMunicipio();
         if((i + 1) % columns == 0){
             std::cout << std::endl;
         }
@@ -229,6 +232,89 @@ void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
             counter++;
         }
     }    
+}
+void lerLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
+    std::string linha;   
+    std::string entrada;
+    arquivo.clear();
+    arquivo.seekg(0, std::ios::beg);
+    int counter = 0;
+    int rows, column, columns;
+    Localidade local;
+    std::size_t offset = 0;
+    while(!arquivo.eof()){
+        getline(arquivo, linha);
+        std::istringstream iss_linha(linha);
+        for(std::string entrada; iss_linha >> entrada;){
+            // std::cout << entrada.substr(0,1)<< " " << entrada << " ";
+            if (counter == 0){
+                rows = std::stoi(entrada);
+            }
+            if (counter == 1){
+                columns = std::stoi(entrada);
+                std::cout << std::endl;
+            }
+            if (counter != 0 && counter != 1){
+                std::string str;
+                if (entrada.substr(0,1) == "|"){
+                    str = "";
+                    int espacos = 0;
+                    while (entrada.substr(entrada.size() - 1, 1) != "|"){
+                        str = str + entrada + " ";
+                        espacos++;
+                        iss_linha >> entrada;
+                    }
+                    str = str + entrada;
+                    str = str.substr(1, str.size() - 2);
+                    // std::cout << str << std::endl;
+
+                    entrada = str;
+                }
+                column = (counter - 2) % columns;
+                // std::cout << "column: " << column << " " << entrada << "\n";
+                if (column == 0){
+                    local.setCodigoMunicipio(std::stoi(entrada));
+                }
+                if (column == 1){
+                    local.setMunicipio(entrada);
+                }
+                if (column == 2){
+                    local.setEstado(entrada);
+                }
+                if (column == 3){
+                    local.setPais(entrada);
+                }
+                if (column == 4){
+                    local.setLat(std::stof(entrada));
+                }
+                if (column == 5){
+                    local.setLong(std::stof(entrada));
+                    vector.push_back(local);   
+                }               
+            }
+            counter++;
+        }
+    }
+
+    // for (int i = 0; i < vector.size(); i++){
+    //     std::cout << vector[i].getCodigoMunicipio() << " "
+    //               << vector[i].getMunicipio() << " "
+    //               << vector[i].getEstado() << " "
+    //               << vector[i].getPais() << " "
+    //               << vector[i].getLat() << " "
+    //               << vector[i].getLong() << "\n";
+
+    // }
+}
+Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
+    Localidade local_pivot;
+    for( auto v: vector){
+        if ( v.getCodigoMunicipio() == codigo){
+            local_pivot = v;
+            break;
+        }
+    }
+    return local_pivot;
 }
 // void Screen::showMenu(){
 //     int padding = 20;
