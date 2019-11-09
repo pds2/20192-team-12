@@ -1,6 +1,5 @@
 #include "doctest.h"
-
-#include "../include/solicitacao.hpp"
+#include "solicitacao.hpp"
 // #include <string>
 /* EM DESENVOLVIMENTO */
 

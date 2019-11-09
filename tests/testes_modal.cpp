@@ -1,5 +1,5 @@
 #include "doctest.h"
-#include "../include/modal.hpp"
+#include "modal.hpp"
 
 /*
 

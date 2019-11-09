@@ -1,8 +1,8 @@
-#include "../include/solicitacao.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <exception>
 #include <typeinfo>
+#include "solicitacao.hpp"
 
 Solicitacao::Solicitacao(int origem, int destino, float quantidade){
     if (origem < 0 || destino < 0 || quantidade < 0){
@@ -20,9 +20,6 @@ Solicitacao::Solicitacao(int origem, int destino, float quantidade){
 Solicitacao::Solicitacao(): Solicitacao(2, 24, 35.0){}
 
 void Solicitacao::setOrigem(int origem){
-    // if (origem == NULL){
-    //     throw std::invalid_argument("o argumento nao pode ser vazio.");
-    // }
     if (origem < 0){
         throw std::invalid_argument("O codigo da origem nao pode ser negativo.");
     }
@@ -30,10 +27,7 @@ void Solicitacao::setOrigem(int origem){
     this->_origem = origem;
 }
 
-void Solicitacao::setDestino(int destino){
-    // if (destino == NULL){
-    //     throw std::invalid_argument("o argumento nao pode ser vazio.");
-    // }    
+void Solicitacao::setDestino(int destino){ 
     if (destino < 0){
         throw std::invalid_argument("O codigo do destino nao pode ser negativo.");
     }    
@@ -41,9 +35,7 @@ void Solicitacao::setDestino(int destino){
 }
 
 void Solicitacao::setQuantidade(float quantidade){
-    // if (quantidade == NULL){
-    //     throw std::invalid_argument("o argumento nao pode ser vazio.");
-    // }      
+    
     if (quantidade < 0){
         throw std::invalid_argument("A quantidade de carga nao pode ser negativa.");
     }    

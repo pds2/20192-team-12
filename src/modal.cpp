@@ -15,8 +15,8 @@ já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal
 #include <iostream>
 #include <stdexcept>
 #include <cmath>
-#include "../include/modal.hpp"
-#include "../include/tools.hpp"
+#include "modal.hpp"
+// #include "tools.hpp"
 
 /*
 Wagner: Desenvolvendo testes de unidade

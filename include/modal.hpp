@@ -1,5 +1,5 @@
-#ifndef MODAL_H
-#define MODAL_H
+#ifndef MODAL_HPP
+#define MODAL_HPP
 #include <iostream>
 /*
 Esta classe representa uma conexão entre duas localidades e

@@ -20,5 +20,6 @@ class Tipo{
 		std::string getTipo(Aquaviario);
 		std::string getTipo(Aereo);
 };
-void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector);
+void lerArquivo(std::istream &, std::vector <std::string> &);
+void menu(std::vector <std::string>);
 #endif

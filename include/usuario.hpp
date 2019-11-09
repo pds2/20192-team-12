@@ -1,3 +1,5 @@
+#ifndef USUARIO_HPP
+#define USUARIO_HPP
 #include <iostream>
 class Usuario {
     private:
@@ -22,3 +24,4 @@ class ArquivoNaoExiste : public std::exception {
     public:
     virtual const char* what() const noexcept override;
 };
+#endif

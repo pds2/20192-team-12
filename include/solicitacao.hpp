@@ -1,5 +1,5 @@
-#ifndef SOLICITACAO_H
-#define SOLICITACAO_H
+#ifndef SOLICITACAO_HPP
+#define SOLICITACAO_HPP
 #include <iostream>
 #include <stdexcept> 
 /*

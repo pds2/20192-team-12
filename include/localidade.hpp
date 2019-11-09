@@ -1,5 +1,5 @@
-#ifndef LOCALIDADE_H
-#define LOCALIDADE_H
+#ifndef LOCALIDADE_HPP
+#define LOCALIDADE_HPP
 #include <iostream>
 /*
 Esta classe representa uma localidade que possui as seguintes propriedades:

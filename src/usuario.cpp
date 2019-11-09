@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <fstream>
-#include "../include/usuario.hpp"
+#include "usuario.hpp"
 
 void Usuario::setNome(std::string nome){
     this->_nome_usr = nome;

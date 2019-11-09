@@ -1,11 +1,15 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
 #include <vector>
-#include "../include/tools.hpp"
+#include "tools.hpp"
+#include "modal.hpp"
+#include "solicitacao.hpp"
+
 std::string Tipo::getTipo(std::string){
-    return "std::string";
+    return "string";
 }
 std::string Tipo::getTipo(int){
     return "int";
@@ -17,10 +21,10 @@ std::string Tipo::getTipo(double){
     return "double";
 }
 std::string Tipo::getTipo(std::ifstream){
-    return "istream_file";
+    return "ifstream";
 }
 std::string Tipo::getTipo(std::istream){
-    return "istream_file";
+    return "istream";
 }
 std::string getTipo(Ferroviario){
     return "ferroviario";
@@ -82,7 +86,61 @@ void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
             }            
             counter++;
         }
-
     }    
 }
     
+void menu(std::vector <std::string> vec_local){
+    int origem, // localidade de origem
+        destino; // localidade de destino
+    float quantidade; // qjantidade a ser transportada
+    std::system("clear");
+    std::cout << "Para gerar uma solicitacao, execute os seguintes passos:\n\n";
+    std::cout << "1. Digite o numero da localidade de origem;\n";
+    std::cout << "2. Digite o numero da localidade de destino e a quantidade ser transportada;\n";
+    std::cout << "3. Digite a quantidade de carga a ser transportada; e\n\n";
+    std::cout << "3. Tecle ENTER.\n\n";
+    std::cout << "LOCALIDADES:\n";
+    for (int i = 0; i < vec_local.size(); i++){
+        if((i + 1) % 7 != 0){
+            std::cout << std::setw(2) << std::right << i << " - " << std::setw(25) << std::left << vec_local[i];
+        }else{
+            std::cout << std::endl;
+        }
+    }
+    /*
+    ENTRADA DE DADOS
+    */
+    std::cout << "Digite a quantidade da carga em toneladas: ";
+    bool teste = false;
+    while (teste = false){
+        try{
+            std::cin >> quantidade;
+            teste = true;
+        }catch (const std::invalid_argument &ia){
+            std::cout << "A quantidade deve ser um valor numerico.\nTente novamente!\n";
+            teste = false;
+            std::cin >> quantidade;
+        }
+        std::cout << "Digite o numero do municipio de origem da carga: ";
+        try{
+            std::cin >> origem;
+            teste = true;
+        }catch (const std::invalid_argument &ia){
+            std::cout << "A quantidade deve ser um valor numerico.\nTente novamente!\n";
+            std::cin >> origem;
+            teste = false;
+        }
+        std::cout << "Digite o numero do municipio de destino da carga: ";
+        try{
+            std::cin >> destino;
+            teste = true;
+        }catch (const std::invalid_argument &ia){
+            std::cout << "A quantidade deve ser um valor numerico.\nTente novamente!\n";
+            std::cin >> destino;
+            teste = false;
+        }
+    }
+
+    std::cout << origem << " " << destino << " " << quantidade <<  std::endl;
+    Solicitacao s(origem, destino, quantidade);    
+}
