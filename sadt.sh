@@ -1,0 +1,2 @@
+reset
+./bin/sadt

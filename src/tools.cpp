@@ -3,6 +3,8 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+#include <limits>
+#include <cctype>
 #include <vector>
 #include "tools.hpp"
 #include "modal.hpp"
@@ -93,6 +95,9 @@ void menu(std::vector <std::string> vec_local){
     int origem, // localidade de origem
         destino; // localidade de destino
     float quantidade; // quantidade a ser transportada
+    int padding = 20;
+    int columns = 4;
+    Tipo tipo;
     std::system("clear");
     std::cout << "\n*******************************************************************************************\n";
     std::cout << "                     SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES\n";
@@ -103,48 +108,72 @@ void menu(std::vector <std::string> vec_local){
     std::cout << "3. Digite a quantidade de carga a ser transportada; e\n";
     std::cout << "4. Tecle ENTER.\n\n";
     std::cout << "LOCALIDADES:\n\n";
+
     for (int i = 0; i < vec_local.size(); i++){
-        if((i + 1) % 7 != 0){
-            std::cout << std::setw(2) << std::right << i << " - " << std::setw(25) << std::left << vec_local[i];
-        }else{
+        std::cout << std::setw(2) << std::right << i << " - " << std::setw(padding) << std::left << vec_local[i];
+        if((i + 1) % columns == 0){
             std::cout << std::endl;
         }
+        // else{
+        //     std::cout << std::setw(2) << std::right << i << " - " << std::setw(25) << std::left << vec_local[i];
+        // }
     }
     std::cout << std::endl;
     /*
     ENTRADA DE DADOS
     */
-    bool teste = false;
-    while (teste == false){
-        std::cout << "Digite a quantidade da carga em toneladas: ";
-        try{
-            std::cin >> quantidade;
-            teste = true;
-        }catch (const std::invalid_argument &ia){
-            std::cout << "A quantidade deve ser um valor numerico.\nTente novamente!\n";
-            // teste = false;
-            std::cin >> quantidade;
-        }
-        std::cout << "Digite o numero do municipio de origem da carga: ";
-        try{
-            std::cin >> origem;
-            teste = true;
-        }catch (const std::invalid_argument &ia){
-            std::cout << "A quantidade deve ser um valor numerico.\nTente novamente!\n";
-            // std::cin >> origem;
-            teste = false;
-        }
-        std::cout << "Digite o numero do municipio de destino da carga: ";
-        try{
-            std::cin >> destino;
-            teste = true;
-        }catch (const std::invalid_argument &ia){
-            std::cout << "A quantidade deve ser um valor numerico.\nTente novamente!\n";
-            // std::cin >> destino;
-            teste = false;
+    std::cout << "\n*******************************************************************************************\n";
+    std::cout << "                                 ENTRADA DOS DADOS DA SOLICITACAO\n";
+    std::cout << "*******************************************************************************************\n";   
+    quantidade = -1;
+    std::cout << "1. Digite a quantidade da carga em toneladas: ";
+    while (quantidade < 1){
+        char c ;
+        if ( !( std::cin >> quantidade) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "ATENCAO! A quantidade deve ser um valor numerico.\n";
+            std::cout << "1. Digite novamente a quantidade da carga em toneladas: ";
+            quantidade = -1;
+        }else if(quantidade < 1){
+            std::cout << "ATENCAO! A quantidade deve ser um valor positivo.\n";
+            std::cout << "1. Digite novamente a quantidade da carga em toneladas: ";            
         }
     }
-
+    origem = -1;
+    std::cout << "\n-------------------------------------------------------------------------------------------\n";    
+    std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
+    while (origem < 1 || origem >= vec_local.size()){
+        char c ;
+        if ( !( std::cin >> origem) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n";
+            std::cout << "2. Digite novamente o codigo da origem: ";
+            origem = -1;
+        }else if(origem < 1 || (origem >= vec_local.size())){
+            std::cout << "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
+                            std::to_string(vec_local.size()) + ".\n";
+            std::cout << "2. Digite novamente o codigo da origem: ";            
+        }
+    } 
+    destino = -1;
+    std::cout << "\n-------------------------------------------------------------------------------------------\n";    
+    std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
+    while (destino < 1 || destino >= vec_local.size()){
+        char c ;
+        if ( !( std::cin >> destino) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n";
+            std::cout << "3. Digite novamente o codigo da destino: ";
+            destino = -1;
+        }else if(destino < 1 || (destino >= vec_local.size())){
+            std::cout << "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
+                            std::to_string(vec_local.size()) + ".\n";
+            std::cout << "3. Digite novamente o codigo da destino: ";            
+        }
+    } 
     std::cout << "\n*******************************************************************************************\n";
     std::cout << "                                 DADOS DA SOLICITACAO\n";
     std::cout << "*******************************************************************************************\n";
@@ -152,7 +181,7 @@ void menu(std::vector <std::string> vec_local){
     std::cout << "\n*******************************************************************************************\n";
     std::cout << "                                 RESULTADO DA SOLICITACAO\n";
     std::cout << "*******************************************************************************************\n";
-    std::cout << "Rota 1:" << std::endl;   
-    std::cout << "Rota 2:" << std::endl;
+    std::cout << "Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1" << std::endl;   
+    std::cout << "Rota 2: localidade1 -> localidade4 -> localidade3 - preco2 - tempo2" << std::endl;
     Solicitacao s(origem, destino, quantidade);    
 }

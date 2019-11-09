@@ -21,7 +21,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 
 main: $(OBJECTS)
 	@mkdir -p $(BINDIR)
-	$(CC) $(CFLAGS) $(INC) $(MAIN) $^ -o $(BINDIR)/main
+	$(CC) $(CFLAGS) $(INC) $(MAIN) $^ -o $(BINDIR)/sadt
 
 tests: $(OBJECTS)
 	@mkdir -p $(BINDIR)
@@ -29,12 +29,12 @@ tests: $(OBJECTS)
 	$(BINDIR)/tester -s
 
 valgrind: main
-	valgrind --leak-check=full --track-origins=yes $(BINDIR)/main
+	valgrind --leak-check=full --track-origins=yes $(BINDIR)/sadt
 
 all: main
 
 run: main
-	$(BINDIR)/main
+	$(BINDIR)/sadt
 
 clean:
 	$(RM) -r $(OBJDIR)/* $(BINDIR)/*
