@@ -58,8 +58,10 @@ int main(){
         ENTRADA DE DADOS
         */
 
-        title = "ENTRADA DOS DADOS DA SOLICITACAO";
+        title = "SOLICITACOES";
         tela->showTitle(title, spaces, "*");
+        title = "SOLICITACAO Nº " + std::to_string(++num_solicitacoes);
+        tela->showTitle(title, spaces, "=");
 
         quantidade = -1;
         tela->showWarning("1. Digite a quantidade da carga em toneladas: ");
@@ -115,7 +117,7 @@ int main(){
             }
         }
         title = "DADOS DA SOLICITACAO\n";
-        tela->showTitle(title, spaces, "*");    
+        tela->showTitle(title, spaces, "-");    
         origem = searchMunicipio(cod_origem, vec_local);
         destino = searchMunicipio(cod_destino, vec_local);
         std::cout << "Origem: " << origem.getCodigoMunicipio() << " - "
@@ -128,7 +130,7 @@ int main(){
                   << destino.getPais()
                   << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
         title = "RESULTADO DA SOLICITACAO";
-        tela->showTitle(title, spaces, "*");
+        tela->showTitle(title, spaces, "-");
     
         Solicitacao s(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade); 
         tela->showWarning("Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1\n");
@@ -136,7 +138,7 @@ int main(){
         // std::system("clear");
 
         title = "MENU";
-        tela->showTitle(title, 100, "-");
+        tela->showTitle(title, 100, "=");
         tela->showWarning("Digite 1 para criar uma nova solicitacao ou 2 para sair: ");   
         entrada = -1;
         // CONSERTAR LOOP INFINITO QUANO INSERE STRING AO INVES DE INT

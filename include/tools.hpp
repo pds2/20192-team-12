@@ -34,7 +34,7 @@ class Screen{
 		void setBarSize(unsigned int);
 		void setVector(std::vector <Localidade> &);
 		void showMainMenu(Screen*);
-		void showContinueMenu(Screen*);
+		// void showContinueMenu(Screen*);
 		void showSubMenu();
 		void showBar(std::string);
 		void showVector(int, int);

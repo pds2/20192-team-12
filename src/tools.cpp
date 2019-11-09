@@ -77,7 +77,7 @@ void Screen::showMainMenu(Screen *tela){
     title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
     this->showTitle(title, 100, "*");
     title = "MENU";
-    this->showTitle(title, 100, "-");
+    this->showTitle(title, 100, "=");
     // this->showWarning( "MENU:\n\n");
     this->showWarning("1. Gerar uma solicitacao de transporte;\n");
     this->showWarning("2. Sair.\n\n");
@@ -107,42 +107,7 @@ void Screen::showMainMenu(Screen *tela){
     }
     // return entrada;
 }
-void Screen::showContinueMenu(Screen *tela){
-    int padding = 20;
-    int columns = 4;
-    // int tamanho = 100;
-    int spaces = 100;
-    int entrada = -1;
-    std::string title;
-    std::system("clear");
-
-    title = "MENU";
-    this->showTitle(title, 100, "-");
-    this->showWarning("Digite 1 para criar uma nova solicitacao ou 2 para sair");   
-    entrada = -1;
-    while (entrada < 1 || entrada >2){
-        char c ;
-        if ( !( std::cin >> entrada) || ( std::cin.get(c) && !std::isspace(c))){
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
-            this->showWarning("Digite uma opcao do menu: ");
-            entrada = -1;
-        }else if(entrada < 1 || (entrada > 2)){
-            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
-            this->showWarning("Digite uma opcao do menu: ");            
-        }
-    }
-    if ( entrada == 1){
-        this->showSubMenu();
-
-    }else{
-        delete tela;
-        this->showWarning("Programa finalizado com sucesso!\n"); 
-        exit(1);
-        // return;
-    }
-}
+// 
 void Screen::showSubMenu(){
     int padding = 20;
     int columns = 4;
@@ -316,6 +281,7 @@ Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
     }
     return local_pivot;
 }
+// EXCLUIR
 // void Screen::showMenu(){
 //     int padding = 20;
 //     int columns = 4;
@@ -454,4 +420,40 @@ Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
 //     std::cout << "Rota 2: localidade1 -> localidade4 -> localidade3 - preco2 - tempo2" << std::endl;
 //     Solicitacao s(origem, destino, quantidade); 
 //     delete tela;   
+// }
+// void Screen::showContinueMenu(Screen *tela){
+//     int padding = 20;
+//     int columns = 4;
+//     // int tamanho = 100;
+//     int spaces = 100;
+//     int entrada = -1;
+//     std::string title;
+//     std::system("clear");
+
+//     title = "MENU";
+//     this->showTitle(title, 100, "=");
+//     this->showWarning("Digite 1 para criar uma nova solicitacao ou 2 para sair");   
+//     entrada = -1;
+//     while (entrada < 1 || entrada >2){
+//         char c ;
+//         if ( !( std::cin >> entrada) || ( std::cin.get(c) && !std::isspace(c))){
+//             std::cin.clear();
+//             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//             this->showWarning("ATENCAO! Digite uma opcao valida.\n");
+//             this->showWarning("Digite uma opcao do menu: ");
+//             entrada = -1;
+//         }else if(entrada < 1 || (entrada > 2)){
+//             this->showWarning("ATENCAO! Digite uma opcao valida.\n");
+//             this->showWarning("Digite uma opcao do menu: ");            
+//         }
+//     }
+//     if ( entrada == 1){
+//         this->showSubMenu();
+
+//     }else{
+//         delete tela;
+//         this->showWarning("Programa finalizado com sucesso!\n"); 
+//         exit(1);
+//         // return;
+//     }
 // }
