@@ -35,7 +35,9 @@ int main(){
     int spaces = 100; // elemento da tela
     std::string aviso; // elemento da tela
     std::string title; // elemento da tela
-    int n_local; // numero de localidades
+    int num_localidades; // numero de localidades
+    int num_solicitacoes = 0;
+    int entrada = 1; // verifica entrada
     if (!arq_local.is_open() || !arq_arestas.is_open()){
         std::cout << "Pasta ou arquivo nao encontrado.\n";
         // return 1;
@@ -47,11 +49,11 @@ int main(){
 
     // INICIO BLOCO
     // limpando a tela
-    n_local = (int) vec_local.size();
+    num_localidades = (int) vec_local.size();
     Screen *tela = new Screen(vec_local);
     tela->showMainMenu(tela);
-    unsigned int entrada = 1;
-    while(entrada == 1){
+    
+    while(entrada != 2){
         /*
         ENTRADA DE DADOS
         */
@@ -78,7 +80,7 @@ int main(){
 
         cod_origem = -1;
         std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
-        while (cod_origem < 1 ||cod_origem >= n_local){
+        while (cod_origem < 1 ||cod_origem >= num_localidades){
             char c ;
             if ( !( std::cin >> cod_origem) || ( std::cin.get(c) && !std::isspace(c))){
                 std::cin.clear();
@@ -86,9 +88,9 @@ int main(){
                 tela->showWarning("ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n");
                 tela->showWarning("2. Digite novamente o codigo da origem: ");
                 cod_origem = -1;
-            }else if(cod_origem < 1 || (cod_origem >= n_local)){
+            }else if(cod_origem < 1 || (cod_origem >= num_localidades)){
                 aviso = "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
-                                std::to_string(n_local) + ".\n";
+                                std::to_string(num_localidades) + ".\n";
                 tela->showWarning(aviso);
                 tela->showWarning("2. Digite novamente o codigo da origem: ");            
             }
@@ -97,7 +99,7 @@ int main(){
 
         cod_destino = -1;
         std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
-        while (cod_destino < 1 || cod_destino >= n_local){
+        while (cod_destino < 1 || cod_destino >= num_localidades){
             char c ;
             if ( !( std::cin >> cod_destino) || ( std::cin.get(c) && !std::isspace(c))){
                 std::cin.clear();
@@ -105,9 +107,9 @@ int main(){
                 tela->showWarning("ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n");
                 tela->showWarning("3. Digite novamente o codigo da destino: ");
                 cod_destino = -1;
-            }else if(cod_destino < 1 || (cod_destino >= n_local)){
+            }else if(cod_destino < 1 || (cod_destino >= num_localidades)){
                 aviso = "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
-                                std::to_string(n_local) + ".\n";
+                                std::to_string(num_localidades) + ".\n";
                 tela->showWarning(aviso);
                 tela->showWarning("3. Digite novamente o codigo da destino: ");            
             }
@@ -138,7 +140,7 @@ int main(){
         tela->showWarning("Digite 1 para criar uma nova solicitacao ou 2 para sair: ");   
         entrada = -1;
         // CONSERTAR LOOP INFINITO QUANO INSERE STRING AO INVES DE INT
-        while (entrada != 1 || entrada != 2){
+        while (entrada < 1 || entrada > 2){
             char c ;
             if ( !( std::cin >> entrada) || ( std::cin.get(c) && !std::isspace(c))){
                 std::cin.clear();
@@ -146,13 +148,13 @@ int main(){
                 tela->showWarning("ATENCAO! Digite uma opcao valida.\n");
                 tela->showWarning("Digite uma opcao do menu: ");
                 entrada = -1;
-            }else if(entrada != 1 || (entrada != 2)){
+            }else if(entrada < 1 || (entrada > 2)){
                 tela->showWarning("ATENCAO! Digite uma opcao valida.\n");
                 tela->showWarning("Digite uma opcao do menu: ");            
             }
-            if (entrada == 2){
-                break;
-            }
+            // if (entrada == 2){
+            //     break;
+            // }
         }
     }
 
