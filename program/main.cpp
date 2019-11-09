@@ -27,17 +27,6 @@ int main(){
     int origem,
         destino;
     // int teste;
-    Tipo tipo;
-    // std::cout << "teste: " << (typeid(origem).name() != typeid(teste).name() )<< std::endl;
-    std::cout << "string: " << tipo.getTipo(linha)<< std::endl;
-    // std::cout << "arquivo: " << tipo.getTipo(arq_local) << std::endl;
-    std::cout << "float: " << tipo.getTipo(quantidade) << std::endl;
-    std::cout << "int: " << tipo.getTipo(origem) << std::endl;
-    // std::string nome, login, senha;
-    // Usuario *usr = new Usuario;
-    /*
-        LEITURA DOS ARQUIVOS
-    */   
     if (!arq_local.is_open() || !arq_arestas.is_open()){
         std::cout << "Pasta ou arquivo nao encontrado.\n";
         // return 1;
