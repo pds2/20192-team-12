@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
-#include <limits>
+
 #include <cctype>
 #include <vector>
 #include "tools.hpp"
@@ -39,6 +39,74 @@ std::string getTipo(Aquaviario){
 }
 std::string getTipo(Aereo){
     return "aereo";
+}
+
+Screen::Screen(std::vector <std::string> &vector){
+    this->_vector = vector;
+}
+Screen::~Screen(){}
+void Screen::setBarSize(unsigned int tamanho){
+    this->_bar_size = tamanho;
+}
+void Screen::setVector(std::vector <std::string> &vector){
+    this->_vector = vector;
+}
+void Screen::showTitle(std::string title, unsigned int spaces, std::string symbol){
+    std::cout << std::endl;
+    int padding = (spaces + title.size())/2;
+    this->showBar(symbol);
+    // std::cout << std::internal << title << std::endl;
+    std::cout << std::setw(padding) << std::internal << title << std::endl;
+    // std::cout << std::setw(spaces) << std::right << title << std::endl;
+    this->showBar(symbol);
+    std::cout << std::endl;
+}
+void Screen::showWarning(std::string aviso){
+    std::cout << aviso;
+}
+void Screen::showMenu(){
+    int padding = 20;
+    int columns = 4;
+    // int tamanho = 100;
+    int spaces = 100;
+    std::string title;
+    std::system("clear");
+    title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
+    this->showTitle(title, 100, "*");
+    // this->showBar("*");
+    // std::cout << std::setw(spaces/2) << std::right << "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES\n";
+    // this->showBar("*");
+
+    std::cout << "Para gerar uma solicitacao, execute os seguintes passos:\n\n";
+    std::cout << "1. Digite o numero da localidade de origem;\n";
+    std::cout << "2. Digite o numero da localidade de destino e a quantidade ser transportada;\n";
+    std::cout << "3. Digite a quantidade de carga a ser transportada; e\n";
+    std::cout << "4. Tecle ENTER.\n";
+    
+    title = "LOCALIDADES";
+    this->showTitle(title, 100, "-");
+    // this->showBar("-");
+    // std::cout << "LOCALIDADES:\n";
+    // this->showBar("-");
+
+    this->showVector(columns, padding);
+    // std::cout << std::endl;
+}
+void Screen::showBar(std::string simbolo){
+    std::string barra = "";
+    for (unsigned int i = 0; i < this->_bar_size; i++){
+        barra += simbolo;
+    }
+    std::cout << barra << std::endl;
+}
+void Screen::showVector(int columns, int padding){
+    int rows = (int) this->_vector.size();    
+    for (int i = 0; i < rows; i++){
+        std::cout << std::setw(2) << std::right << i << " - " << std::setw(padding) << std::left << this->_vector[i];
+        if((i + 1) % columns == 0){
+            std::cout << std::endl;
+        }
+    }    
 }
 void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
     std::string linha;   
@@ -90,98 +158,114 @@ void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
         }
     }    
 }
-    
-void menu(std::vector <std::string> vec_local){
-    int origem, // localidade de origem
-        destino; // localidade de destino
-    float quantidade; // quantidade a ser transportada
-    int padding = 20;
-    int columns = 4;
-    Tipo tipo;
-    std::system("clear");
-    std::cout << "\n*******************************************************************************************\n";
-    std::cout << "                     SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES\n";
-    std::cout << "*******************************************************************************************\n\n\n";    
-    std::cout << "Para gerar uma solicitacao, execute os seguintes passos:\n\n";
-    std::cout << "1. Digite o numero da localidade de origem;\n";
-    std::cout << "2. Digite o numero da localidade de destino e a quantidade ser transportada;\n";
-    std::cout << "3. Digite a quantidade de carga a ser transportada; e\n";
-    std::cout << "4. Tecle ENTER.\n\n";
-    std::cout << "LOCALIDADES:\n\n";
+// void menu(std::vector <std::string> &vector){
+//     int origem, // localidade de origem
+//         destino; // localidade de destino
+//     float quantidade; // quantidade a ser transportada
+//     int padding = 20;
+//     int columns = 4;
+//     // int tamanho = 100;
+//     int spaces = 40;
 
-    for (int i = 0; i < vec_local.size(); i++){
-        std::cout << std::setw(2) << std::right << i << " - " << std::setw(padding) << std::left << vec_local[i];
-        if((i + 1) % columns == 0){
-            std::cout << std::endl;
-        }
-        // else{
-        //     std::cout << std::setw(2) << std::right << i << " - " << std::setw(25) << std::left << vec_local[i];
-        // }
-    }
-    std::cout << std::endl;
-    /*
-    ENTRADA DE DADOS
-    */
-    std::cout << "\n*******************************************************************************************\n";
-    std::cout << "                                 ENTRADA DOS DADOS DA SOLICITACAO\n";
-    std::cout << "*******************************************************************************************\n";   
-    quantidade = -1;
-    std::cout << "1. Digite a quantidade da carga em toneladas: ";
-    while (quantidade < 1){
-        char c ;
-        if ( !( std::cin >> quantidade) || ( std::cin.get(c) && !std::isspace(c))){
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "ATENCAO! A quantidade deve ser um valor numerico.\n";
-            std::cout << "1. Digite novamente a quantidade da carga em toneladas: ";
-            quantidade = -1;
-        }else if(quantidade < 1){
-            std::cout << "ATENCAO! A quantidade deve ser um valor positivo.\n";
-            std::cout << "1. Digite novamente a quantidade da carga em toneladas: ";            
-        }
-    }
-    origem = -1;
-    std::cout << "\n-------------------------------------------------------------------------------------------\n";    
-    std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
-    while (origem < 1 || origem >= vec_local.size()){
-        char c ;
-        if ( !( std::cin >> origem) || ( std::cin.get(c) && !std::isspace(c))){
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n";
-            std::cout << "2. Digite novamente o codigo da origem: ";
-            origem = -1;
-        }else if(origem < 1 || (origem >= vec_local.size())){
-            std::cout << "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
-                            std::to_string(vec_local.size()) + ".\n";
-            std::cout << "2. Digite novamente o codigo da origem: ";            
-        }
-    } 
-    destino = -1;
-    std::cout << "\n-------------------------------------------------------------------------------------------\n";    
-    std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
-    while (destino < 1 || destino >= vec_local.size()){
-        char c ;
-        if ( !( std::cin >> destino) || ( std::cin.get(c) && !std::isspace(c))){
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n";
-            std::cout << "3. Digite novamente o codigo da destino: ";
-            destino = -1;
-        }else if(destino < 1 || (destino >= vec_local.size())){
-            std::cout << "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
-                            std::to_string(vec_local.size()) + ".\n";
-            std::cout << "3. Digite novamente o codigo da destino: ";            
-        }
-    } 
-    std::cout << "\n*******************************************************************************************\n";
-    std::cout << "                                 DADOS DA SOLICITACAO\n";
-    std::cout << "*******************************************************************************************\n";
-    std::cout << "Origem: " << origem << "\nDestino: " << destino  << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
-    std::cout << "\n*******************************************************************************************\n";
-    std::cout << "                                 RESULTADO DA SOLICITACAO\n";
-    std::cout << "*******************************************************************************************\n";
-    std::cout << "Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1" << std::endl;   
-    std::cout << "Rota 2: localidade1 -> localidade4 -> localidade3 - preco2 - tempo2" << std::endl;
-    Solicitacao s(origem, destino, quantidade);    
-}
+//     int rows = (int) vector.size();
+//     Screen *tela = new Screen(vector);
+//     // Tipo tipo;
+//     std::system("clear");
+//     this->showBar("*");
+//     std::cout << std::setw(spaces/2) << std::right << "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES\n";
+//     this->showBar("*");
+
+//     std::cout << "Para gerar uma solicitacao, execute os seguintes passos:\n\n";
+//     std::cout << "1. Digite o numero da localidade de origem;\n";
+//     std::cout << "2. Digite o numero da localidade de destino e a quantidade ser transportada;\n";
+//     std::cout << "3. Digite a quantidade de carga a ser transportada; e\n";
+//     std::cout << "4. Tecle ENTER.\n";
+    
+//     this->showBar("-");
+//     std::cout << "LOCALIDADES:\n";
+//     this->showBar("-");
+
+//     this->showVector(vector, columns, padding);
+   
+//     /*
+//     for (int i = 0; i < rows; i++){
+//         std::cout << std::setw(2) << std::right << i << " - " << std::setw(padding) << std::left << vector[i];
+//         if((i + 1) % columns == 0){
+//             std::cout << std::endl;
+//         }
+//     }
+//     */
+//     std::cout << std::endl;
+//     /*
+//     ENTRADA DE DADOS
+//     */
+//     this->showBar("*");
+//     std::cout << std::setw(spaces) << std::right << "ENTRADA DOS DADOS DA SOLICITACAO\n";
+//     this->showBar("*");
+
+//     quantidade = -1;
+//     std::cout << "1. Digite a quantidade da carga em toneladas: ";
+//     while (quantidade < 1){
+//         char c ;
+//         if ( !( std::cin >> quantidade) || ( std::cin.get(c) && !std::isspace(c))){
+//             std::cin.clear();
+//             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//             std::cout << "ATENCAO! A quantidade deve ser um valor numerico.\n";
+//             std::cout << "1. Digite novamente a quantidade da carga em toneladas: ";
+//             quantidade = -1;
+//         }else if(quantidade < 1){
+//             std::cout << "ATENCAO! A quantidade deve ser um valor positivo.\n";
+//             std::cout << "1. Digite novamente a quantidade da carga em toneladas: ";            
+//         }
+//     }
+//     this->showBar("-");
+
+//     origem = -1;
+//     std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
+//     while (origem < 1 || origem >= rows){
+//         char c ;
+//         if ( !( std::cin >> origem) || ( std::cin.get(c) && !std::isspace(c))){
+//             std::cin.clear();
+//             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//             std::cout << "ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n";
+//             std::cout << "2. Digite novamente o codigo da origem: ";
+//             origem = -1;
+//         }else if(origem < 1 || (origem >= rows)){
+//             std::cout << "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
+//                             std::to_string(rows) + ".\n";
+//             std::cout << "2. Digite novamente o codigo da origem: ";            
+//         }
+//     } 
+//     this->showBar("-");
+
+//     destino = -1;
+//     std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
+//     while (destino < 1 || destino >= rows){
+//         char c ;
+//         if ( !( std::cin >> destino) || ( std::cin.get(c) && !std::isspace(c))){
+//             std::cin.clear();
+//             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//             std::cout << "ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n";
+//             std::cout << "3. Digite novamente o codigo da destino: ";
+//             destino = -1;
+//         }else if(destino < 1 || (destino >= rows)){
+//             std::cout << "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
+//                             std::to_string(rows) + ".\n";
+//             std::cout << "3. Digite novamente o codigo da destino: ";            
+//         }
+//     } 
+//     this->showBar("*");
+//     std::cout << std::setw(spaces) << std::right << "DADOS DA SOLICITACAO\n";
+//     this->showBar("*");
+
+//     std::cout << "Origem: " << origem << "\nDestino: " << destino  << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
+
+//     this->showBar("*");
+//     std::cout << std::setw(spaces) << std::right << "RESULTADO DA SOLICITACAO\n";
+//     this->showBar("*");
+
+//     std::cout << "Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1" << std::endl;   
+//     std::cout << "Rota 2: localidade1 -> localidade4 -> localidade3 - preco2 - tempo2" << std::endl;
+//     Solicitacao s(origem, destino, quantidade); 
+//     delete tela;   
+// }

@@ -46,10 +46,6 @@ Modal::Modal(std::string nome_modal, float preco, float capacidade, float veloci
 }
 Modal::~Modal(){}
 
-//Metodos da classe Modal
-// void Modal::setTipoModal(std::string tipo_modal){
-//     this->_tipo_modal = tipo_modal;
-// }
 void Modal::setPreco(float preco){
     this->_preco = preco;
 }
