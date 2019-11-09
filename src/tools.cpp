@@ -3,7 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
-
+#include <limits>
 #include <cctype>
 #include <vector>
 #include "tools.hpp"
@@ -64,18 +64,90 @@ void Screen::showTitle(std::string title, unsigned int spaces, std::string symbo
 void Screen::showWarning(std::string aviso){
     std::cout << aviso;
 }
-void Screen::showMenu(){
+void Screen::showMainMenu(Screen *tela){
+    int padding = 20;
+    int columns = 4;
+    // int tamanho = 100;
+    int spaces = 100;
+    int entrada = -1;
+    std::string title;
+    std::system("clear");
+    title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
+    this->showTitle(title, 100, "*");
+    title = "MENU";
+    this->showTitle(title, 100, "-");
+    // this->showWarning( "MENU:\n\n");
+    this->showWarning("1. Gerar uma solicitacao de transporte;\n");
+    this->showWarning("2. Sair.\n\n");
+    this->showWarning("Digite uma opcao do menu: ");   
+    entrada = -1;
+    while (entrada < 1 || entrada >2){
+        char c ;
+        if ( !( std::cin >> entrada) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
+            this->showWarning("Digite uma opcao do menu: ");
+            entrada = -1;
+        }else if(entrada < 1 || (entrada > 2)){
+            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
+            this->showWarning("Digite uma opcao do menu: ");            
+        }
+    }
+    if ( entrada == 1){
+        this->showSubMenu();
+    }else{
+        
+        delete tela;
+        this->showWarning("Programa finalizado com sucesso!\n"); 
+        exit(1);
+        // return;
+    }
+    // return entrada;
+}
+void Screen::showContinueMenu(Screen *tela){
+    int padding = 20;
+    int columns = 4;
+    // int tamanho = 100;
+    int spaces = 100;
+    int entrada = -1;
+    std::string title;
+    std::system("clear");
+
+    title = "MENU";
+    this->showTitle(title, 100, "-");
+    this->showWarning("Digite 1 para criar uma nova solicitacao ou 2 para sair");   
+    entrada = -1;
+    while (entrada < 1 || entrada >2){
+        char c ;
+        if ( !( std::cin >> entrada) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
+            this->showWarning("Digite uma opcao do menu: ");
+            entrada = -1;
+        }else if(entrada < 1 || (entrada > 2)){
+            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
+            this->showWarning("Digite uma opcao do menu: ");            
+        }
+    }
+    if ( entrada == 1){
+        this->showSubMenu();
+
+    }else{
+        delete tela;
+        this->showWarning("Programa finalizado com sucesso!\n"); 
+        exit(1);
+        // return;
+    }
+}
+void Screen::showSubMenu(){
     int padding = 20;
     int columns = 4;
     // int tamanho = 100;
     int spaces = 100;
     std::string title;
-    std::system("clear");
-    title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
-    this->showTitle(title, 100, "*");
-    // this->showBar("*");
-    // std::cout << std::setw(spaces/2) << std::right << "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES\n";
-    // this->showBar("*");
+
 
     std::cout << "Para gerar uma solicitacao, execute os seguintes passos:\n\n";
     std::cout << "1. Digite o numero da localidade de origem;\n";
@@ -158,6 +230,34 @@ void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
         }
     }    
 }
+// void Screen::showMenu(){
+//     int padding = 20;
+//     int columns = 4;
+//     // int tamanho = 100;
+//     int spaces = 100;
+//     std::string title;
+//     std::system("clear");
+//     title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
+//     this->showTitle(title, 100, "*");
+//     // this->showBar("*");
+//     // std::cout << std::setw(spaces/2) << std::right << "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES\n";
+//     // this->showBar("*");
+
+//     std::cout << "Para gerar uma solicitacao, execute os seguintes passos:\n\n";
+//     std::cout << "1. Digite o numero da localidade de origem;\n";
+//     std::cout << "2. Digite o numero da localidade de destino e a quantidade ser transportada;\n";
+//     std::cout << "3. Digite a quantidade de carga a ser transportada; e\n";
+//     std::cout << "4. Tecle ENTER.\n";
+    
+//     title = "LOCALIDADES";
+//     this->showTitle(title, 100, "-");
+//     // this->showBar("-");
+//     // std::cout << "LOCALIDADES:\n";
+//     // this->showBar("-");
+
+//     this->showVector(columns, padding);
+//     // std::cout << std::endl;
+// }
 // void menu(std::vector <std::string> &vector){
 //     int origem, // localidade de origem
 //         destino; // localidade de destino

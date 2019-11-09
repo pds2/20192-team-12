@@ -31,7 +31,9 @@ class Screen{
 		~Screen();
 		void setBarSize(unsigned int);
 		void setVector(std::vector <std::string> &);
-		void showMenu();
+		void showMainMenu(Screen*);
+		void showContinueMenu(Screen*);
+		void showSubMenu();
 		void showBar(std::string);
 		void showVector(int, int);
 		void showTitle(std::string, unsigned int, std::string);
