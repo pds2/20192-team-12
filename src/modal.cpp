@@ -138,9 +138,6 @@ float Ferroviario::getVelocidade(){
 float Ferroviario::obterCusto(float quantidade){
     return ceil(quantidade / this->_capacidade) * (this->_distancia * this->_preco);
 }
-float Ferroviario::obterTempo(){
-    return this->_distancia / this->_velocidade * 60;
-}
 
 //Construtores da classe Rodoviario
 Rodoviario::Rodoviario(){

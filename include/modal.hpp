@@ -68,9 +68,6 @@ class Ferroviario: public Modal {
 
         // recebe a quantidade a ser transportada
         float obterCusto(float) override;
-
-        // retorna tempo em minutos
-        float obterTempo();
 };
 
 class Rodoviario: public Modal {
