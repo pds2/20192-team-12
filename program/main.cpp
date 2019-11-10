@@ -32,11 +32,11 @@ int main(){
     Localidade origem,  // localidade de origem
                destino;  // localidade de destino
     float quantidade; // quantidade a ser transportada
-    int spaces = 100; // elemento da tela
+    // int spaces = 100; // elemento da tela
     std::string aviso; // elemento da tela
     std::string title; // elemento da tela
     int num_localidades; // numero de localidades
-    int num_solicitacoes = 0;
+    int num_solicitacoes = 0; // numero de solicitacoes realizadas
     int entrada = 1; // verifica entrada
     if (!arq_local.is_open() || !arq_arestas.is_open()){
         std::cout << "Pasta ou arquivo nao encontrado.\n";
@@ -59,9 +59,9 @@ int main(){
         */
 
         title = "SOLICITACOES";
-        tela->showTitle(title, spaces, "*");
+        tela->showTitle(title, "*");
         title = "SOLICITACAO Nº " + std::to_string(++num_solicitacoes);
-        tela->showTitle(title, spaces, "=");
+        tela->showTitle(title, "=");
 
         quantidade = -1;
         tela->showWarning("1. Digite a quantidade da carga em toneladas: ");
@@ -117,7 +117,7 @@ int main(){
             }
         }
         title = "DADOS DA SOLICITACAO\n";
-        tela->showTitle(title, spaces, "-");    
+        tela->showTitle(title, "-");    
         origem = searchMunicipio(cod_origem, vec_local);
         destino = searchMunicipio(cod_destino, vec_local);
         std::cout << "Origem: " << origem.getCodigoMunicipio() << " - "
@@ -130,7 +130,7 @@ int main(){
                   << destino.getPais()
                   << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
         title = "RESULTADO DA SOLICITACAO";
-        tela->showTitle(title, spaces, "-");
+        tela->showTitle(title, "-");
     
         Solicitacao s(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade); 
         tela->showWarning("Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1\n");
@@ -138,7 +138,7 @@ int main(){
         // std::system("clear");
 
         title = "MENU";
-        tela->showTitle(title, 100, "=");
+        tela->showTitle(title, "=");
         tela->showWarning("Digite 1 para criar uma nova solicitacao ou 2 para sair: ");   
         entrada = -1;
         // CONSERTAR LOOP INFINITO QUANO INSERE STRING AO INVES DE INT
@@ -170,6 +170,9 @@ int main(){
     // FIM BLOCO
 
     /*
+    EXCLUIR????
+    | | | | |
+    V V V V V
     ENTRADA DO USUARIO
     std::cout << "Digite o login do usuario: ";
     std::cout << std::endl;

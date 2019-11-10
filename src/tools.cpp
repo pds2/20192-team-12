@@ -50,15 +50,35 @@ Screen::~Screen(){}
 void Screen::setBarSize(unsigned int tamanho){
     this->_bar_size = tamanho;
 }
+void Screen::setPadding(unsigned int padding){
+    this->_padding = padding;
+}
+void Screen::setColumns(unsigned int columns){
+    this->_columns = columns;
+}
+void Screen::setSpaces(unsigned int spaces){
+    this->_spaces = spaces;
+}
+
+unsigned int Screen::getPadding(){
+    return this->_padding;
+}
+unsigned int Screen::getColumns(){
+    return this->_columns;
+}
+unsigned int Screen::getSpaces(){
+    return this->_spaces;
+}
 void Screen::setVector(std::vector <Localidade> &vector){
     this->_vector = vector;
 }
-void Screen::showTitle(std::string title, unsigned int spaces, std::string symbol){
+void Screen::showTitle(std::string title, std::string symbol){
     std::cout << std::endl;
-    int padding = (spaces + title.size())/2;
+    int desloc = (this->_spaces + title.size())/2;
+    // int padding = (this->_spaces + title.size())/2;
     this->showBar(symbol);
     // std::cout << std::internal << title << std::endl;
-    std::cout << std::setw(padding) << std::internal << title << std::endl;
+    std::cout << std::setw(desloc) << std::internal << title << std::endl;
     // std::cout << std::setw(spaces) << std::right << title << std::endl;
     this->showBar(symbol);
     std::cout << std::endl;
@@ -67,17 +87,18 @@ void Screen::showWarning(std::string aviso){
     std::cout << aviso;
 }
 void Screen::showMainMenu(Screen *tela){
-    int padding = 20;
-    int columns = 4;
+    // int padding = 20;
+    // int columns = 4;
     // int tamanho = 100;
-    int spaces = 100;
+    // int spaces = 100;
     int entrada = -1;
     std::string title;
-    std::system("clear");
+    int cls = std::system("clear");
+    this->setPadding((unsigned int)this->_spaces + title.size()/2);
     title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
-    this->showTitle(title, 100, "*");
+    this->showTitle(title, "*");
     title = "MENU";
-    this->showTitle(title, 100, "=");
+    this->showTitle(title, "=");
     // this->showWarning( "MENU:\n\n");
     this->showWarning("1. Gerar uma solicitacao de transporte;\n");
     this->showWarning("2. Sair.\n\n");
@@ -109,10 +130,10 @@ void Screen::showMainMenu(Screen *tela){
 }
 // 
 void Screen::showSubMenu(){
-    int padding = 20;
-    int columns = 4;
+    // int padding = 20;
+    // int columns = 4;
     // int tamanho = 100;
-    int spaces = 100;
+    // int spaces = 100;
     std::string title;
 
 
@@ -123,12 +144,12 @@ void Screen::showSubMenu(){
     std::cout << "4. Tecle ENTER.\n";
     
     title = "LOCALIDADES";
-    this->showTitle(title, 100, "-");
+    this->showTitle(title, "-");
     // this->showBar("-");
     // std::cout << "LOCALIDADES:\n";
     // this->showBar("-");
 
-    this->showVector(columns, padding);
+    this->showVector(this->_columns);
     // std::cout << std::endl;
 }
 void Screen::showBar(std::string simbolo){
@@ -138,10 +159,13 @@ void Screen::showBar(std::string simbolo){
     }
     std::cout << barra << std::endl;
 }
-void Screen::showVector(int columns, int padding){
+void Screen::showVector(int columns){
+    this->_padding = 20;
     int rows = (int) this->_vector.size();    
     for (int i = 0; i < rows; i++){
-        std::cout << std::setw(2) << std::right << this->_vector[i].getCodigoMunicipio() << " - " << std::setw(padding) << std::left
+        std::cout << std::setw(2) << std::right 
+                  << this->_vector[i].getCodigoMunicipio() << " - "
+                  << std::setw(this->_padding) << std::left
                   << this->_vector[i].getMunicipio();
         if((i + 1) % columns == 0){
             std::cout << std::endl;
@@ -154,7 +178,7 @@ void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
     arquivo.clear();
     arquivo.seekg(0, std::ios::beg);
     int counter = 0;
-    int rows, columns;
+    int rows = 0, columns = 0;
     while(!arquivo.eof()){
         getline(arquivo, linha);
         std::istringstream iss_linha(linha);
@@ -204,9 +228,11 @@ void lerLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
     arquivo.clear();
     arquivo.seekg(0, std::ios::beg);
     int counter = 0;
-    int rows, column, columns;
+    int rows = 0,
+        column = 0,
+        columns = 0;
     Localidade local;
-    std::size_t offset = 0;
+
     while(!arquivo.eof()){
         getline(arquivo, linha);
         std::istringstream iss_linha(linha);

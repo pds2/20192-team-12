@@ -27,18 +27,30 @@ class Screen{
 	private:
 		unsigned int _bar_size = 100;
 		std::vector <Localidade> _vector; // novo vetor
+		unsigned int _padding = 20;
+		unsigned int _columns = 4;
+		unsigned int _spaces = 100;
 		// std::vector <std::string> _vector; // antigo vetor
 	public:
 		Screen(std::vector <Localidade> &);
 		~Screen();
+		void setPadding(unsigned int);
+		void setColumns(unsigned int);
+		void setSpaces(unsigned int);
+		
+		unsigned int getPadding();
+		unsigned int getColumns();
+		unsigned int getSpaces();
+
 		void setBarSize(unsigned int);
 		void setVector(std::vector <Localidade> &);
 		void showMainMenu(Screen*);
 		// void showContinueMenu(Screen*);
 		void showSubMenu();
 		void showBar(std::string);
-		void showVector(int, int);
-		void showTitle(std::string, unsigned int, std::string);
+		void showVector(int);
+		// void showTitle(std::string, unsigned int, std::string);
+		void showTitle(std::string, std::string);
 		void showWarning(std::string);
 		
 };
