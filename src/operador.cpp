@@ -177,6 +177,6 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
     delete[] parent;
 } 
 
-void Operador::obterRota(int src, int dest, float quantidade) {
-    Operador::dijkstra(src, dest, quantidade);
+void Operador::addSolicitacao(int src, int dest, float quantidade) {
+    this->_lista_solicitacao.push_back(src, dest, quantidade);
 }

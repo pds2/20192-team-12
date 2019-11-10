@@ -24,7 +24,7 @@ class Operador {
     	int _V;
         // Representação em matriz de adjacência
         Modal **_graph;
-
+        std::vector<Solicitacao> _lista_solicitacoes;
         void popularMatriz();
    
         void printSolution(int*);
@@ -32,9 +32,6 @@ class Operador {
         void printSolutionPath(int*, int*, int);
 
         int minDistance(int*, bool*);
-
-        // Origem, destino e quantidade
-        void dijkstra(int, int, float);
     	
     public:
 
@@ -42,8 +39,12 @@ class Operador {
         Operador(int);
         ~Operador();
 
-        // origem, destino, quantidade
-    	void obterRota(int, int, float);
+        // Origem, destino e quantidade
+        void dijkstra(int, int, float);
+
+        // Origem, destino e quantidade
+        void addSolicitacao(int, int, float);
 };
 
 #endif
+
