@@ -76,6 +76,7 @@ int Modal::getDistancia(){
 float Modal::obterTempo(){
     return this->_distancia / this->_velocidade * 60;
 }
+float Modal::obterCusto(float distancia) {}
 
 //Contrutores da classe Ferroviario
 Ferroviario::Ferroviario(){
