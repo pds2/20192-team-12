@@ -53,26 +53,26 @@ void Operador::popularMatriz() {
         infile >> valor_terminal;
         infile >> distancia;
 
-        switch(tipo_modal) {
-            case tipo_modal == "ferroviario":
-                this->_graph[row][col] = Ferroviario::Ferroviario(distancia);
-
-            case tipo_modal == "rodoviario":
-                this->_graph[row][col] = Rodoviario::Rodoviario(distancia, pedagio, valor_pedagio);
-            
-            case(tipo_modal == "aereo"):
-                this->_graph[row][col] = Aereo::Aereo(distancia, valor_terminal);
-            
-            case(tipo_modal == "aquaviario"):
-                this->_graph[row][col] = Aquaviario::Aquaviario(distancia, valor_terminal);
-        }   
+        if(tipo_modal == "ferroviario") {
+            this->_graph[row][col] = Ferroviario(distancia);
+        }else{
+            if(tipo_modal == "rodoviario") {
+                this->_graph[row][col] = Rodoviario(distancia, pedagio, valor_pedagio);
+            }else{
+                if(tipo_modal == "aereo") {
+                    this->_graph[row][col] = Aereo(distancia, valor_terminal);
+                }else{
+                    this->_graph[row][col] = Aquaviario(distancia, valor_terminal);    
+                }
+            }
+        }
     }
 }
 
 
 // A utility function to find the vertex with minimum distance value, from 
 // the set of vertices not yet included in shortest path tree 
-int Operador::minDistance(int dist[], bool sptSet[]) { 
+int Operador::minDistance(int *dist, bool *sptSet) { 
     // Initialize min value 
     int min = INT_MAX, min_index; 
 
@@ -84,14 +84,14 @@ int Operador::minDistance(int dist[], bool sptSet[]) {
 } 
 
 // A utility function to print the constructed distance array 
-int Operador::printSolution(int dist[])  { 
+void Operador::printSolution(int *dist)  { 
     printf("Vertex \t\t Distance from Source\n"); 
     for (int i = 0; i < this->_V; i++) 
         printf("%d \t\t %d\n", i, dist[i]); 
 } 
 
 // Function to print shortest path from source to j using parent array 
-void Operador::printPath(int parent[], int j) { 
+void Operador::printPath(int *parent, int j) { 
       
     // Base Case : If j is source 
     if (parent[j] == - 1) 
@@ -103,7 +103,7 @@ void Operador::printPath(int parent[], int j) {
 } 
   
 // A utility function to print the constructed distance array 
-int Operador::printSolutionPath(int dist[], int parent[], int src) { 
+void Operador::printSolutionPath(int *dist, int *parent, int src) { 
     printf("Vertex\t Distance\tPath"); 
     for (int i = 1; i < this->_V; i++) { 
         printf("\n%d -> %d \t\t %d\t\t%d ", 
@@ -116,14 +116,14 @@ int Operador::printSolutionPath(int dist[], int parent[], int src) {
 // Function that implements Dijkstra's single source shortest path algorithm 
 // for a graph represented using adjacency matrix representation 
 void Operador::dijkstra(int src, int dest, float quantidade) { 
-    int dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
+    int *dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
     // distance from src to i 
 
-    bool sptSet = new bool[this->_V]; // sptSet[i] will be true if vertex i is included in shortest 
+    bool *sptSet = new bool[this->_V]; // sptSet[i] will be true if vertex i is included in shortest 
     // path tree or shortest distance from src to i is finalized 
 
     // Parent array to store shortest path tree 
-    int parent = new int[this->_V]; 
+    int *parent = new int[this->_V]; 
 
     // Initialize all distances as INFINITE and stpSet[] as false 
     for (int i = 0; i < this->_V; i++) 
@@ -150,9 +150,9 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
             // Update dist[v] only if is not in sptSet, there is an edge from 
             // u to v, and total weight of path from src to v through u is 
             // smaller than current value of dist[v] 
-            if (!sptSet[v] && graph[u][v]._distancia && dist[u] != INT_MAX 
-                && dist[u] + graph[u][v]._distancia < dist[v]) {
-                dist[v] = dist[u] + graph[u][v]._distancia;     
+            if (!sptSet[v] && _graph[u][v].getDistancia() && dist[u] != INT_MAX 
+                && dist[u] + _graph[u][v].getDistancia() < dist[v]) {
+                dist[v] = dist[u] + _graph[u][v].getDistancia();     
                 parent[v] = u;
             }
     } 

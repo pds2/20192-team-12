@@ -26,9 +26,9 @@ class Operador {
 
         void popularMatriz();
    
-        int printSolution(int*);
+        void printSolution(int*);
         void printPath(int*, int);
-        int printSolutionPath(int*, int*, int);
+        void printSolutionPath(int*, int*, int);
 
         int minDistance(int*, bool*);
 
