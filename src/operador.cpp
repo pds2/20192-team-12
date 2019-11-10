@@ -23,7 +23,7 @@ Operador::Operador(int V){
 }
 
 Operador::~Operador(){
-    for (int i = 0; i < V; ++i)
+    for (int i = 0; i < _V; ++i)
         delete [] this->_graph[i];
     delete [] this->_graph;
 }
@@ -34,6 +34,15 @@ void Operador::popularMatriz() {
     std::ifstream infile("../data/arestas.txt");
 
     int row, col;
+    std::string tipo_modal;
+    float preco;
+    float capacidade;
+    float velocidade;
+    bool pedagio;
+    float valor_pedagio;
+    float valor_terminal;
+    int distancia;
+
     while(infile >> row >> col) {
         infile >> tipo_modal;
         infile >> preco;
@@ -45,14 +54,17 @@ void Operador::popularMatriz() {
         infile >> distancia;
 
         switch(tipo_modal) {
-            case_when(tipo_modal == "rodoviario"):
-                this->_graph[row][col] = Rodoviario::Rodoviario(tipo_modal, preco, capacidade, velocidade, distancia, pedagio, valor_pedagio);
+            case tipo_modal == "ferroviario":
+                this->_graph[row][col] = Ferroviario::Ferroviario(distancia);
+
+            case tipo_modal == "rodoviario":
+                this->_graph[row][col] = Rodoviario::Rodoviario(distancia, pedagio, valor_pedagio);
             
-            case_when(tipo_modal == "aereo"):
-                this->_graph[row][col] = Aereo::Aereo(tipo_modal, preco, capacidade, velocidade, distancia, valor_terminal);
+            case(tipo_modal == "aereo"):
+                this->_graph[row][col] = Aereo::Aereo(distancia, valor_terminal);
             
-            case_when(tipo_modal == "aquaviario"):
-                this->_graph[row][col] = Aquaviario::Aquaviario(tipo_modal, preco, capacidade, velocidade, distancia, pedagio, valor_pedagio);
+            case(tipo_modal == "aquaviario"):
+                this->_graph[row][col] = Aquaviario::Aquaviario(distancia, valor_terminal);
         }   
     }
 }
