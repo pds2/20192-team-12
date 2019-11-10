@@ -2,16 +2,18 @@
 Esta classe representa uma conexão entre duas localidades e
 o meio de transporte que as conecta.
 
-O meio de transporte pode ser: ferroviário, rodoviário ou aquaviário. 
-Todos esses três meios de transporte possuem as seguintes informações:
-1) Tipo do modal: rodoviario, ferroviario ou aquaviario;
+O meio de transporte pode ser: rodoviário, ferroviário, aquaviário ou aéreo. 
+Todos esses quatro meios de transporte possuem as seguintes informações:
+1) Tipo do modal: rodoviario, ferroviario, aquaviario ou aéreo;
 2) Preço: Reais/Km;
-3) Capacidade: em Kg;
+3) Capacidade: em Toneladas;
 4) Velocidade: Km/h;
+5) Distância em Km;
 
 O modal rodoviário tem como especificidade o fato de poder ter pedágio; 
-já o modal aquaviário tem como especificidade o fato de ter tarifa do terminal.
+já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal.
 */
+
 #include <iostream>
 #include <stdexcept>
 #include <cmath>

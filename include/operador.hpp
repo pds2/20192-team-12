@@ -22,6 +22,7 @@ as duas localidades desejadas
 class Operador {
     private: 
     	int _V;
+        // Representação em matriz de adjacência
         Modal **_graph;
 
         void popularMatriz();
@@ -32,6 +33,7 @@ class Operador {
 
         int minDistance(int*, bool*);
 
+        // Origem, destino e quantidade
         void dijkstra(int, int, float);
     	
     public:

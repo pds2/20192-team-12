@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "../include/operador.hpp"
 #include <stdexcept>
@@ -7,6 +6,18 @@
 #include <stdio.h> 
 #include <iostream>
 #include <fstream>
+
+/*
+O algoritmo Dijsktra's single source shortest path algorithm está disponível em:
+<https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/>
+
+E foi parcialmente alterado para responder às necessidades do 
+Sistema de Alocação de Transporte.
+
+O algoritmo para impressão do caminho mínimo está disponível em:
+<https://www.geeksforgeeks.org/printing-paths-dijkstras-shortest-path-algorithm/>
+*/
+
 
 //Contrutores da classe Operador
 Operador::Operador() {}
