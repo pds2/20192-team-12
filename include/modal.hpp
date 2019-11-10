@@ -48,20 +48,13 @@ class Modal {
         // retorna tempo em minutos
         float obterTempo();
 };
-class Ferroviario {
-    protected: 
-        std::string _tipo_modal;
-        float _preco;
-        float _capacidade;
-        float _velocidade;
-        int _distancia;
-        
+
+class Ferroviario: public Modal {      
     public:  
         Ferroviario();      
         Ferroviario(int);
         ~Ferroviario();
 
-        // void setTipoModal(std::string);
         void setPreco(float);
         void setCapacidade(float);
         void setVelocidade(float);
@@ -79,6 +72,7 @@ class Ferroviario {
         // retorna tempo em minutos
         float obterTempo();
 };
+
 class Rodoviario: public Modal {
     private:
         bool _pedagio;
