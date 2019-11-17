@@ -2,6 +2,8 @@
 #define OPERADOR_H
 
 #include "../include/modal.hpp"
+#include "../include/solicitacao.hpp"
+#include <vector>
 
 /*
 Esta classe representa o Operador Nacional que realiza a logística

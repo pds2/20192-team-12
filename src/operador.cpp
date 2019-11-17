@@ -4,7 +4,6 @@
 #include <cmath>
 #include <limits.h>
 #include <stdio.h> 
-#include <iostream>
 #include <fstream>
 
 /*
@@ -178,5 +177,6 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
 } 
 
 void Operador::addSolicitacao(int src, int dest, float quantidade) {
-    this->_lista_solicitacao.push_back(src, dest, quantidade);
+    Solicitacao s(src, dest, quantidade);
+    this->_lista_solicitacoes.push_back(s);
 }
