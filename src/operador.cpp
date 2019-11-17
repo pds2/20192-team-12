@@ -93,13 +93,6 @@ int Operador::minDistance(int *dist, bool *sptSet) {
     return min_index; 
 } 
 
-// A utility function to print the constructed distance array 
-void Operador::printSolution(int *dist)  { 
-    printf("Vertex \t\t Distance from Source\n"); 
-    for (int i = 0; i < this->_V; i++) 
-        printf("%d \t\t %d\n", i, dist[i]); 
-} 
-
 // Function to print shortest path from source to j using parent array 
 void Operador::printPath(int *parent, int j) { 
       
@@ -113,13 +106,11 @@ void Operador::printPath(int *parent, int j) {
 } 
   
 // A utility function to print the constructed distance array 
-void Operador::printSolutionPath(int *dist, int *parent, int src) { 
+void Operador::printSolutionPath(int *dist, int *parent, int src, int dest) { 
     printf("Vertex\t Distance\tPath"); 
-    for (int i = 1; i < this->_V; i++) { 
-        printf("\n%d -> %d \t\t %d\t\t%d ", 
-                      src, i, dist[i], src); 
-        printPath(parent, i); 
-    } 
+    printf("\n%d -> %d \t %d\t\t%d ", 
+                      src, dest, dist[dest], src);
+    printPath(parent, dest);
     printf("\n");
 } 
 
@@ -154,6 +145,10 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
         // Mark the picked vertex as processed 
         sptSet[u] = true; 
 
+        if(u == dest) {
+            break;
+        }
+        
         // Update dist value of the adjacent vertices of the picked vertex. 
         for (int v = 0; v < this->_V; v++) 
 
@@ -168,8 +163,7 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
     } 
 
     // print the constructed distance array 
-    Operador::printSolution(dist); 
-    Operador::printSolutionPath(dist, parent, src); 
+    Operador::printSolutionPath(dist, parent, src, dest); 
 
     delete[] dist;
     delete[] sptSet;

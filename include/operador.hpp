@@ -29,9 +29,8 @@ class Operador {
         std::vector<Solicitacao> _lista_solicitacoes;
         void popularMatriz();
    
-        void printSolution(int*);
         void printPath(int*, int);
-        void printSolutionPath(int*, int*, int);
+        void printSolutionPath(int*, int*, int, int);
 
         int minDistance(int*, bool*);
     	
