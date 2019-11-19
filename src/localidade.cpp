@@ -55,7 +55,7 @@ void Localidade::setPais(std::string pais){
     if (pais.size() == 0){
         throw std::invalid_argument("O nome do pais nao pode ser vazio.");
     }    
-    this->_pais = pais;   
+    this->_pais = pais;
 }
 
 int Localidade::getCodigoMunicipio(){

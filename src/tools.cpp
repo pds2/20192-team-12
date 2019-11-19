@@ -120,6 +120,7 @@ void Screen::showMainMenu(Screen *tela){
     // return entrada;
 }
 // 
+
 void Screen::showSubMenu(){
     // int padding = 20;
     // int columns = 4;
@@ -142,6 +143,84 @@ void Screen::showSubMenu(){
 
     this->showVector(this->_columns);
     // std::cout << std::endl;
+}
+void Screen::showEntradaDados(float &quantidade, int &cod_origem, int &cod_destino, int &num_solicitacoes, int num_localidades){
+        std::string aviso;
+        std::string title = "SOLICITACOES";
+        this->showTitle(title, "*");
+        title = "SOLICITACAO Nº " + std::to_string(++num_solicitacoes);
+        this->showTitle(title, "=");
+
+        quantidade = -1;
+        this->showWarning("1. Digite a quantidade da carga em toneladas: ");
+        while (quantidade < 1){
+            char c ;
+            if ( !( std::cin >> quantidade) || ( std::cin.get(c) && !std::isspace(c))){
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                this->showWarning("ATENCAO! A quantidade deve ser um valor numerico.\n");
+                this->showWarning("1. Digite novamente a quantidade da carga em toneladas: ");
+                quantidade = -1;
+            }else if(quantidade < 1){
+                this->showWarning("ATENCAO! A quantidade deve ser um valor positivo.\n");
+                this->showWarning("1. Digite novamente a quantidade da carga em toneladas: ");            
+            }
+        }
+        this->showBar("-");
+
+        cod_origem = -1;
+        std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
+        while (cod_origem < 1 ||cod_origem >= num_localidades){
+            char c ;
+            if ( !( std::cin >> cod_origem) || ( std::cin.get(c) && !std::isspace(c))){
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                this->showWarning("ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n");
+                this->showWarning("2. Digite novamente o codigo da origem: ");
+                cod_origem = -1;
+            }else if(cod_origem < 1 || (cod_origem >= num_localidades)){
+                aviso = "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
+                                std::to_string(num_localidades) + ".\n";
+                this->showWarning(aviso);
+                this->showWarning("2. Digite novamente o codigo da origem: ");            
+            }
+        } 
+        this->showBar("-");
+
+        cod_destino = -1;
+        std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
+        while (cod_destino < 1 || cod_destino >= num_localidades){
+            char c ;
+            if ( !( std::cin >> cod_destino) || ( std::cin.get(c) && !std::isspace(c))){
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                this->showWarning("ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n");
+                this->showWarning("3. Digite novamente o codigo da destino: ");
+                cod_destino = -1;
+            }else if(cod_destino < 1 || (cod_destino >= num_localidades)){
+                aviso = "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
+                                std::to_string(num_localidades) + ".\n";
+                this->showWarning(aviso);
+                this->showWarning("3. Digite novamente o codigo da destino: ");            
+            }
+        }    
+}
+void Screen::showSolicitacao(int cod_origem, int cod_destino, float quantidade, std::vector <Localidade> vec_local){
+    std::string title = "DADOS DA SOLICITACAO\n";
+    this->showTitle(title, "-");    
+    Localidade origem = searchMunicipio(cod_origem, vec_local);
+    Localidade destino = searchMunicipio(cod_destino, vec_local);
+    std::cout << "Origem: " << origem.getCodigoMunicipio() << " - "
+                << origem.getMunicipio() << "/" 
+                << origem.getEstado() << " - "
+                << origem.getPais()
+                << "\nDestino: " << destino.getCodigoMunicipio() << " - "
+                << destino.getMunicipio() << "/" 
+                << destino.getEstado() << " - "
+                << destino.getPais()
+                << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
+    title = "RESULTADO DA SOLICITACAO";
+    this->showTitle(title, "-");
 }
 std::string Screen::formattString(std::string texto){
     return "\x1B[0;37m" + texto + "\033[0m";
