@@ -6,11 +6,11 @@
 #include <vector>
 #include <stdexcept>
 #include <typeinfo>
-#include "tools.hpp"
-#include "modal.hpp"
-#include "localidade.hpp"
-#include "solicitacao.hpp"
-#include "tools.hpp"
+#include "../include/tools.hpp"
+#include "../include/modal.hpp"
+#include "../include/localidade.hpp"
+#include "../include/solicitacao.hpp"
+#include "../include/tools.hpp"
 // #include "usuario.hpp"
 
 /*

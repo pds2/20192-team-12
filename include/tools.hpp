@@ -16,6 +16,7 @@ class Tipo{
 		std::string getTipo(int);
 		std::string getTipo(float);
 		std::string getTipo(double);
+		std::string getTipo(bool);
 		std::string getTipo(std::istream);
 		std::string getTipo(std::ifstream);
 		std::string getTipo(Ferroviario);
@@ -52,6 +53,7 @@ class Screen{
 		// void showTitle(std::string, unsigned int, std::string);
 		void showTitle(std::string, std::string);
 		void showWarning(std::string);
+		std::string formattString(std::string);
 		
 };
 

@@ -72,7 +72,7 @@ class Ferroviario: public Modal {
 
 class Rodoviario: public Modal {
     private:
-        bool _pedagio;
+        int _pedagio;
         float _valor_pedagio;
 
     public:
@@ -80,10 +80,10 @@ class Rodoviario: public Modal {
         Rodoviario(int, bool, float);
         ~Rodoviario();
 
-        void setPedagio(bool);
+        void setPedagio(int);
         void setValorPedagio(float);
 
-        bool isPedagio();
+        int isPedagio();
         float getValorPedagio();
 
         float obterCusto(float) override;

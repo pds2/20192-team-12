@@ -7,10 +7,10 @@
 #include <cctype>
 #include <string> 
 #include <vector>
-#include "tools.hpp"
-#include "modal.hpp"
-#include "solicitacao.hpp"
-#include "localidade.hpp"
+#include "../include/tools.hpp"
+#include "../include/modal.hpp"
+#include "../include/solicitacao.hpp"
+#include "../include/localidade.hpp"
 
 std::string Tipo::getTipo(std::string){
     return "string";
@@ -23,6 +23,9 @@ std::string Tipo::getTipo(float){
 }
 std::string Tipo::getTipo(double){
     return "double";
+}
+std::string Tipo::getTipo(bool){
+    return "boolean";
 }
 std::string Tipo::getTipo(std::ifstream){
     return "ifstream";
@@ -72,20 +75,8 @@ unsigned int Screen::getSpaces(){
 void Screen::setVector(std::vector <Localidade> &vector){
     this->_vector = vector;
 }
-void Screen::showTitle(std::string title, std::string symbol){
-    std::cout << std::endl;
-    int desloc = (this->_spaces + title.size())/2;
-    // int padding = (this->_spaces + title.size())/2;
-    this->showBar(symbol);
-    // std::cout << std::internal << title << std::endl;
-    std::cout << std::setw(desloc) << std::internal << title << std::endl;
-    // std::cout << std::setw(spaces) << std::right << title << std::endl;
-    this->showBar(symbol);
-    std::cout << std::endl;
-}
-void Screen::showWarning(std::string aviso){
-    std::cout << aviso;
-}
+
+
 void Screen::showMainMenu(Screen *tela){
     // int padding = 20;
     // int columns = 4;
@@ -152,19 +143,45 @@ void Screen::showSubMenu(){
     this->showVector(this->_columns);
     // std::cout << std::endl;
 }
+std::string Screen::formattString(std::string texto){
+    return "\x1B[0;37m" + texto + "\033[0m";
+}
+void Screen::showWarning(std::string aviso){
+    // std::string formatted_warning = formattString(aviso); //"\x1B[0;37m" + aviso + "\033[0m";
+    // std::cout << formatted_warning;
+    // std::cout << formattString(aviso);
+    std::cout << aviso;
+}
+void Screen::showTitle(std::string title, std::string symbol){
+    std::cout << std::endl;
+    int desloc = (this->_spaces + title.size())/2;
+    // int padding = (this->_spaces + title.size())/2;
+    this->showBar(symbol);
+    // std::cout << std::internal << title << std::endl;
+    // std::string formatted_title = formattString(title); //"\x1B[0;37m" + title + "\033[0m";
+    // std::cout << std::setw(desloc) << std::internal << formattString(title) << std::endl;
+    std::cout << std::setw(desloc) << std::internal << title << std::endl;
+    // std::cout << std::setw(spaces) << std::right << title << std::endl;
+    this->showBar(symbol);
+    std::cout << std::endl;
+}
+
 void Screen::showBar(std::string simbolo){
     std::string barra = "";
     for (unsigned int i = 0; i < this->_bar_size; i++){
         barra += simbolo;
     }
+    // std::string formatted_bar = formattString(barra); //"\x1B[0;37m" + barra + "\033[0m";
     std::cout << barra << std::endl;
+    // std::cout << formattString(barra) << std::endl;
 }
 void Screen::showVector(int columns){
     this->_padding = 20;
     int rows = (int) this->_vector.size();    
     for (int i = 0; i < rows; i++){
+        
         std::cout << std::setw(2) << std::right 
-                  << this->_vector[i].getCodigoMunicipio() << " - "
+                  << std::to_string(this->_vector[i].getCodigoMunicipio())<< " - "
                   << std::setw(this->_padding) << std::left
                   << this->_vector[i].getMunicipio();
         if((i + 1) % columns == 0){

@@ -18,7 +18,7 @@ já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa 
 #include <stdexcept>
 #include <cmath>
 #include "modal.hpp"
-// #include "tools.hpp"
+#include "tools.hpp"
 
 /*
 Wagner: Desenvolvendo testes de unidade
@@ -49,15 +49,27 @@ Modal::Modal(std::string nome_modal, float preco, float capacidade, float veloci
 Modal::~Modal(){}
 
 void Modal::setPreco(float preco){
+    if (preco < 0 ){
+        throw std::invalid_argument("O preco nao pode ser negativo.");
+    }    
     this->_preco = preco;
 }
 void Modal::setCapacidade(float capacidade){
+    if (capacidade < 0 ){
+        throw std::invalid_argument("A capacidade nao pode ser negativa.");
+    }     
     this->_capacidade = capacidade;
 }
 void Modal::setVelocidade(float velocidade){
+    if (velocidade < 0 ){
+        throw std::invalid_argument("A velocidade nao pode ser negativa.");
+    }    
     this->_velocidade = velocidade;
 }
 void Modal::setDistancia(int distancia){
+    if (distancia < 0 ){
+        throw std::invalid_argument("A distancia nao pode ser negativa.");
+    }    
     this->_distancia = distancia;
 }
 std::string Modal::getTipoModal(){
@@ -142,21 +154,22 @@ float Ferroviario::obterCusto(float quantidade){
 }
 
 //Construtores da classe Rodoviario
-Rodoviario::Rodoviario(){
-    this->_tipo_modal = "rodoviario";
-    this->_preco = 0.075;
-    this->_capacidade = 35;
-    this->_velocidade = 60;
-    this->_distancia = 0;
-    this->_pedagio = 0;
-    this->_valor_pedagio = 0;
-} 
-
+// Rodoviario::Rodoviario(){
+//     this->_tipo_modal = "rodoviario";
+//     this->_preco = 0.075;
+//     this->_capacidade = 35;
+//     this->_velocidade = 60;
+//     this->_distancia = 0;
+//     this->_pedagio = false;
+//     this->_valor_pedagio = 0;
+// } 
+Rodoviario::Rodoviario(): Rodoviario(0, false, 0) {} 
 Rodoviario::Rodoviario(int distancia, bool pedagio, float valor_pedagio){
     if (distancia < 0 || valor_pedagio < 0){
         throw std::invalid_argument("As variaveis distancia e valor_pedagio e  nao podem ser negativas!");
-    }    
-    if (pedagio != true || pedagio != false){
+    }
+    std::cout << "teste: " << pedagio<< " " << (pedagio != true) << " " << (pedagio != false) << std::endl;
+    if (pedagio != true && pedagio != false){
         throw std::invalid_argument("A variavel pedagio tem que ser true ou false.");
     }
     // Modal(nome_modal, preco, capacidade, velocidade, distancia);
@@ -172,11 +185,18 @@ Rodoviario::Rodoviario(int distancia, bool pedagio, float valor_pedagio){
 Rodoviario::~Rodoviario(){}
 
 //Metodos da classe Rodoviario
-void Rodoviario::setPedagio(bool pedagio){
-    if (pedagio != true || pedagio != false){
+void Rodoviario::setPedagio(int pedagio){
+    Tipo tipo;
+    std::cout << "pedagio: " << pedagio << " " << tipo.getTipo(pedagio) << " " 
+              << " teste1 " << (pedagio != true) << " teste2 " << (pedagio != false) << std::endl;
+    // if (tipo.getTipo(pedagio) != "boolean"){
+    if (pedagio != 1 && pedagio != 0){
         throw std::invalid_argument("A variavel pedagio deve ser true ou false.");
     }
-    this->_pedagio = pedagio;
+    // else{
+        this->_pedagio = pedagio;
+
+    // }
 }
 void Rodoviario::setValorPedagio(float valor_pedagio){
     if (valor_pedagio < 0){
@@ -184,7 +204,7 @@ void Rodoviario::setValorPedagio(float valor_pedagio){
     }
     this->_valor_pedagio = valor_pedagio;
 }
-bool Rodoviario::isPedagio(){
+int Rodoviario::isPedagio(){
     return this->_pedagio;
 }
 float Rodoviario::getValorPedagio(){
@@ -200,7 +220,7 @@ float Rodoviario::obterCusto(float quantidade){
 }
 
 //Construtores da classe Aquaviario
-Aquaviario::Aquaviario(): Modal(), _valor_terminal(0) {}
+Aquaviario::Aquaviario(): Aquaviario(0, 0){}
  
 Aquaviario::Aquaviario(int distancia, float valor_terminal) {
     // if (preco < 0 || capacidade < 0 || velocidade < 0 || valor_terminal < 0){
@@ -237,7 +257,7 @@ float Aquaviario::obterCusto(float quantidade){
 }
 
 //Construtores da classe Aereo
-Aereo::Aereo(): Modal(), _valor_terminal(0){}
+Aereo::Aereo(): Aereo(0, 0){}
 
 Aereo::Aereo(int distancia, float valor_terminal){
     // if (preco < 0 || capacidade < 0 || velocidade < 0){
