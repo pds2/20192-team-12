@@ -11,10 +11,25 @@
 #include "../include/localidade.hpp"
 #include "../include/solicitacao.hpp"
 #include "../include/tools.hpp"
+#include "../include/operador.hpp"
 // #include "usuario.hpp"
 
-/*
-    EM DESENVOLVIMENTO
+/*  
+    ------EM DESENVOLVIMENTO
+    FAZER:
+    1. INCLUIR TESTES DOS MODULOS:
+        - LOCALIDADES;
+        - TOOLS;
+        - OPERADOR;
+    2. INCLUIR SAIDA DO MODULO OPERADOR NA TELA
+
+    3. REFATORAR:
+        - EXCLUIR REPETICOES;
+        - BAD SMELLS;
+    4. COMENTAR CODIGO;
+    5. LIMPAR CODIGO;
+    6. FAZER INTERFACE GRAFICA, SE DER TEMPO.
+
 */
 int main(){
     std::string linha;
@@ -133,6 +148,9 @@ int main(){
         tela->showTitle(title, "-");
     
         Solicitacao s(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade); 
+        Operador operador = Operador();
+        operador.addSolicitacao(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade);
+        
         tela->showWarning("Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1\n");
         tela->showWarning("Rota 2: localidade1 -> localidade4 -> localidade3 - preco2 - tempo2\n");
         // std::system("clear");
