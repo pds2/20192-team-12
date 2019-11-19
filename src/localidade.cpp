@@ -3,15 +3,39 @@
 
 //Construtores da classe Localidades
 Localidade::Localidade():Localidade(2, "BELO HORIZONTE", -19.891053, -43.951401, "MG", "BRASIL"){}
-Localidade::Localidade(int codigo_municipio, std::string municipio, float lat, float lng, std::string estado, std::string pais):
-                       _codigo_municipio(codigo_municipio), _municipio(municipio), _lat(lat), _long(lng), _estado(estado), _pais(pais){}
+Localidade::Localidade(int codigo_municipio,
+                       std::string municipio,
+                       float lat, float lng,
+                       std::string estado,
+                       std::string pais){
+    
+    if (codigo_municipio < 0){
+        throw std::invalid_argument("O codigo do municipio nao pode ser negativo.");
+    }
+    if (municipio.size() == 0 || estado.size() == 0 || pais.size() == 0){
+        throw std::invalid_argument("O nome do municipio, estado ou pais nao pode ser vazio.");
+    }
+    this->_codigo_municipio = codigo_municipio;
+    this->_municipio = municipio;
+    this->_lat = lat;
+    this->_long = lng;
+    this->_estado = estado;
+    this->_pais = pais;
+}
+
 Localidade::~Localidade(){}
 
 //Metodos da classe Localidades
 void Localidade::setCodigoMunicipio(int codigo_municipio){
+    if (codigo_municipio < 0){
+        throw std::invalid_argument("O codigo do municipio nao pode ser negativo.");
+    }    
     this->_codigo_municipio = codigo_municipio; 
 }
 void Localidade::setMunicipio(std::string municipio){
+    if (municipio.size() == 0){
+        throw std::invalid_argument("O nome do municipio nao pode ser vazio.");
+    }    
     this->_municipio = municipio;    
 }
 void Localidade::setLat(float lat){
@@ -22,9 +46,15 @@ void Localidade::setLong(float lng){
 }
 
 void Localidade::setEstado(std::string estado){
+    if (estado.size() == 0){
+        throw std::invalid_argument("O nome do estado nao pode ser vazio.");
+    }    
     this->_estado = estado;
 }
 void Localidade::setPais(std::string pais){
+    if (pais.size() == 0){
+        throw std::invalid_argument("O nome do pais nao pode ser vazio.");
+    }    
     this->_pais = pais;   
 }
 
