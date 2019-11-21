@@ -76,9 +76,13 @@ int main(){
         tela->showEntradaDados(quantidade, cod_origem, cod_destino, num_solicitacoes, num_localidades);
         tela->showSolicitacao(cod_origem, cod_destino, quantidade, vec_local);
         Solicitacao s(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade); 
-        Operador operador = Operador();
+        Operador operador = Operador(vec_local.size());
         operador.addSolicitacao(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade);
+        operador.popularMatriz();
+        operador.dijkstra(cod_origem, cod_destino, quantidade);
         
+
+        // operador.addSolicitacao()
         tela->showWarning("Rota 1: localidade1 -> localidade2 -> localidade3 - preco1 - tempo1\n");
         tela->showWarning("Rota 2: localidade1 -> localidade4 -> localidade3 - preco2 - tempo2\n");
 

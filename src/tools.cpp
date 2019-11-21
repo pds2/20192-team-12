@@ -122,10 +122,6 @@ void Screen::showMainMenu(Screen *tela){
 // 
 
 void Screen::showSubMenu(){
-    // int padding = 20;
-    // int columns = 4;
-    // int tamanho = 100;
-    // int spaces = 100;
     std::string title;
 
 
