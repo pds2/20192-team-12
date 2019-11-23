@@ -43,7 +43,7 @@ Operador::~Operador(){
 //Metodos da classe Operador
 void Operador::popularMatriz() {
     std::cout << "POPULAR MATRIZ\n"; 
-    std::ifstream infile("../data/arestas.txt");
+    std::ifstream infile("./data/arestas.txt");
     std::string linha; 
     // int row, col; // substituido pelo codigo de origem e destino
     std::string tipo_modal;
@@ -61,11 +61,17 @@ void Operador::popularMatriz() {
     int columns = 0; // total de colunas por aresta
     int column = 0; // coluna especifica
     while(!infile.eof()){
-        
+        // std::cout << counter << std::endl;
         getline(infile, linha);
+        // std::cout << linha << std::endl;
+        // std::cou
         std::istringstream iss_linha(linha);
+        // std::cout << linha << std::endl;
+        // counter = 0;
+        
+        
         for(std::string entrada; iss_linha >> entrada;){
-            // std::cout << entrada.substr(0,1)<< " " << entrada << " ";
+            // std::cout << counter << " " << entrada << "\n";
             if (counter == 0){
                 rows = std::stoi(entrada);
             }
@@ -73,7 +79,7 @@ void Operador::popularMatriz() {
                 columns = std::stoi(entrada);
                 std::cout << std::endl;
             }
-            if (counter != 0 && counter != 1){
+            if (counter > 1){
                 // std::string str;
 
                 column = (counter - 2) % columns;
@@ -87,6 +93,7 @@ void Operador::popularMatriz() {
                         tipo_modal = entrada;
                     case 3:
                         preco = std::stof(entrada);
+                        // preco = (entrada);
                     case 4:
                         capacidade = std::stof(entrada);
                     case 5:
@@ -101,33 +108,36 @@ void Operador::popularMatriz() {
                         distancia = std::stoi(entrada);
                 }
             }
-            std::cout << origem << " "
-                      << destino << " "
-                      << tipo_modal << " "
-                      << preco << " "
-                      << capacidade << " "
-                      << velocidade << " "
-                      << pedagio << " "
-                      << valor_pedagio << " "
-                      << valor_terminal << " "
-                      << distancia << std::endl;                    
-            if(tipo_modal == "ferroviario") {
-                Modal *f = new Ferroviario(distancia);
-                this->_graph[origem][destino] = *f;
-                // this->_graph[origem][destino] = Ferroviario(distancia);
-            }else{
-                if(tipo_modal == "rodoviario") {
-                    this->_graph[origem][destino] = Rodoviario(distancia, pedagio, valor_pedagio);
-                }else{
-                    if(tipo_modal == "aereo") {
-                        this->_graph[origem][destino] = Aereo(distancia, valor_terminal);
-                    }else{
-                        this->_graph[origem][destino] = Aquaviario(distancia, valor_terminal);    
-                    }
-                }
-            }            
+            
             counter++;
+
         }
+        std::cout << origem << " "
+                    << destino << " "
+                    << tipo_modal << " "
+                    << preco << " "
+                    << capacidade << " "
+                    << velocidade << " "
+                    << pedagio << " "
+                    << valor_pedagio << " "
+                    << valor_terminal << " "
+                    << distancia << std::endl;                    
+        if(tipo_modal == "ferroviario") {
+            Modal *f = new Ferroviario(distancia);
+            this->_graph[origem][destino] = *f;
+            // this->_graph[origem][destino] = Ferroviario(distancia);
+        }else{
+            if(tipo_modal == "rodoviario") {
+                this->_graph[origem][destino] = Rodoviario(distancia, pedagio, valor_pedagio);
+            }else{
+                if(tipo_modal == "aereo") {
+                    this->_graph[origem][destino] = Aereo(distancia, valor_terminal);
+                }else{
+                    this->_graph[origem][destino] = Aquaviario(distancia, valor_terminal);    
+                }
+            }
+        }    
+          
     }
     /*
     while(infile >> row >> col) {

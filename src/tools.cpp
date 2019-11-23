@@ -379,15 +379,15 @@ void lerLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
         }
     }
 
-    // for (int i = 0; i < vector.size(); i++){
-    //     std::cout << vector[i].getCodigoMunicipio() << " "
-    //               << vector[i].getMunicipio() << " "
-    //               << vector[i].getEstado() << " "
-    //               << vector[i].getPais() << " "
-    //               << vector[i].getLat() << " "
-    //               << vector[i].getLong() << "\n";
+    for (int i = 0; i < vector.size(); i++){
+        std::cout << vector[i].getCodigoMunicipio() << " "
+                  << vector[i].getMunicipio() << " "
+                  << vector[i].getEstado() << " "
+                  << vector[i].getPais() << " "
+                  << vector[i].getLat() << " "
+                  << vector[i].getLong() << "\n";
 
-    // }
+    }
 }
 Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
     Localidade local_pivot;
