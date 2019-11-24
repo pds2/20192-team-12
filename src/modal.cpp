@@ -25,6 +25,7 @@ Modal::Modal(){
     this->_capacidade = CAPACIDADE_DEFAULT;
     this->_velocidade = VELOCIDADE_DEFAULT;
     this->_distancia = DISTANCIA_DEFAULT;
+    this->_flag = 0;
 }
 
 Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade, int distancia){
@@ -45,6 +46,7 @@ Modal::Modal(std::string nome_modal, float preco, float capacidade, float veloci
     this->_capacidade = capacidade;
     this->_velocidade = velocidade;
     this->_distancia = distancia;
+    this->_flag = 0;
 }
 Modal::~Modal(){
     /** Destrutor da classe Modal
@@ -126,6 +128,12 @@ float Modal::getVelocidade(){
     */     
     return this->_velocidade;
 }
+int Modal::getFlagAresta(){
+    /** Retorna se há uma aresta entre duas localidades
+    *
+    */
+    return this->_flag;
+}
 int Modal::getDistancia(){
     /** Retorna a distância em linha reta entre as localidades de origem e destino da carga.\n
      *  Sem argumentos.
@@ -157,6 +165,7 @@ Ferroviario::Ferroviario(){
     this->_preco = this->ferroviario_preco;
     this->_capacidade = this->ferroviario_capacidade;
     this->_velocidade = this->ferroviario_velocidade;
+    this->_flag = 1;
 }
 Ferroviario::Ferroviario(int distancia){
     /**
@@ -172,6 +181,7 @@ Ferroviario::Ferroviario(int distancia){
     this->_capacidade = 70000;
     this->_velocidade = 20;
     this->_distancia = distancia;
+    this->_flag = 1;
 }
 Ferroviario::~Ferroviario(){
     /** Destrutor da classe Modal
@@ -304,6 +314,7 @@ Rodoviario::Rodoviario(int distancia, bool pedagio, float valor_pedagio){
     this->_capacidade = 35;
     this->_velocidade = 60;
     this->_distancia = distancia;
+    this->_flag = 1;
     this->_pedagio = pedagio;
     this->_valor_pedagio = valor_pedagio;
 }
@@ -417,6 +428,7 @@ Aquaviario::Aquaviario(int distancia, float valor_terminal) {
     this->_capacidade = aquaviario_capacidade;
     this->_velocidade = aquaviario_velocidade;
     this->_distancia = distancia;
+    this->_flag = 1;
     this->_valor_terminal = valor_terminal;
 
 }
@@ -483,6 +495,7 @@ Aereo::Aereo(int distancia, float valor_terminal){
     this->_capacidade = aereo_capacidade;
     this->_velocidade = aereo_velocidade;
     this->_distancia = distancia;
+    this->_flag = 1;
     this->_valor_terminal = valor_terminal;
 }
 
