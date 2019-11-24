@@ -164,11 +164,11 @@ float Ferroviario::obterCusto(float quantidade){
 //     this->_valor_pedagio = 0;
 // } 
 Rodoviario::Rodoviario(): Rodoviario(0, false, 0) {} 
+
 Rodoviario::Rodoviario(int distancia, bool pedagio, float valor_pedagio){
     if (distancia < 0 || valor_pedagio < 0){
         throw std::invalid_argument("As variaveis distancia e valor_pedagio e  nao podem ser negativas!");
     }
-    std::cout << "teste: " << pedagio<< " " << (pedagio != true) << " " << (pedagio != false) << std::endl;
     if (pedagio != true && pedagio != false){
         throw std::invalid_argument("A variavel pedagio tem que ser true ou false.");
     }
