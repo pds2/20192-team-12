@@ -1,0 +1,66 @@
+\hypertarget{classAereo}{}\section{Referência à classe Aereo}
+\label{classAereo}\index{Aereo@{Aereo}}
+
+
+Diagrama de heranças da classe Aereo
+% FIG 0
+
+
+Diagrama de colaboração para Aereo\+:
+% FIG 1
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAereo_a1dae1567e86d1349eae16245ae4a8e29}{Aereo} ()
+\item 
+\hyperlink{classAereo_a1630b4982dcbc3ff2705bf1c30bc4712}{Aereo} (int, float)
+\item 
+\hyperlink{classAereo_a1fdc694bc1f263674c755e99fe08c33c}{$\sim$\+Aereo} ()
+\item 
+\mbox{\Hypertarget{classAereo_ae2ee9b18fa17516d37250efdb6f617c7}\label{classAereo_ae2ee9b18fa17516d37250efdb6f617c7}} 
+void {\bfseries set\+Valor\+Terminal} (float)
+\item 
+\mbox{\Hypertarget{classAereo_a33aec047d2f25dccfdc9e90ef7f5b12e}\label{classAereo_a33aec047d2f25dccfdc9e90ef7f5b12e}} 
+float {\bfseries get\+Valor\+Terminal} ()
+\item 
+\mbox{\Hypertarget{classAereo_aebe18688abfe40893831960f4a8889d9}\label{classAereo_aebe18688abfe40893831960f4a8889d9}} 
+float {\bfseries obter\+Custo} (float) override
+\end{DoxyCompactItemize}
+\subsection*{Outros membros herdados}
+
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\mbox{\Hypertarget{classAereo_a1dae1567e86d1349eae16245ae4a8e29}\label{classAereo_a1dae1567e86d1349eae16245ae4a8e29}} 
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{Aereo()}{Aereo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aereo\+::\+Aereo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construtor sem argumentos da classe \hyperlink{classRodoviario}{Rodoviario} Padrão\+:
+\begin{DoxyItemize}
+\item distância\+: 0 km; e
+\item valor\+\_\+terminal\+:0,00 R\$.
+\end{DoxyItemize}\mbox{\Hypertarget{classAereo_a1630b4982dcbc3ff2705bf1c30bc4712}\label{classAereo_a1630b4982dcbc3ff2705bf1c30bc4712}} 
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{Aereo()}{Aereo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aereo\+::\+Aereo (\begin{DoxyParamCaption}\item[{int}]{distancia,  }\item[{float}]{valor\+\_\+terminal }\end{DoxyParamCaption})}
+
+Construtor da classe \hyperlink{classAereo}{Aereo}
+
+Argumento\+:
+\begin{DoxyItemize}
+\item distancia\+: distancia em km entre as localidades de origem e destino; e
+\item valor\+\_\+terminal\+: valor da taxa de embarque da carga no terminal, em R\$.
+\end{DoxyItemize}\mbox{\Hypertarget{classAereo_a1fdc694bc1f263674c755e99fe08c33c}\label{classAereo_a1fdc694bc1f263674c755e99fe08c33c}} 
+\index{Aereo@{Aereo}!````~Aereo@{$\sim$\+Aereo}}
+\index{````~Aereo@{$\sim$\+Aereo}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{$\sim$\+Aereo()}{~Aereo()}}
+{\footnotesize\ttfamily Aereo\+::$\sim$\+Aereo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor da classe \hyperlink{classAereo}{Aereo}
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/modal.\+hpp\item 
+src/modal.\+cpp\end{DoxyCompactItemize}
