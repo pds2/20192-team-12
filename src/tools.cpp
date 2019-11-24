@@ -12,200 +12,199 @@
 #include "../include/solicitacao.hpp"
 #include "../include/localidade.hpp"
 
-std::string Tipo::getTipo(std::string){
-    return "string";
-}
-std::string Tipo::getTipo(int){
-    return "int";
-}
-std::string Tipo::getTipo(float){
-    return "float";
-}
-std::string Tipo::getTipo(double){
-    return "double";
-}
-std::string Tipo::getTipo(bool){
-    return "boolean";
-}
-std::string Tipo::getTipo(std::ifstream){
-    return "ifstream";
-}
-std::string Tipo::getTipo(std::istream){
-    return "istream";
-}
-std::string getTipo(Ferroviario){
-    return "ferroviario";
-}
-std::string getTipo(Rodoviario){
-    return "rodoviario";
-}
-std::string getTipo(Aquaviario){
-    return "aquaviario";
-}
-std::string getTipo(Aereo){
-    return "aereo";
-}
-
 Screen::Screen(std::vector <Localidade> &vector){
+    /**
+     * Construtor da classe Screen\n
+     * Argumentos:
+     *  - vector: vector para armazenamento das localidades;
+    */ 
     this->_vector = vector;
 }
-Screen::~Screen(){}
-void Screen::setBarSize(unsigned int tamanho){
-    this->_bar_size = tamanho;
+Screen::~Screen(){
+    /** Destrutor da classe Screen
+    */
 }
+
 void Screen::setPadding(unsigned int padding){
+    /** Atribui o valor do tamanho do padding.\n
+     *  Argumento:
+     *      - tamanho: tamanho da padding em número de caracteres;
+     * .
+     *  Exceção:
+     *      - o valor deve ser maior que zero;
+    */     
     this->_padding = padding;
 }
-void Screen::setColumns(unsigned int columns){
-    this->_columns = columns;
-}
-void Screen::setSpaces(unsigned int spaces){
-    this->_spaces = spaces;
-}
-
-unsigned int Screen::getPadding(){
-    return this->_padding;
-}
-unsigned int Screen::getColumns(){
-    return this->_columns;
-}
-unsigned int Screen::getSpaces(){
-    return this->_spaces;
-}
-void Screen::setVector(std::vector <Localidade> &vector){
-    this->_vector = vector;
-}
-
 
 void Screen::showMainMenu(Screen *tela){
-    // int padding = 20;
-    // int columns = 4;
-    // int tamanho = 100;
-    // int spaces = 100;
-    int entrada = -1;
-    std::string title;
-    int cls = std::system("clear");
-    this->setPadding((unsigned int)this->_spaces + title.size()/2);
-    title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
-    this->showTitle(title, "*");
-    title = "MENU";
-    this->showTitle(title, "=");
-    // this->showWarning( "MENU:\n\n");
-    this->showWarning("1. Gerar uma solicitacao de transporte;\n");
-    this->showWarning("2. Sair.\n\n");
-    this->showWarning("Digite uma opcao do menu: ");   
+    /**
+     * O método showMainMenu mostra o menu inicial do sistema.\n
+     * Argumento:
+     *  - tela: objeto do tipo Screen
+     * .
+     * Exceções:
+     *   - argumento vazio
+    */
+    int entrada; // variável de entrada para controle
+    std::string titulo; // título do menu
+    int cls = std::system("clear"); // limpa a tela do terminal
+    // estabelece os espaços para centralizar o título
+    this->setPadding((unsigned int)this->_spaces + titulo.size()/2); 
+    titulo = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
+    this->showTitle(titulo, "*"); // mostra na tela o título principal
+    titulo = "MENU";
+    this->showTitle(titulo, "="); // mostra na tela o título secundário 
+    this->showWarning("1. Gerar uma solicitacao de transporte;\n"); // mostra um aviso na tela
+    this->showWarning("2. Sair.\n\n"); // mostra um aviso na tela
+    this->showWarning("Digite uma opcao do menu: "); // mostra um aviso na tela   
     entrada = -1;
     while (entrada < 1 || entrada >2){
+        // Escolhe as opções do Menu
         char c ;
-        if ( !( std::cin >> entrada) || ( std::cin.get(c) && !std::isspace(c))){
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
-            this->showWarning("Digite uma opcao do menu: ");
+        // verifica se as entradas sao validas
+        if (!(std::cin >> entrada) || (std::cin.get(c) && !std::isspace(c))){
+            // Checa se o argumento contém espaços em branco
+            std::cin.clear();// limpa terminal
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // limite máximo de inteiros
+            this->showWarning("ATENCAO! Digite uma opcao valida.\n");// mostra um aviso na tela 
+            this->showWarning("Digite uma opcao do menu: ");// mostra um aviso na tela 
             entrada = -1;
         }else if(entrada < 1 || (entrada > 2)){
-            this->showWarning("ATENCAO! Digite uma opcao valida.\n");
-            this->showWarning("Digite uma opcao do menu: ");            
+            // somente os numeros 1 e 2 sao validos
+            this->showWarning("ATENCAO! Digite uma opcao valida.\n");// mostra um aviso na tela 
+            this->showWarning("Digite uma opcao do menu: ");   // mostra um aviso na tela          
         }
     }
-    if ( entrada == 1){
+    if (entrada == 1){
+        // opcao 1: mostra o submenu com as localidades
         this->showSubMenu();
-    }else{
         
+    }else{
+        // opcao 2: finaliza o programa
         delete tela;
-        this->showWarning("Programa finalizado com sucesso!\n"); 
-        exit(1);
-        // return;
+        this->showWarning("Programa finalizado com sucesso!\n"); // mostra um aviso na tela 
+        exit(1); // sai do progrma
     }
     // return entrada;
 }
 // 
 
 void Screen::showSubMenu(){
-    std::string title;
-
-
+    /**
+     * O método showSubMenu mostra o submenu com as opções de entrada de dados.\n
+     * Sem argumento.
+    */
+    std::string titulo; // texto do titulo
     std::cout << "Para gerar uma solicitacao, execute os seguintes passos:\n\n";
     std::cout << "1. Digite o numero da localidade de origem;\n";
     std::cout << "2. Digite o numero da localidade de destino e a quantidade ser transportada;\n";
     std::cout << "3. Digite a quantidade de carga a ser transportada; e\n";
     std::cout << "4. Tecle ENTER.\n";
     
-    title = "LOCALIDADES";
-    this->showTitle(title, "-");
-    // this->showBar("-");
-    // std::cout << "LOCALIDADES:\n";
-    // this->showBar("-");
-
-    this->showVector(this->_columns);
-    // std::cout << std::endl;
+    titulo = "LOCALIDADES";
+    this->showTitle(titulo, "-"); // mostra um titulo
+    this->showVector(this->_columns); // mostra as localidades
 }
-void Screen::showEntradaDados(float &quantidade, int &cod_origem, int &cod_destino, int &num_solicitacoes, int num_localidades){
-        std::string aviso;
-        std::string title = "SOLICITACOES";
-        this->showTitle(title, "*");
-        title = "SOLICITACAO Nº " + std::to_string(++num_solicitacoes);
-        this->showTitle(title, "=");
+void Screen::showEntradaDados(float &quantidade,
+                              int &cod_origem,
+                              int &cod_destino,
+                              int &num_solicitacoes,
+                              int num_localidades){
+    /**
+     * O método showEntradaDados mostra as solicitações de transporte e as opções de entrada de dados
+     * do sistema.\n
+     * Argumentos:
+        - quantidade: quantidade de carga a ser transportada;
+        - cod_origem: código do município de origem;
+        - cod_destino: código do município de destino;
+        - num_solicitacoes: número corrente de solicitações; e
+        - num_localidades: número total de localidades carregadas para controle
+     * .
+     * Exceções:
+     *   - os valores de quantidade, número de solicitações e número de localidades deve ser maior que zero;
+     *   - os valores dos códigos dos municípios de origem e destino não podem ser negativos;
+    */
+    std::string aviso;
+    std::string titulo = "SOLICITACOES";
+    this->showTitle(titulo, "*");
+    titulo = "SOLICITACAO Nº " + std::to_string(++num_solicitacoes);
+    this->showTitle(titulo, "=");
 
-        quantidade = -1;
-        this->showWarning("1. Digite a quantidade da carga em toneladas: ");
-        while (quantidade < 1){
-            char c ;
-            if ( !( std::cin >> quantidade) || ( std::cin.get(c) && !std::isspace(c))){
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                this->showWarning("ATENCAO! A quantidade deve ser um valor numerico.\n");
-                this->showWarning("1. Digite novamente a quantidade da carga em toneladas: ");
-                quantidade = -1;
-            }else if(quantidade < 1){
-                this->showWarning("ATENCAO! A quantidade deve ser um valor positivo.\n");
-                this->showWarning("1. Digite novamente a quantidade da carga em toneladas: ");            
-            }
+    quantidade = -1;
+    this->showWarning("1. Digite a quantidade da carga em toneladas: ");
+    while (quantidade < 1){
+        char c ;
+        if ( !( std::cin >> quantidade) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            this->showWarning("ATENCAO! A quantidade deve ser um valor numerico.\n");
+            this->showWarning("1. Digite novamente a quantidade da carga em toneladas: ");
+            quantidade = -1;
+        }else if(quantidade < 1){
+            this->showWarning("ATENCAO! A quantidade deve ser um valor positivo.\n");
+            this->showWarning("1. Digite novamente a quantidade da carga em toneladas: ");            
         }
-        this->showBar("-");
+    }
+    this->showBar("-");
 
-        cod_origem = -1;
-        std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
-        while (cod_origem < 1 ||cod_origem >= num_localidades){
-            char c ;
-            if ( !( std::cin >> cod_origem) || ( std::cin.get(c) && !std::isspace(c))){
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                this->showWarning("ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n");
-                this->showWarning("2. Digite novamente o codigo da origem: ");
-                cod_origem = -1;
-            }else if(cod_origem < 1 || (cod_origem >= num_localidades)){
-                aviso = "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
-                                std::to_string(num_localidades) + ".\n";
-                this->showWarning(aviso);
-                this->showWarning("2. Digite novamente o codigo da origem: ");            
-            }
-        } 
-        this->showBar("-");
+    cod_origem = -1;
+    std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
+    while (cod_origem < 1 ||cod_origem >= num_localidades){
+        char c ;
+        if ( !( std::cin >> cod_origem) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            this->showWarning("ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n");
+            this->showWarning("2. Digite novamente o codigo da origem: ");
+            cod_origem = -1;
+        }else if(cod_origem < 1 || (cod_origem >= num_localidades)){
+            aviso = "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
+                            std::to_string(num_localidades) + ".\n";
+            this->showWarning(aviso);
+            this->showWarning("2. Digite novamente o codigo da origem: ");            
+        }
+    } 
+    this->showBar("-");
 
-        cod_destino = -1;
-        std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
-        while (cod_destino < 1 || cod_destino >= num_localidades){
-            char c ;
-            if ( !( std::cin >> cod_destino) || ( std::cin.get(c) && !std::isspace(c))){
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                this->showWarning("ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n");
-                this->showWarning("3. Digite novamente o codigo da destino: ");
-                cod_destino = -1;
-            }else if(cod_destino < 1 || (cod_destino >= num_localidades)){
-                aviso = "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
-                                std::to_string(num_localidades) + ".\n";
-                this->showWarning(aviso);
-                this->showWarning("3. Digite novamente o codigo da destino: ");            
-            }
-        }    
+    cod_destino = -1;
+    std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
+    while (cod_destino < 1 || cod_destino >= num_localidades){
+        char c ;
+        if ( !( std::cin >> cod_destino) || ( std::cin.get(c) && !std::isspace(c))){
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            this->showWarning("ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n");
+            this->showWarning("3. Digite novamente o codigo da destino: ");
+            cod_destino = -1;
+        }else if(cod_destino < 1 || (cod_destino >= num_localidades)){
+            aviso = "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
+                            std::to_string(num_localidades) + ".\n";
+            this->showWarning(aviso);
+            this->showWarning("3. Digite novamente o codigo da destino: ");            
+        }
+    }    
 }
-void Screen::showSolicitacao(int cod_origem, int cod_destino, float quantidade, std::vector <Localidade> vec_local){
-    std::string title = "DADOS DA SOLICITACAO\n";
-    this->showTitle(title, "-");    
-    Localidade origem = searchMunicipio(cod_origem, vec_local);
-    Localidade destino = searchMunicipio(cod_destino, vec_local);
+void Screen::showSolicitacao(int cod_origem,
+                             int cod_destino,
+                             float quantidade,
+                             std::vector <Localidade> vec_local){
+    /**
+     * O método showSolicitacao mostra a solicitação na tela.\n
+     * Argumentos:
+        - cod_origem: código do município de origem;
+        - cod_destino: código do município de destino;
+        - quantidade: quantidade de carga a ser transportada; e
+        - vec_local: número corrente de solicitações.
+     * .
+     * Exceções:
+     *   - o valor de quantidade deve ser maior que zero;
+     *   - os valores dos códigos dos municípios de origem e destino não podem ser negativos;
+    */
+    std::string titulo = "DADOS DA SOLICITACAO\n";
+    this->showTitle(titulo, "-");    
+    Localidade origem = searchMunicipio(cod_origem, vec_local); // busca o município pelo codigo
+    Localidade destino = searchMunicipio(cod_destino, vec_local); // busca o município pelo codigo
+    // Exibe na tela os dados da solicitacao
     std::cout << "Origem: " << origem.getCodigoMunicipio() << " - "
                 << origem.getMunicipio() << "/" 
                 << origem.getEstado() << " - "
@@ -215,46 +214,71 @@ void Screen::showSolicitacao(int cod_origem, int cod_destino, float quantidade, 
                 << destino.getEstado() << " - "
                 << destino.getPais()
                 << "\nQuantidade (toneladas): " << quantidade <<  std::endl;
-    title = "RESULTADO DA SOLICITACAO";
-    this->showTitle(title, "-");
-}
-std::string Screen::formattString(std::string texto){
-    return "\x1B[0;37m" + texto + "\033[0m";
+    titulo = "RESULTADO DA SOLICITACAO";
+    this->showTitle(titulo, "-");
 }
 void Screen::showWarning(std::string aviso){
-    // std::string formatted_warning = formattString(aviso); //"\x1B[0;37m" + aviso + "\033[0m";
-    // std::cout << formatted_warning;
-    // std::cout << formattString(aviso);
+    /**
+     * O método showSolicitacao mostra a solicitação na tela.\n
+     * Argumentos:
+        - cod_origem: código do município de origem;
+        - cod_destino: código do município de destino;
+        - quantidade: quantidade de carga a ser transportada; e
+        - vec_local: número corrente de solicitações.
+     * .
+     * Exceções:
+     *   - o valor de quantidade deve ser maior que zero;
+     *   - os valores dos códigos dos municípios de origem e destino não podem ser negativos;
+    */
     std::cout << aviso;
 }
-void Screen::showTitle(std::string title, std::string symbol){
+void Screen::showTitle(std::string titulo, std::string simbolo){
+    /**
+     * O método showTitle mostra o título formatado na tela.\n
+     * Argumentos:
+        - title: texto do título;
+        - simbolo: símbolo da barra.
+     * .
+     * Exceções:
+     *   - os comprimentos das strings não podem ser zero;
+    */
     std::cout << std::endl;
-    int desloc = (this->_spaces + title.size())/2;
-    // int padding = (this->_spaces + title.size())/2;
-    this->showBar(symbol);
-    // std::cout << std::internal << title << std::endl;
-    // std::string formatted_title = formattString(title); //"\x1B[0;37m" + title + "\033[0m";
-    // std::cout << std::setw(desloc) << std::internal << formattString(title) << std::endl;
-    std::cout << std::setw(desloc) << std::internal << title << std::endl;
-    // std::cout << std::setw(spaces) << std::right << title << std::endl;
-    this->showBar(symbol);
+    int desloc = (this->_spaces + titulo.size())/2; // deslocamento para centralizar o titulo
+    this->showBar(simbolo); // mostra a barra
+    std::cout << std::setw(desloc) << std::internal<< titulo << std::endl; // imprime na tela
+    this->showBar(simbolo); // mostra a barra
     std::cout << std::endl;
 }
 
 void Screen::showBar(std::string simbolo){
+    /**
+     * O método showBar mostra a barra na tela.\n
+     * Argumentos:
+        - title: texto do título;
+        - simbolo: símbolo da barra.
+     * .
+     * Exceções:
+     *   - o comprimento da string simbolo não pode ser zero;
+    */
     std::string barra = "";
     for (unsigned int i = 0; i < this->_bar_size; i++){
-        barra += simbolo;
+        barra += simbolo; // obtem a barra
     }
-    // std::string formatted_bar = formattString(barra); //"\x1B[0;37m" + barra + "\033[0m";
-    std::cout << barra << std::endl;
-    // std::cout << formattString(barra) << std::endl;
+    std::cout << barra << std::endl; // imprime a string de barra na tela
 }
 void Screen::showVector(int columns){
+    /**
+     * O método showVector mostra as localidades carregadas do arquivo de localidades.\n
+     * Argumentos:
+        - columns: número de colunas.
+     * .
+     * Exceções:
+     *   - o valor da variável columns de ser maior que zero;
+    */
     this->_padding = 20;
-    int rows = (int) this->_vector.size();    
+    int rows = (int) this->_vector.size(); // obtem o numero de linhas  
     for (int i = 0; i < rows; i++){
-        
+        // imprime na tela as localidades
         std::cout << std::setw(2) << std::right 
                   << std::to_string(this->_vector[i].getCodigoMunicipio())<< " - "
                   << std::setw(this->_padding) << std::left
@@ -264,57 +288,18 @@ void Screen::showVector(int columns){
         }
     }    
 }
-void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
-    std::string linha;   
-    std::string entrada;
-    arquivo.clear();
-    arquivo.seekg(0, std::ios::beg);
-    int counter = 0;
-    int rows = 0, columns = 0;
-    while(!arquivo.eof()){
-        getline(arquivo, linha);
-        std::istringstream iss_linha(linha);
-        for(std::string entrada; iss_linha >> entrada;){
-            // std::cout << entrada.substr(0,1)<< " " << entrada << " ";
-            if (counter == 0){
-                rows = std::stoi(entrada);
-            }
-            if (counter == 1){
-                columns = std::stoi(entrada);
-                std::cout << std::endl;
-            }
-            if (counter != 0 && counter != 1){
-                std::string str;
-                if (entrada.substr(0,1) == "|"){
-                    str = "";
-                    int espacos = 0;
-                    while (entrada.substr(entrada.size() - 1, 1) != "|"){
-                        str = str + entrada + " ";
-                        espacos++;
-                        iss_linha >> entrada;
-                    }
-                    str = str + entrada;
-                    str = str.substr(1, str.size() - 2);
-                    // std::cout << str << std::endl;
 
-                    entrada = str;
-                    if ((counter - 2) % columns == 1) {
-                            vector.push_back(entrada);
-                    }
-                }
-                // if (entrada.substr(entrada.size() - 1, 1) == "|"){
-                // std::cout << " " << entrada;
-
-                // }                
-                if( (counter - 2) % columns == (columns - 1)){
-                    // std::cout << std::endl;
-                }
-            }            
-            counter++;
-        }
-    }    
-}
-void lerLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
+void lerArquivoLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
+    /**
+     * O procedimento lerArquivoLocalidades ler o arquivo contendo os dados das localidades\n
+     * Argumentos:
+        - arquivo: arquivo contendo os dados das localidades de origem/destino
+        - vector: vetor para armazenar os dados das localidades de origem/destino
+     * .
+     * Exceções:
+     *   - o arquivo deve existir;
+     *   - vector deve estar vazio ao ser recebido;
+    */
     std::string linha;   
     std::string entrada;
     arquivo.clear();
@@ -326,24 +311,29 @@ void lerLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
     Localidade local;
 
     while(!arquivo.eof()){
+        // percorre o arquivo
         getline(arquivo, linha);
+        // ler a linha do arquivo
         std::istringstream iss_linha(linha);
         for(std::string entrada; iss_linha >> entrada;){
-            // std::cout << entrada.substr(0,1)<< " " << entrada << " ";
+            // percorre cada entrada da linha
             if (counter == 0){
-                rows = std::stoi(entrada);
+                rows = std::stoi(entrada); // total de linhas do arquivo
             }
             if (counter == 1){
-                columns = std::stoi(entrada);
+                columns = std::stoi(entrada); // total de colunas do arquivo
                 std::cout << std::endl;
             }
             if (counter != 0 && counter != 1){
+                // restante dos dados
                 std::string str;
                 if (entrada.substr(0,1) == "|"){
+                    // identifica o separador de strings compostas (mais de duas palavras)
                     str = "";
                     int espacos = 0;
                     while (entrada.substr(entrada.size() - 1, 1) != "|"){
-                        str = str + entrada + " ";
+                        // ler cada palavra até encontrar o identificar de fim de palavra
+                        str = str + entrada + " "; // adiciona aa a string
                         espacos++;
                         iss_linha >> entrada;
                     }
@@ -354,7 +344,8 @@ void lerLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
                     entrada = str;
                 }
                 column = (counter - 2) % columns;
-                // std::cout << "column: " << column << " " << entrada << "\n";
+                // atribui as variaveis codigo do municpio,
+                // nome do municipio, estado, pais, latitude e longitude os respectivos valores
                 if (column == 0){
                     local.setCodigoMunicipio(std::stoi(entrada));
                 }
@@ -372,26 +363,36 @@ void lerLocalidades(std::istream &arquivo, std::vector  <Localidade> &vector){
                 }
                 if (column == 5){
                     local.setLong(std::stof(entrada));
-                    vector.push_back(local);   
+                    vector.push_back(local);// carrega o vector de localidades
                 }               
             }
             counter++;
         }
     }
 
-    for (int i = 0; i < vector.size(); i++){
-        std::cout << vector[i].getCodigoMunicipio() << " "
-                  << vector[i].getMunicipio() << " "
-                  << vector[i].getEstado() << " "
-                  << vector[i].getPais() << " "
-                  << vector[i].getLat() << " "
-                  << vector[i].getLong() << "\n";
+    // for (int i = 0; i < vector.size(); i++){
+    //     std::cout << vector[i].getCodigoMunicipio() << " "
+    //               << vector[i].getMunicipio() << " "
+    //               << vector[i].getEstado() << " "
+    //               << vector[i].getPais() << " "
+    //               << vector[i].getLat() << " "
+    //               << vector[i].getLong() << "\n";
 
-    }
+    // }
 }
 Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
+    /**
+     * O procedimento searchMunicipio busca o nome da localidade a partir do código do município\n
+     * Argumentos:
+        - codigo: arquivo contendo os dados das localidades de origem/destino
+        - vector: vetor para armazenar os dados das localidades de origem/destino
+     * .
+     * Exceções:
+     *   - o valor da variável código não pode ser negativo;
+     *   - vector não pode estar vazio ao ser recebido;
+    */
     Localidade local_pivot;
-    for( auto v: vector){
+    for(auto v: vector){// busca o municicpio em vector
         if ( v.getCodigoMunicipio() == codigo){
             local_pivot = v;
             break;
@@ -405,10 +406,10 @@ Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
 //     int columns = 4;
 //     // int tamanho = 100;
 //     int spaces = 100;
-//     std::string title;
+//     std::string titulo;
 //     std::system("clear");
-//     title = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
-//     this->showTitle(title, 100, "*");
+//     titulo = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
+//     this->showTitle(titulo, 100, "*");
 //     // this->showBar("*");
 //     // std::cout << std::setw(spaces/2) << std::right << "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES\n";
 //     // this->showBar("*");
@@ -419,8 +420,8 @@ Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
 //     std::cout << "3. Digite a quantidade de carga a ser transportada; e\n";
 //     std::cout << "4. Tecle ENTER.\n";
     
-//     title = "LOCALIDADES";
-//     this->showTitle(title, 100, "-");
+//     titulo = "LOCALIDADES";
+//     this->showTitle(titulo, 100, "-");
 //     // this->showBar("-");
 //     // std::cout << "LOCALIDADES:\n";
 //     // this->showBar("-");
@@ -545,11 +546,11 @@ Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
 //     // int tamanho = 100;
 //     int spaces = 100;
 //     int entrada = -1;
-//     std::string title;
+//     std::string titulo;
 //     std::system("clear");
 
-//     title = "MENU";
-//     this->showTitle(title, 100, "=");
+//     titulo = "MENU";
+//     this->showTitle(titulo, 100, "=");
 //     this->showWarning("Digite 1 para criar uma nova solicitacao ou 2 para sair");   
 //     entrada = -1;
 //     while (entrada < 1 || entrada >2){
@@ -574,4 +575,188 @@ Localidade searchMunicipio(int codigo, std::vector  <Localidade> &vector){
 //         exit(1);
 //         // return;
 //     }
+// }
+// std::string Tipo::getTipo(std::string){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+    
+//     return "string";
+// }
+// std::string Tipo::getTipo(int){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "int";
+// }
+// std::string Tipo::getTipo(float){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "float";
+// }
+// std::string Tipo::getTipo(double){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "double";
+// }
+// std::string Tipo::getTipo(bool){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "boolean";
+// }
+// std::string Tipo::getTipo(std::ifstream){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "ifstream";
+// }
+// std::string Tipo::getTipo(std::istream){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "istream";
+// }
+// std::string getTipo(Ferroviario){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "ferroviario";
+// }
+// std::string getTipo(Rodoviario){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "rodoviario";
+// }
+// std::string getTipo(Aquaviario){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "aquaviario";
+// }
+// std::string getTipo(Aereo){
+//     /** Retorna o tipo da variável string.\n
+//      *  Argumento:
+//      *      - uma variável de tipo string
+//     */
+//     return "aereo";
+// }
+// void Screen::setColumns(unsigned int columns){
+//     /** Atribui o valor para o número de colunas de localidades na tela.\n
+//      *  Argumento:
+//      *      - tamanho: número de colunas de localidades na tela;
+//      * .
+//      *  Exceção:
+//      *      - o valor deve ser maior que zero;
+//     */ 
+//     this->_columns = columns;
+// }
+// void Screen::setSpaces(unsigned int spaces){
+//     /** Atribui o valor para o número de espaços para centralizar o título na tela.\n
+//      *  Argumento:
+//      *      - tamanho: número de espaços para centralizar o título;
+//      * .
+//      *  Exceção:
+//      *      - o valor deve ser maior que zero;
+//     */ 
+//     this->_spaces = spaces;
+// }
+
+// void Screen::setVector(std::vector <Localidade> &vector){
+//     /** Atribui um vector contendo as localidas.\n
+//      *  Argumento:
+//      *      - tamanho: número de espaços para centralizar o título;
+//      * .
+//      *  Exceção:
+//      *      - o valor deve ser maior que zero;
+//     */ 
+//     this->_vector = vector;
+// }
+// unsigned int Screen::getPadding(){
+//     /** Retorna o padding.\n
+//      *  Sem argumentos.
+//     */ 
+//     return this->_padding;
+// }
+// unsigned int Screen::getColumns(){
+//     /** Retorna o padding.\n
+//      *  Sem argumentos.
+//     */ 
+//     return this->_columns;
+// }
+// unsigned int Screen::getSpaces(){
+//     return this->_spaces;
+// }
+// void Screen::setBarSize(unsigned int tamanho){
+//     /** Atribui o valor do tamanho da barra na  tela.\n
+//      *  Argumento:
+//      *      - tamanho: tamanho da barra na tela em número de caracteres;
+//      * .
+//      *  Exceção:
+//      *      - o valor deve ser maior que zero;
+//     */     
+//     this->_bar_size = tamanho;
+// }
+// void lerArquivo(std::istream &arquivo, std::vector <std::string> &vector){
+//     std::string linha;   
+//     std::string entrada;
+//     arquivo.clear();
+//     arquivo.seekg(0, std::ios::beg);
+//     int counter = 0;
+//     int rows = 0, columns = 0;
+//     while(!arquivo.eof()){
+//         getline(arquivo, linha);
+//         std::istringstream iss_linha(linha);
+//         for(std::string entrada; iss_linha >> entrada;){
+//             // std::cout << entrada.substr(0,1)<< " " << entrada << " ";
+//             if (counter == 0){
+//                 rows = std::stoi(entrada);
+//             }
+//             if (counter == 1){
+//                 columns = std::stoi(entrada);
+//                 std::cout << std::endl;
+//             }
+//             if (counter != 0 && counter != 1){
+//                 std::string str;
+//                 if (entrada.substr(0,1) == "|"){
+//                     str = "";
+//                     int espacos = 0;
+//                     while (entrada.substr(entrada.size() - 1, 1) != "|"){
+//                         str = str + entrada + " ";
+//                         espacos++;
+//                         iss_linha >> entrada;
+//                     }
+//                     str = str + entrada;
+//                     str = str.substr(1, str.size() - 2);
+//                     // std::cout << str << std::endl;
+
+//                     entrada = str;
+//                     if ((counter - 2) % columns == 1) {
+//                             vector.push_back(entrada);
+//                     }
+//                 }
+//                 // if (entrada.substr(entrada.size() - 1, 1) == "|"){
+//                 // std::cout << " " << entrada;
+
+//                 // }                
+//                 if( (counter - 2) % columns == (columns - 1)){
+//                     // std::cout << std::endl;
+//                 }
+//             }            
+//             counter++;
+//         }
+//     }    
 // }

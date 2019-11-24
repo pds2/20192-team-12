@@ -1,0 +1,112 @@
+\hypertarget{classAereo}{}\section{Referência à classe Aereo}
+\label{classAereo}\index{Aereo@{Aereo}}
+
+
+Diagrama de heranças da classe Aereo
+% FIG 0
+
+
+Diagrama de colaboração para Aereo\+:
+% FIG 1
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAereo_a1dae1567e86d1349eae16245ae4a8e29}{Aereo} ()
+\item 
+\hyperlink{classAereo_a1630b4982dcbc3ff2705bf1c30bc4712}{Aereo} (int, float)
+\item 
+\hyperlink{classAereo_a1fdc694bc1f263674c755e99fe08c33c}{$\sim$\+Aereo} ()
+\item 
+void \hyperlink{classAereo_ae2ee9b18fa17516d37250efdb6f617c7}{set\+Valor\+Terminal} (float)
+\item 
+float \hyperlink{classAereo_a33aec047d2f25dccfdc9e90ef7f5b12e}{get\+Valor\+Terminal} ()
+\item 
+float \hyperlink{classAereo_aebe18688abfe40893831960f4a8889d9}{obter\+Custo} (float) override
+\end{DoxyCompactItemize}
+\subsection*{Outros membros herdados}
+
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\mbox{\Hypertarget{classAereo_a1dae1567e86d1349eae16245ae4a8e29}\label{classAereo_a1dae1567e86d1349eae16245ae4a8e29}} 
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{Aereo()}{Aereo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aereo\+::\+Aereo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construtor sem argumentos da classe \hyperlink{classRodoviario}{Rodoviario}~\newline
+ Default\+:~\newline
+
+\begin{DoxyItemize}
+\item distância\+: 0 km; e
+\item valor\+\_\+terminal\+:0,00 R\$.~\newline
+
+\end{DoxyItemize}\mbox{\Hypertarget{classAereo_a1630b4982dcbc3ff2705bf1c30bc4712}\label{classAereo_a1630b4982dcbc3ff2705bf1c30bc4712}} 
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\index{Aereo@{Aereo}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{Aereo()}{Aereo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aereo\+::\+Aereo (\begin{DoxyParamCaption}\item[{int}]{distancia,  }\item[{float}]{valor\+\_\+terminal }\end{DoxyParamCaption})}
+
+Construtor da classe \hyperlink{classAereo}{Aereo}~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item distancia\+: distancia em km entre as localidades de origem e destino; e
+\item valor\+\_\+terminal\+: valor da taxa de embarque da carga no terminal, em R\$.~\newline
+
+\end{DoxyItemize}\mbox{\Hypertarget{classAereo_a1fdc694bc1f263674c755e99fe08c33c}\label{classAereo_a1fdc694bc1f263674c755e99fe08c33c}} 
+\index{Aereo@{Aereo}!````~Aereo@{$\sim$\+Aereo}}
+\index{````~Aereo@{$\sim$\+Aereo}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{$\sim$\+Aereo()}{~Aereo()}}
+{\footnotesize\ttfamily Aereo\+::$\sim$\+Aereo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor da classe \hyperlink{classAereo}{Aereo}~\newline
+
+
+\subsection{Documentação dos métodos}
+\mbox{\Hypertarget{classAereo_a33aec047d2f25dccfdc9e90ef7f5b12e}\label{classAereo_a33aec047d2f25dccfdc9e90ef7f5b12e}} 
+\index{Aereo@{Aereo}!get\+Valor\+Terminal@{get\+Valor\+Terminal}}
+\index{get\+Valor\+Terminal@{get\+Valor\+Terminal}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{get\+Valor\+Terminal()}{getValorTerminal()}}
+{\footnotesize\ttfamily float Aereo\+::get\+Valor\+Terminal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna ao valor da taxa de embarque da carga no terminal, em R\$.~\newline
+Sem argumentos.\mbox{\Hypertarget{classAereo_aebe18688abfe40893831960f4a8889d9}\label{classAereo_aebe18688abfe40893831960f4a8889d9}} 
+\index{Aereo@{Aereo}!obter\+Custo@{obter\+Custo}}
+\index{obter\+Custo@{obter\+Custo}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{obter\+Custo()}{obterCusto()}}
+{\footnotesize\ttfamily float Aereo\+::obter\+Custo (\begin{DoxyParamCaption}\item[{float}]{quantidade }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna o custo da viagem entre as localidades de origem e destino da carga, a partir da quantidade de carga, em toneladas,, capacidade do veículo de transporte do modal, distância entre as localidades de origem e destino e do preço do serviço.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item quantidade\+: valor da quantidade de carga a ser transportada.
+\end{DoxyItemize}
+
+Exceção\+:
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;
+\end{DoxyItemize}
+
+Reimplementado de \hyperlink{classModal_a20cee7247cce33806d681e1d60347cc5}{Modal}.
+
+\mbox{\Hypertarget{classAereo_ae2ee9b18fa17516d37250efdb6f617c7}\label{classAereo_ae2ee9b18fa17516d37250efdb6f617c7}} 
+\index{Aereo@{Aereo}!set\+Valor\+Terminal@{set\+Valor\+Terminal}}
+\index{set\+Valor\+Terminal@{set\+Valor\+Terminal}!Aereo@{Aereo}}
+\subsubsection{\texorpdfstring{set\+Valor\+Terminal()}{setValorTerminal()}}
+{\footnotesize\ttfamily void Aereo\+::set\+Valor\+Terminal (\begin{DoxyParamCaption}\item[{float}]{valor\+\_\+terminal }\end{DoxyParamCaption})}
+
+Atribui o valor da variável valor\+\_\+terminal.~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item valor\+\_\+terminal\+: valor da taxa de embarque da carga no terminal, em R\$.~\newline
+
+\end{DoxyItemize}
+
+Exceção\+:
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;
+\end{DoxyItemize}
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/modal.\+hpp\item 
+src/modal.\+cpp\end{DoxyCompactItemize}

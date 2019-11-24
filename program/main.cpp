@@ -13,7 +13,22 @@
 #include "../include/tools.hpp"
 #include "../include/operador.hpp"
 // #include "usuario.hpp"
-
+/**
+ * # Descrição
+ * Este Trabalho Prático consiste no desenvolvimento de um sistema em linguagem C++ baseado no paradigma de 
+ * Orientação à Objetos. Para modelar um sistema de alocação de demanda de transporte utilizamos de classes
+ *  abstratas e conceitos de OO como modularização, polimorfismo, testes de unidade e boas práticas de 
+ * programação em geral como refatoração, código comentado e versionamento de código.
+ * Desenvolvemos, portanto, um sistema que, dada uma demanda de transporte de uma certa quantidade de 
+ * determinado produto, para alguma localidade do Brasil ou Exterior, encontra o caminho de menor custo.
+ *  O custo a ser considerado pode ser monetário ou menor distância ou tempo de percurso, considerando os 
+ * preços dos serviços, tempo de transporte e capacidade dos diversos modais disponíveis 
+ * (rodoviário, ferroviário, aéreo e aquaviário).
+ * 
+ * # Integrantes
+ * Estevão de Almeida Vilela
+ * Wagner Evangelist de Abreu
+ * */
 /*  
     ------EM DESENVOLVIMENTO
     FAZER:
@@ -24,6 +39,7 @@
     2. INCLUIR SAIDA DO MODULO OPERADOR NA TELA
 
     3. REFATORAR:
+        - INCLUIR CONSTANTES NO LUGAR DE NUMEROS MÁGICOS (valores default de preço, modal, etc)    
         - EXCLUIR REPETICOES;
         - BAD SMELLS;
     4. COMENTAR CODIGO;
@@ -37,8 +53,7 @@ int main(){
     // std::vector <std::string> vec_local2; // matriz para armazenar os dados de entrada
     std::vector <Localidade> vec_local; // matriz para armazenar os dados de entrada
     std::vector <std::string> vec_arestas; // matriz para armazenar os dados de entrada
-    // std::string nome_usr, senha;
-    // Usuario usr = new Usuario(nome, );
+
     // obtem o nome do arquivo do argumento e abre o arquivo
     std::string caminho = "./data/";
     std::ifstream arq_local(caminho + "localidades.txt");
@@ -58,16 +73,16 @@ int main(){
         std::cout << "Pasta ou arquivo nao encontrado.\n";
         // return 1;
     }else{
-        lerArquivo(arq_arestas, vec_arestas);
+        // lerArquivo(arq_arestas, vec_arestas);
         // lerArquivo(arq_local, vec_local2);
-        lerLocalidades(arq_local, vec_local);
+        lerArquivoLocalidades(arq_local, vec_local);
     }  
-
-    // INICIO BLOCO
-    // limpando a tela
     num_localidades = (int) vec_local.size();
     Screen *tela = new Screen(vec_local);
     tela->showMainMenu(tela);
+
+    // INICIO BLOCO
+    // limpando a tela
     
     while(entrada != 2){
         /*
@@ -115,44 +130,5 @@ int main(){
 
     tela->showWarning("Programa finalizado com sucesso!\n"); 
     delete tela;
-
-    // FIM BLOCO
-
-    /*
-    EXCLUIR????
-    | | | | |
-    V V V V V
-    ENTRADA DO USUARIO
-    std::cout << "Digite o login do usuario: ";
-    std::cout << std::endl;
-    std::cout << "Digite a senha: ";
-    std::cin >> senha;
-    std::cout << std::endl;
-    usr->setNome(nome);
-    usr->setLogin(login);
-    usr->setSenha(senha);
-    usr->cadastrarUsuario();
-    std::cout << (caminho + "localidades.txt") << std::endl;
-    std::cout << (caminho + "arestas.txt") << std::endl;
-    */
-    /*
-        LEITURA DOS ARQUIVOS
-    */     
-    // std::ofstream file;
-    // file.open(caminho + "localidades.txt");
-    // file.seekp (0, file.end);
-    // std::string str = std::to_string(41) + "|TESTE|" + "AUS" + "|AUSTRALIA|" +  std::to_string(-33.875935) +  std::to_string(151.251827)+"\n";
-    // file <<  str;
-
-
-        // Rodoviario *r = new Rodoviario();
-        // std::cout << "Pedagio: " << r->getValorPedagio() << "\n";
-        // // delete r;
-    // delete usr;
-    // std::cout << vec_local.size() << "\n";
-    // for (unsigned int i = 0; i < vec_local.size(); i++){
-    //     std::cout << vec_local[i] << "\n";
-    // }
-
     return 1;
 }

@@ -29,7 +29,7 @@ Disponível [aqui]() em PPT
 
 ### User Stories
 
-Disponível [aqui]()
+Disponível [aqui](https://github.com/pds2/20192-team-12/wiki/User-Stories)
 
 ### Como usar
 

@@ -10,55 +10,55 @@ TESTAR OBTER CUSTO PARA TODAS AS CLASSES
 TEST_CASE("01 - Testes de contorno") {
     // Testar numero no 1o argumento
     CHECK_NOTHROW(Ferroviario()); // argumento vazio
-    CHECK_NOTHROW(Ferroviario(-1));
+    CHECK_THROWS(Ferroviario(-1));
 	
 	Ferroviario *f = new Ferroviario();
 	
-	CHECK_NOTHROW(f->setCapacidade(-1));
-    CHECK_NOTHROW(f->setPreco(-1));
-    CHECK_NOTHROW(f->setVelocidade(-1));
-    CHECK_NOTHROW(f->setDistancia(-1));
+	CHECK_THROWS(f->setCapacidade(-1));
+    CHECK_THROWS(f->setPreco(-1));
+    CHECK_THROWS(f->setVelocidade(-1));
+    CHECK_THROWS(f->setDistancia(-1));
 
 	delete f;
 	
     CHECK_NOTHROW(Rodoviario()); // argumento vazio
-    CHECK_NOTHROW(Rodoviario(-1, false, -1));
+    CHECK_THROWS(Rodoviario(-1, false, -1));
 	
 	Rodoviario *r = new Rodoviario();
 	
-	CHECK_NOTHROW(r->setCapacidade(-1));
-    CHECK_NOTHROW(r->setPreco(-1));
-    CHECK_NOTHROW(r->setVelocidade(-1));
-    CHECK_NOTHROW(r->setDistancia(-1));
-    CHECK_NOTHROW(r->setPedagio(-1));
-    CHECK_NOTHROW(r->setValorPedagio(-1));
+	CHECK_THROWS(r->setCapacidade(-1));
+    CHECK_THROWS(r->setPreco(-1));
+    CHECK_THROWS(r->setVelocidade(-1));
+    CHECK_THROWS(r->setDistancia(-1));
+    CHECK_THROWS(r->setPedagio(-1));
+    CHECK_THROWS(r->setValorPedagio(-1));
 	
-	// delete r;
+	delete r;
 
     CHECK_NOTHROW(Aquaviario()); // argumento vazio
-    CHECK_NOTHROW(Aquaviario(-1, -1));
+    CHECK_THROWS(Aquaviario(-1, -1));
 
 	Aquaviario *aq = new Aquaviario();
 
-    CHECK_NOTHROW(aq->setCapacidade(-1));
-    CHECK_NOTHROW(aq->setPreco(-1));
-    CHECK_NOTHROW(aq->setVelocidade(-1));
-    CHECK_NOTHROW(aq->setDistancia(-1));
-    CHECK_NOTHROW(aq->setValorTerminal(-1));
+    CHECK_THROWS(aq->setCapacidade(-1));
+    CHECK_THROWS(aq->setPreco(-1));
+    CHECK_THROWS(aq->setVelocidade(-1));
+    CHECK_THROWS(aq->setDistancia(-1));
+    CHECK_THROWS(aq->setValorTerminal(-1));
 	
-	// delete aq;
+	delete aq;
 	
     CHECK_NOTHROW(Aereo()); // argumento vazio
-    CHECK_NOTHROW(Aereo(-1, -1));
+    CHECK_THROWS(Aereo(-1, -1));
 	
 	Aereo *ar = new Aereo();
 
-    CHECK_NOTHROW(ar->setCapacidade(-1));
-    CHECK_NOTHROW(ar->setPreco(-1));
-    CHECK_NOTHROW(ar->setVelocidade(-1));
-    CHECK_NOTHROW(ar->setDistancia(-1));
-    CHECK_NOTHROW(ar->setValorTerminal(-1));
-	// delete ar;
+    CHECK_THROWS(ar->setCapacidade(-1));
+    CHECK_THROWS(ar->setPreco(-1));
+    CHECK_THROWS(ar->setVelocidade(-1));
+    CHECK_THROWS(ar->setDistancia(-1));
+    CHECK_THROWS(ar->setValorTerminal(-1));
+	delete ar;
 }
 TEST_CASE("02 - Classe Ferroviario - Teste positivo"){
 

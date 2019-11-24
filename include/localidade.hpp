@@ -1,24 +1,24 @@
 #ifndef LOCALIDADE_HPP
 #define LOCALIDADE_HPP
 #include <iostream>
-/*
-Esta classe representa uma localidade que possui as seguintes propriedades:
-1) Código do município;
-2) Município;
-3) Latitude;
-4) Longitude;
-5) Estado;
-6) País;
+/**
+ * Esta classe representa uma localidade que possui as seguintes propriedades:
+ * 1) Código do município;
+ * 2) Município;
+ * 3) Latitude;
+ * 4) Longitude;
+ * 5) Estado;
+ * 6) País;
 */
 
 class Localidade {
     private: 
         int _codigo_municipio;
         std::string _municipio;
-        float _lat;
-        float _long;
-    	std::string _estado;
-        std::string _pais;
+        float _lat; // latitude do municipio
+        float _long; // longitude do municpio
+    	std::string _estado; // estado do municipio
+        std::string _pais; // pais do municipio
     	
     public:
 

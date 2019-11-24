@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Alocação de Demanda de Transporte: Código-Fonte de include/solicitacao.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Alocação de Demanda de Transporte
+   </div>
+   <div id="projectbrief">Trabalho prático da disciplina de Programação e Desenvolimento de Software II.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">solicitacao.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SOLICITACAO_HPP</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SOLICITACAO_HPP</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span> </div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classSolicitacao.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSolicitacao.html">Solicitacao</a> {</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">private</span>: </div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">int</span> _origem;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">int</span> _destino;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">float</span> _quantidade;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        </div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classSolicitacao.html#a67c9ab7bb3295e4a5a0933486f7e0f4b">Solicitacao</a>();</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="classSolicitacao.html#a67c9ab7bb3295e4a5a0933486f7e0f4b">Solicitacao</a>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>, <span class="keywordtype">float</span>);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        ~<a class="code" href="classSolicitacao.html">Solicitacao</a>(){};</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSolicitacao.html#a585f55cfa44c1e16d535935eead17f44">setOrigem</a>(<span class="keywordtype">int</span>);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSolicitacao.html#ac772a2517a1d395f1a541424d29716cd">setDestino</a>(<span class="keywordtype">int</span>);</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classSolicitacao.html#acf1db9c6843df635aca0bbacae8cf7c7">setQuantidade</a>(<span class="keywordtype">float</span> quantidade);</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSolicitacao.html#a53a5b37dd6aca895d84ef9991fc7775b">getOrigem</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classSolicitacao.html#a8448e5d5b0ca18b7e8ff022415ec6836">getDestino</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="classSolicitacao.html#a7e936983b3b1c6d4010649edcbac4819">getQuantidade</a>();</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// class ParametroNaoNumerico : public std::exception {</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//     public:</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//     virtual const char* what() const noexcept override;</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// };</span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// const char* ParametroNaoNumerico::what() const noexcept {</span></div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// return &quot;O parametro deve ser numerico!&quot;;</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// }</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classSolicitacao_html_a7e936983b3b1c6d4010649edcbac4819"><div class="ttname"><a href="classSolicitacao.html#a7e936983b3b1c6d4010649edcbac4819">Solicitacao::getQuantidade</a></div><div class="ttdeci">float getQuantidade()</div><div class="ttdef"><b>Definition:</b> solicitacao.cpp:93</div></div>
+<div class="ttc" id="classSolicitacao_html_ac772a2517a1d395f1a541424d29716cd"><div class="ttname"><a href="classSolicitacao.html#ac772a2517a1d395f1a541424d29716cd">Solicitacao::setDestino</a></div><div class="ttdeci">void setDestino(int)</div><div class="ttdef"><b>Definition:</b> solicitacao.cpp:47</div></div>
+<div class="ttc" id="classSolicitacao_html_a585f55cfa44c1e16d535935eead17f44"><div class="ttname"><a href="classSolicitacao.html#a585f55cfa44c1e16d535935eead17f44">Solicitacao::setOrigem</a></div><div class="ttdeci">void setOrigem(int)</div><div class="ttdef"><b>Definition:</b> solicitacao.cpp:32</div></div>
+<div class="ttc" id="classSolicitacao_html_a8448e5d5b0ca18b7e8ff022415ec6836"><div class="ttname"><a href="classSolicitacao.html#a8448e5d5b0ca18b7e8ff022415ec6836">Solicitacao::getDestino</a></div><div class="ttdeci">int getDestino()</div><div class="ttdef"><b>Definition:</b> solicitacao.cpp:87</div></div>
+<div class="ttc" id="classSolicitacao_html_acf1db9c6843df635aca0bbacae8cf7c7"><div class="ttname"><a href="classSolicitacao.html#acf1db9c6843df635aca0bbacae8cf7c7">Solicitacao::setQuantidade</a></div><div class="ttdeci">void setQuantidade(float quantidade)</div><div class="ttdef"><b>Definition:</b> solicitacao.cpp:61</div></div>
+<div class="ttc" id="classSolicitacao_html_a53a5b37dd6aca895d84ef9991fc7775b"><div class="ttname"><a href="classSolicitacao.html#a53a5b37dd6aca895d84ef9991fc7775b">Solicitacao::getOrigem</a></div><div class="ttdeci">int getOrigem()</div><div class="ttdef"><b>Definition:</b> solicitacao.cpp:80</div></div>
+<div class="ttc" id="classSolicitacao_html_a67c9ab7bb3295e4a5a0933486f7e0f4b"><div class="ttname"><a href="classSolicitacao.html#a67c9ab7bb3295e4a5a0933486f7e0f4b">Solicitacao::Solicitacao</a></div><div class="ttdeci">Solicitacao()</div><div class="ttdef"><b>Definition:</b> solicitacao.cpp:6</div></div>
+<div class="ttc" id="classSolicitacao_html"><div class="ttname"><a href="classSolicitacao.html">Solicitacao</a></div><div class="ttdoc">Esta classe representa uma solicitação de transporte de uma determinada quantidade de carga entre dua...</div><div class="ttdef"><b>Definition:</b> solicitacao.hpp:10</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

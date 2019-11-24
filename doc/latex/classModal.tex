@@ -1,0 +1,237 @@
+\hypertarget{classModal}{}\section{Referência à classe Modal}
+\label{classModal}\index{Modal@{Modal}}
+
+
+Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta.  
+
+
+
+
+{\ttfamily \#include $<$modal.\+hpp$>$}
+
+
+
+Diagrama de heranças da classe Modal
+% FIG 0
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classModal_a8762a8d9f09cb6a2ec5f54f5d26412c0}{Modal} ()
+\item 
+\hyperlink{classModal_a17560766811007d0af99fd6099325d52}{Modal} (std\+::string, float, float, float, int)
+\item 
+\hyperlink{classModal_a4a2e7830211c07075078b5d5186dab54}{$\sim$\+Modal} ()
+\item 
+void \hyperlink{classModal_ade6a106d1c7a0bc095ea1a012891ed00}{set\+Preco} (float)
+\item 
+void \hyperlink{classModal_affd03b3938af5cbe3541f82ae5ad8b6a}{set\+Capacidade} (float)
+\item 
+void \hyperlink{classModal_ac8da271cfb67468b89cbca0b3951b9f7}{set\+Velocidade} (float)
+\item 
+void \hyperlink{classModal_adae73e94a5d76a2a97329cba1fe7fb20}{set\+Distancia} (int)
+\item 
+std\+::string \hyperlink{classModal_ad0e185312cd36ad83b4e19fd1cd532be}{get\+Tipo\+Modal} ()
+\item 
+float \hyperlink{classModal_ae124094018f5e049d5137a8eec893a79}{get\+Preco} ()
+\item 
+float \hyperlink{classModal_ac9750361d92b6ad91674851852c7362f}{get\+Capacidade} ()
+\item 
+float \hyperlink{classModal_acac9a4b13c4596842253e25f84872b32}{get\+Velocidade} ()
+\item 
+int \hyperlink{classModal_a1eedb4dfdddd81a5a7c7b3203e50e68c}{get\+Distancia} ()
+\item 
+virtual float \hyperlink{classModal_a20cee7247cce33806d681e1d60347cc5}{obter\+Custo} (float)
+\item 
+float \hyperlink{classModal_a71e2bda54694608c149ae0d72b3693a4}{obter\+Tempo} ()
+\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classModal_aef40834202f0fe655d4c1d3478a41d0f}\label{classModal_aef40834202f0fe655d4c1d3478a41d0f}} 
+std\+::string {\bfseries \+\_\+tipo\+\_\+modal}
+\item 
+\mbox{\Hypertarget{classModal_a487c4263e492750fbaac789e0e3feef3}\label{classModal_a487c4263e492750fbaac789e0e3feef3}} 
+float {\bfseries \+\_\+preco}
+\item 
+\mbox{\Hypertarget{classModal_a61a2da94d2f76fc7f761928d78d51196}\label{classModal_a61a2da94d2f76fc7f761928d78d51196}} 
+float {\bfseries \+\_\+capacidade}
+\item 
+\mbox{\Hypertarget{classModal_adebafa0b04fbf2c065bb6ebcf84f1524}\label{classModal_adebafa0b04fbf2c065bb6ebcf84f1524}} 
+float {\bfseries \+\_\+velocidade}
+\item 
+\mbox{\Hypertarget{classModal_a39f95d6378c8794c91bca2efbbf11337}\label{classModal_a39f95d6378c8794c91bca2efbbf11337}} 
+int {\bfseries \+\_\+distancia}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta. 
+
+O meio de transporte pode ser\+: rodoviário, ferroviário, aquaviário ou aéreo. Todos esses quatro meios de transporte possuem as seguintes informações\+: 1) Tipo do modal\+: rodoviario, ferroviario, aquaviario ou aéreo; 2) Preço\+: Reais/\+Km; 3) Capacidade\+: em Toneladas; 4) Velocidade\+: Km/h; 5) Distância em Km;O modal rodoviário tem como especificidade o fato de poder ter pedágio; já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal. 
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\mbox{\Hypertarget{classModal_a8762a8d9f09cb6a2ec5f54f5d26412c0}\label{classModal_a8762a8d9f09cb6a2ec5f54f5d26412c0}} 
+\index{Modal@{Modal}!Modal@{Modal}}
+\index{Modal@{Modal}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{Modal()}{Modal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Modal\+::\+Modal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construtor sem argumentos da classe \hyperlink{classModal}{Modal}~\newline
+Default\+:
+\begin{DoxyItemize}
+\item nome\+\_\+modal\+: rodoviário;
+\item preco\+: 0.\+075;
+\item capacidade\+: 35;
+\item velocidade\+: 60; e
+\item distancia\+: 0.~\newline
+
+\end{DoxyItemize}\mbox{\Hypertarget{classModal_a17560766811007d0af99fd6099325d52}\label{classModal_a17560766811007d0af99fd6099325d52}} 
+\index{Modal@{Modal}!Modal@{Modal}}
+\index{Modal@{Modal}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{Modal()}{Modal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Modal\+::\+Modal (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+\_\+modal,  }\item[{float}]{preco,  }\item[{float}]{capacidade,  }\item[{float}]{velocidade,  }\item[{int}]{distancia }\end{DoxyParamCaption})}
+
+Construtor da classe \hyperlink{classModal}{Modal}~\newline
+ Argumentos\+:
+\begin{DoxyItemize}
+\item nome\+\_\+modal\+: nome do modal de transporte;
+\item preco\+: preço do modal de transporte em R\$;
+\item capacidade\+: capacidade do modal de transporte em toneladas;
+\item velocidade\+: velocidade do modal de transporte em km/h; e
+\item distancia\+: distancia em km entre as localidades de origem e destino.~\newline
+
+\end{DoxyItemize}\mbox{\Hypertarget{classModal_a4a2e7830211c07075078b5d5186dab54}\label{classModal_a4a2e7830211c07075078b5d5186dab54}} 
+\index{Modal@{Modal}!````~Modal@{$\sim$\+Modal}}
+\index{````~Modal@{$\sim$\+Modal}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{$\sim$\+Modal()}{~Modal()}}
+{\footnotesize\ttfamily Modal\+::$\sim$\+Modal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor da classe \hyperlink{classModal}{Modal}
+
+\subsection{Documentação dos métodos}
+\mbox{\Hypertarget{classModal_ac9750361d92b6ad91674851852c7362f}\label{classModal_ac9750361d92b6ad91674851852c7362f}} 
+\index{Modal@{Modal}!get\+Capacidade@{get\+Capacidade}}
+\index{get\+Capacidade@{get\+Capacidade}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{get\+Capacidade()}{getCapacidade()}}
+{\footnotesize\ttfamily float Modal\+::get\+Capacidade (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna a capacidade do veículo de transporte de carga utilizado.~\newline
+Sem argumentos.\mbox{\Hypertarget{classModal_a1eedb4dfdddd81a5a7c7b3203e50e68c}\label{classModal_a1eedb4dfdddd81a5a7c7b3203e50e68c}} 
+\index{Modal@{Modal}!get\+Distancia@{get\+Distancia}}
+\index{get\+Distancia@{get\+Distancia}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{get\+Distancia()}{getDistancia()}}
+{\footnotesize\ttfamily int Modal\+::get\+Distancia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna a distância em linha reta entre as localidades de origem e destino da carga.~\newline
+Sem argumentos.\mbox{\Hypertarget{classModal_ae124094018f5e049d5137a8eec893a79}\label{classModal_ae124094018f5e049d5137a8eec893a79}} 
+\index{Modal@{Modal}!get\+Preco@{get\+Preco}}
+\index{get\+Preco@{get\+Preco}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{get\+Preco()}{getPreco()}}
+{\footnotesize\ttfamily float Modal\+::get\+Preco (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna o preço do serviço de transporte de carga.~\newline
+Sem argumentos.\mbox{\Hypertarget{classModal_ad0e185312cd36ad83b4e19fd1cd532be}\label{classModal_ad0e185312cd36ad83b4e19fd1cd532be}} 
+\index{Modal@{Modal}!get\+Tipo\+Modal@{get\+Tipo\+Modal}}
+\index{get\+Tipo\+Modal@{get\+Tipo\+Modal}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{get\+Tipo\+Modal()}{getTipoModal()}}
+{\footnotesize\ttfamily std\+::string Modal\+::get\+Tipo\+Modal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna o tipo de modal utilizado no transporte.~\newline
+Sem argumentos.\mbox{\Hypertarget{classModal_acac9a4b13c4596842253e25f84872b32}\label{classModal_acac9a4b13c4596842253e25f84872b32}} 
+\index{Modal@{Modal}!get\+Velocidade@{get\+Velocidade}}
+\index{get\+Velocidade@{get\+Velocidade}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{get\+Velocidade()}{getVelocidade()}}
+{\footnotesize\ttfamily float Modal\+::get\+Velocidade (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna a velocidade média do veículo de transporte de carga utilizado.~\newline
+Sem argumentos.\mbox{\Hypertarget{classModal_a20cee7247cce33806d681e1d60347cc5}\label{classModal_a20cee7247cce33806d681e1d60347cc5}} 
+\index{Modal@{Modal}!obter\+Custo@{obter\+Custo}}
+\index{obter\+Custo@{obter\+Custo}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{obter\+Custo()}{obterCusto()}}
+{\footnotesize\ttfamily float Modal\+::obter\+Custo (\begin{DoxyParamCaption}\item[{float}]{distancia }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Implementado somente nas classes derivadas
+
+Reimplementado em \hyperlink{classAereo_aebe18688abfe40893831960f4a8889d9}{Aereo}, \hyperlink{classAquaviario_a14803bda14b188a33a8f726d90171746}{Aquaviario}, \hyperlink{classRodoviario_a907ec064fb54db8a05b480cf58c5fe57}{Rodoviario} e \hyperlink{classFerroviario_a691452311fe49e6573e47220fa372d15}{Ferroviario}.
+
+\mbox{\Hypertarget{classModal_a71e2bda54694608c149ae0d72b3693a4}\label{classModal_a71e2bda54694608c149ae0d72b3693a4}} 
+\index{Modal@{Modal}!obter\+Tempo@{obter\+Tempo}}
+\index{obter\+Tempo@{obter\+Tempo}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{obter\+Tempo()}{obterTempo()}}
+{\footnotesize\ttfamily float Modal\+::obter\+Tempo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna o tempo de viagem entre as localidades de origem e destino da carga, a partir da velocidade média.~\newline
+Sem argumentos.\mbox{\Hypertarget{classModal_affd03b3938af5cbe3541f82ae5ad8b6a}\label{classModal_affd03b3938af5cbe3541f82ae5ad8b6a}} 
+\index{Modal@{Modal}!set\+Capacidade@{set\+Capacidade}}
+\index{set\+Capacidade@{set\+Capacidade}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{set\+Capacidade()}{setCapacidade()}}
+{\footnotesize\ttfamily void Modal\+::set\+Capacidade (\begin{DoxyParamCaption}\item[{float}]{capacidade }\end{DoxyParamCaption})}
+
+Atribui o valor da variável capacidade.~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item capacidade\+: valor da capacidade transporte do modal, em toneladas;~\newline
+
+\end{DoxyItemize}
+
+Exceção\+:~\newline
+
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;~\newline
+ 
+\end{DoxyItemize}\mbox{\Hypertarget{classModal_adae73e94a5d76a2a97329cba1fe7fb20}\label{classModal_adae73e94a5d76a2a97329cba1fe7fb20}} 
+\index{Modal@{Modal}!set\+Distancia@{set\+Distancia}}
+\index{set\+Distancia@{set\+Distancia}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{set\+Distancia()}{setDistancia()}}
+{\footnotesize\ttfamily void Modal\+::set\+Distancia (\begin{DoxyParamCaption}\item[{int}]{distancia }\end{DoxyParamCaption})}
+
+Atribui o valor da variável distancia.~\newline
+Argumento\+:
+\begin{DoxyItemize}
+\item distancia\+: valor da distância entre as localidades de origem e destino da carga.~\newline
+Exceção\+:
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;
+\end{DoxyItemize}
+\end{DoxyItemize}\mbox{\Hypertarget{classModal_ade6a106d1c7a0bc095ea1a012891ed00}\label{classModal_ade6a106d1c7a0bc095ea1a012891ed00}} 
+\index{Modal@{Modal}!set\+Preco@{set\+Preco}}
+\index{set\+Preco@{set\+Preco}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{set\+Preco()}{setPreco()}}
+{\footnotesize\ttfamily void Modal\+::set\+Preco (\begin{DoxyParamCaption}\item[{float}]{preco }\end{DoxyParamCaption})}
+
+Atribui o valor da variável preço.~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item preço\+: valor pago pelo tranporte, em R\$;~\newline
+
+\end{DoxyItemize}
+
+Exceção\+:~\newline
+
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;~\newline
+ 
+\end{DoxyItemize}\mbox{\Hypertarget{classModal_ac8da271cfb67468b89cbca0b3951b9f7}\label{classModal_ac8da271cfb67468b89cbca0b3951b9f7}} 
+\index{Modal@{Modal}!set\+Velocidade@{set\+Velocidade}}
+\index{set\+Velocidade@{set\+Velocidade}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{set\+Velocidade()}{setVelocidade()}}
+{\footnotesize\ttfamily void Modal\+::set\+Velocidade (\begin{DoxyParamCaption}\item[{float}]{velocidade }\end{DoxyParamCaption})}
+
+Atribui o valor da variável velocidade.~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item velocidade\+: valor da velocidade do meio de transporte utilizado, em km/h;~\newline
+
+\end{DoxyItemize}
+
+Exceção\+:~\newline
+
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;~\newline
+ 
+\end{DoxyItemize}
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/modal.\+hpp\item 
+src/modal.\+cpp\end{DoxyCompactItemize}
