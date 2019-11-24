@@ -32,6 +32,7 @@ Operador::Operador(int V){
     for(int i = 0; i < V; i++){ 
         this->_graph[i] = new Modal[V]; 
     }
+    this->_V = V;
 }
 
 Operador::~Operador(){
@@ -45,7 +46,7 @@ void Operador::popularMatriz() {
     std::cout << "POPULAR MATRIZ\n"; 
     std::ifstream infile("./data/arestas.txt");
     std::string linha; 
-    // int row, col; // substituido pelo codigo de origem e destino
+    int row, col; // substituido pelo codigo de origem e destino
 
     // contadores auxiliares
     int counter = 0; // contador de linha do arquivo
@@ -67,6 +68,33 @@ void Operador::popularMatriz() {
     float valor_terminal;
     int distancia;
 
+    infile >> rows >> columns;
+
+    while(infile >> row >> col) {
+        infile >> tipo_modal;
+        infile >> preco;
+        infile >> capacidade;
+        infile >> velocidade;
+        infile >> pedagio;
+        infile >> valor_pedagio;
+        infile >> valor_terminal;
+        infile >> distancia;
+
+        if(tipo_modal == "ferroviario") {
+            this->_graph[row][col] = Ferroviario(distancia);
+        }else{
+            if(tipo_modal == "rodoviario") {
+                this->_graph[row][col] = Rodoviario(distancia, pedagio, valor_pedagio);
+            }else{
+                if(tipo_modal == "aereo") {
+                    this->_graph[row][col] = Aereo(distancia, valor_terminal);
+                }else{
+                    this->_graph[row][col] = Aquaviario(distancia, valor_terminal);    
+                }
+            }
+        }
+    }
+    /*
     std::cout << origem << " "
                     << destino << " "
                     << tipo_modal << " "
@@ -161,7 +189,7 @@ void Operador::popularMatriz() {
                     distancia = std::stoi(entrada);
                 }
 
-                /*
+                
                 switch (column){
                     case 0:
                         std::cout << "A\n";
@@ -197,7 +225,7 @@ void Operador::popularMatriz() {
                     case 9:
                         distancia = std::stoi(entrada);
                 }
-                */
+                
             }
             
             counter++;
@@ -234,6 +262,7 @@ void Operador::popularMatriz() {
         }    
           
     }
+    */
     /*
     while(infile >> row >> col) {
         infile >> tipo_modal;
@@ -300,7 +329,6 @@ void Operador::printSolutionPath(int *dist, int *parent, int src, int dest) {
 // Function that implements Dijkstra's single source shortest path algorithm 
 // for a graph represented using adjacency matrix representation 
 void Operador::dijkstra(int src, int dest, float quantidade) { 
-    std::cout << "DJIKSTRA\n";
     int *dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
     // distance from src to i 
 
@@ -339,9 +367,9 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
             // Update dist[v] only if is not in sptSet, there is an edge from 
             // u to v, and total weight of path from src to v through u is 
             // smaller than current value of dist[v] 
-            if (!sptSet[v] && _graph[u][v].getDistancia() && dist[u] != INT_MAX 
-                && dist[u] + _graph[u][v].getDistancia() < dist[v]) {
-                dist[v] = dist[u] + _graph[u][v].getDistancia();     
+            if (!sptSet[v] && _graph[u][v].getFlagAresta() && dist[u] != INT_MAX 
+                && dist[u] + _graph[u][v].obterTempo() < dist[v]) {
+                dist[v] = dist[u] + _graph[u][v].obterTempo();     
                 parent[v] = u;
             }
     } 
