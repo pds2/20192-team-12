@@ -24,6 +24,7 @@ class Modal {
         float _capacidade;
         float _velocidade;
         int _distancia;
+        int _flag;
         
     public:  
         Modal();      
@@ -41,6 +42,7 @@ class Modal {
         float getCapacidade();
         float getVelocidade();
         int getDistancia();
+        int getFlagAresta();
 
         // recebe a quantidade a ser transportada
         virtual float obterCusto(float);
