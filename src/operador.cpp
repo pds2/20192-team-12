@@ -46,6 +46,18 @@ void Operador::popularMatriz() {
     std::ifstream infile("./data/arestas.txt");
     std::string linha; 
     // int row, col; // substituido pelo codigo de origem e destino
+
+    // contadores auxiliares
+    int counter = 0; // contador de linha do arquivo
+    int rows = 0; // total de arestas
+    int columns = 0; // total de colunas por aresta
+    int column = 0; // coluna especifica
+
+    // códigos das localidades, indexação do grafo
+    int origem;
+    int destino;
+    
+    // informações dos modais
     std::string tipo_modal;
     float preco;
     float capacidade;
@@ -54,12 +66,18 @@ void Operador::popularMatriz() {
     float valor_pedagio;
     float valor_terminal;
     int distancia;
-    int counter = 0;
-    int origem;
-    int destino;
-    int rows = 0; // total de arestas
-    int columns = 0; // total de colunas por aresta
-    int column = 0; // coluna especifica
+
+    std::cout << origem << " "
+                    << destino << " "
+                    << tipo_modal << " "
+                    << preco << " "
+                    << capacidade << " "
+                    << velocidade << " "
+                    << pedagio << " "
+                    << valor_pedagio << " "
+                    << valor_terminal << " "
+                    << distancia << std::endl;
+
     while(!infile.eof()){
         // std::cout << counter << std::endl;
         getline(infile, linha);
@@ -71,7 +89,7 @@ void Operador::popularMatriz() {
         
         
         for(std::string entrada; iss_linha >> entrada;){
-            // std::cout << counter << " " << entrada << "\n";
+            //std::cout << counter << " " << entrada << "\n";
             if (counter == 0){
                 rows = std::stoi(entrada);
             }
@@ -83,23 +101,95 @@ void Operador::popularMatriz() {
                 // std::string str;
 
                 column = (counter - 2) % columns;
-                std::cout << "column: " << column << " " << entrada << "\n";
+                //std::cout << "column: " << column << " " << entrada << "\n";
+                if(column == 0) {
+                    //std::cout << "A\n";
+                    //std::cout << entrada << std::endl;
+                    origem = std::stoi(entrada);
+                    //std::cout << "A\n";
+                }
+
+                if(column == 1) {
+                    //std::cout << "B\n";
+                    //std::cout << entrada << std::endl;
+                    destino =  std::stoi(entrada);
+                    //std::cout << "B\n";
+                }
+
+                if(column == 2) {
+                    //std::cout << "C\n";
+                    //std::cout << entrada << std::endl;
+                    tipo_modal = entrada;
+                    //std::cout << "C\n";
+                }
+
+                if(column == 3) {
+                    //std::cout << "D\n";
+                    //std::cout << entrada << std::endl;
+                    preco = std::stof(entrada);
+                    //std::cout << "D\n";
+                        
+                }
+
+                if(column == 4) {
+                    //std::cout << "E\n";
+                    //std::cout << entrada << std::endl;
+                    capacidade = std::stof(entrada);
+                    //std::cout << "E\n";
+                }
+
+                if(column == 5) {
+                    //std::cout << "F\n";
+                    //std::cout << entrada << std::endl;
+                    velocidade = std::stof(entrada);
+                    //std::cout << "F\n";
+                }
+
+                if(column == 6) {
+                    pedagio = std::stoi(entrada);
+                }
+
+                if(column == 7) {
+                    valor_pedagio = std::stof(entrada);
+                }
+
+                if(column == 8) {
+                    valor_terminal = std::stof(entrada);
+                }
+                
+                if(column == 9) {
+                    distancia = std::stoi(entrada);
+                }
+
+                /*
                 switch (column){
                     case 0:
+                        std::cout << "A\n";
                         origem = std::stoi(entrada);
+                        std::cout << "A\n";
                     case 1:
+                        std::cout << "B\n";
                         destino =  std::stoi(entrada);
+                        std::cout << "B\n";
                     case 2:
+                        std::cout << "C\n";
                         tipo_modal = entrada;
+                        std::cout << "C\n";
                     case 3:
+                        std::cout << "D\n";
+                        std::cout << entrada << std::endl;
                         preco = std::stof(entrada);
+                        std::cout << "D\n";
                         // preco = (entrada);
                     case 4:
                         capacidade = std::stof(entrada);
+                        //break;
                     case 5:
                         velocidade = std::stof(entrada);
+                        //break;
                     case 6:
                         pedagio = std::stoi(entrada);
+                        //break;
                     case 7:
                         valor_pedagio = std::stof(entrada);
                     case 8:
@@ -107,11 +197,14 @@ void Operador::popularMatriz() {
                     case 9:
                         distancia = std::stoi(entrada);
                 }
+                */
             }
             
             counter++;
 
         }
+
+        
         std::cout << origem << " "
                     << destino << " "
                     << tipo_modal << " "
@@ -121,7 +214,9 @@ void Operador::popularMatriz() {
                     << pedagio << " "
                     << valor_pedagio << " "
                     << valor_terminal << " "
-                    << distancia << std::endl;                    
+                    << distancia << std::endl;
+        
+
         if(tipo_modal == "ferroviario") {
             Modal *f = new Ferroviario(distancia);
             this->_graph[origem][destino] = *f;
