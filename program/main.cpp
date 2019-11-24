@@ -73,16 +73,16 @@ int main(){
         std::cout << "Pasta ou arquivo nao encontrado.\n";
         // return 1;
     }else{
-        lerArquivo(arq_arestas, vec_arestas);
+        // lerArquivo(arq_arestas, vec_arestas);
         // lerArquivo(arq_local, vec_local2);
-        lerLocalidades(arq_local, vec_local);
+        lerArquivoLocalidades(arq_local, vec_local);
     }  
-
-    // INICIO BLOCO
-    // limpando a tela
     num_localidades = (int) vec_local.size();
     Screen *tela = new Screen(vec_local);
     tela->showMainMenu(tela);
+
+    // INICIO BLOCO
+    // limpando a tela
     
     while(entrada != 2){
         /*

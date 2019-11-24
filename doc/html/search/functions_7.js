@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['_7eaereo',['~Aereo',['../classAereo.html#a1fdc694bc1f263674c755e99fe08c33c',1,'Aereo']]],
-  ['_7eaquaviario',['~Aquaviario',['../classAquaviario.html#a71c1378131f32535dcad3e714e643c1d',1,'Aquaviario']]],
-  ['_7eferroviario',['~Ferroviario',['../classFerroviario.html#a14356b699e7cd2651654ef06029d2f0d',1,'Ferroviario']]],
-  ['_7emodal',['~Modal',['../classModal.html#a4a2e7830211c07075078b5d5186dab54',1,'Modal']]],
-  ['_7erodoviario',['~Rodoviario',['../classRodoviario.html#a11df25b437139f12013adc0d861b7970',1,'Rodoviario']]]
+  ['rodoviario',['Rodoviario',['../classRodoviario.html#a91f98005c09609f74f4de02c1907481d',1,'Rodoviario::Rodoviario()'],['../classRodoviario.html#a56cdc15643e5d023e2d4c61139ecc16d',1,'Rodoviario::Rodoviario(int, bool, float)']]]
 ];

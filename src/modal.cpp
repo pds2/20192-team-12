@@ -324,9 +324,9 @@ void Rodoviario::setPedagio(int pedagio){
      *  Exceção:
      *       - o valor não pode ser negativo;
     */  
-    Tipo tipo;
-    std::cout << "pedagio: " << pedagio << " " << tipo.getTipo(pedagio) << " " 
-              << " teste1 " << (pedagio != true) << " teste2 " << (pedagio != false) << std::endl;
+    // Tipo tipo;
+    // std::cout << "pedagio: " << pedagio << " " << tipo.getTipo(pedagio) << " " 
+    //           << " teste1 " << (pedagio != true) << " teste2 " << (pedagio != false) << std::endl;
     // if (tipo.getTipo(pedagio) != "boolean"){
     if (pedagio != 1 && pedagio != 0){
         throw std::invalid_argument("A variavel pedagio deve ser true ou false.");

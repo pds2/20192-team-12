@@ -67,6 +67,11 @@ $(function() {
 <div class="title">Referência à classe Modal</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta.  
+ <a href="classModal.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="modal_8hpp_source.html">modal.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de heranças da classe Modal</div>
 <div class="dyncontent">
@@ -77,7 +82,6 @@ Diagrama de heranças da classe Modal</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Membros públicos</h2></td></tr>
 <tr class="memitem:a8762a8d9f09cb6a2ec5f54f5d26412c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a8762a8d9f09cb6a2ec5f54f5d26412c0">Modal</a> ()</td></tr>
-<tr class="memdesc:a8762a8d9f09cb6a2ec5f54f5d26412c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta.  <a href="#a8762a8d9f09cb6a2ec5f54f5d26412c0">Mais...</a><br /></td></tr>
 <tr class="separator:a8762a8d9f09cb6a2ec5f54f5d26412c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17560766811007d0af99fd6099325d52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a17560766811007d0af99fd6099325d52">Modal</a> (std::string, float, float, float, int)</td></tr>
 <tr class="separator:a17560766811007d0af99fd6099325d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,8 +105,7 @@ Membros públicos</h2></td></tr>
 <tr class="separator:acac9a4b13c4596842253e25f84872b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eedb4dfdddd81a5a7c7b3203e50e68c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a1eedb4dfdddd81a5a7c7b3203e50e68c">getDistancia</a> ()</td></tr>
 <tr class="separator:a1eedb4dfdddd81a5a7c7b3203e50e68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20cee7247cce33806d681e1d60347cc5"><td class="memItemLeft" align="right" valign="top"><a id="a20cee7247cce33806d681e1d60347cc5"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>obterCusto</b> (float)</td></tr>
+<tr class="memitem:a20cee7247cce33806d681e1d60347cc5"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a20cee7247cce33806d681e1d60347cc5">obterCusto</a> (float)</td></tr>
 <tr class="separator:a20cee7247cce33806d681e1d60347cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71e2bda54694608c149ae0d72b3693a4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a71e2bda54694608c149ae0d72b3693a4">obterTempo</a> ()</td></tr>
 <tr class="separator:a71e2bda54694608c149ae0d72b3693a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -125,7 +128,10 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>_velocidade</b></td>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></tr>
 <tr class="separator:a39f95d6378c8794c91bca2efbbf11337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta. </p>
+<p>O meio de transporte pode ser: rodoviário, ferroviário, aquaviário ou aéreo. Todos esses quatro meios de transporte possuem as seguintes informações: 1) Tipo do modal: rodoviario, ferroviario, aquaviario ou aéreo; 2) Preço: Reais/Km; 3) Capacidade: em Toneladas; 4) Velocidade: Km/h; 5) Distância em Km;O modal rodoviário tem como especificidade o fato de poder ter pedágio; já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal. </p>
+</div><h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
 <a id="a8762a8d9f09cb6a2ec5f54f5d26412c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8762a8d9f09cb6a2ec5f54f5d26412c0">&#9670;&nbsp;</a></span>Modal() <span class="overload">[1/2]</span></h2>
 
@@ -140,11 +146,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta. </p>
-<p>O meio de transporte pode ser: rodoviário, ferroviário, aquaviário ou aéreo. Todos esses quatro meios de transporte possuem as seguintes informações: 1) <a class="el" href="classTipo.html">Tipo</a> do modal: rodoviario, ferroviario, aquaviario ou aéreo; 2) Preço: Reais/Km; 3) Capacidade: em Toneladas; 4) Velocidade: Km/h; 5) Distância em Km;</p>
-<p>O modal rodoviário tem como especificidade o fato de poder ter pedágio; já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal. </p>
-<p>Construtor sem argumentos da classe <a class="el" href="classModal.html">Modal</a> Padrao: rodoviario;</p>
+<p>Construtor sem argumentos da classe <a class="el" href="classModal.html" title="Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta...">Modal</a><br />
+Default:</p><ul>
+<li>nome_modal: rodoviário;</li>
+<li>preco: 0.075;</li>
+<li>capacidade: 35;</li>
+<li>velocidade: 60; e</li>
+<li>distancia: 0.<br />
+</li>
+</ul>
 
 </div>
 </div>
@@ -191,13 +201,14 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construtor da classe <a class="el" href="classModal.html">Modal</a></p>
-<p>Argumentos:</p><ul>
+<p>Construtor da classe <a class="el" href="classModal.html" title="Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta...">Modal</a><br />
+ Argumentos:</p><ul>
 <li>nome_modal: nome do modal de transporte;</li>
 <li>preco: preço do modal de transporte em R$;</li>
 <li>capacidade: capacidade do modal de transporte em toneladas;</li>
 <li>velocidade: velocidade do modal de transporte em km/h; e</li>
-<li>distancia: distancia em km entre as localidades de origem e destino.</li>
+<li>distancia: distancia em km entre as localidades de origem e destino.<br />
+</li>
 </ul>
 
 </div>
@@ -216,7 +227,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Destrutor da classe <a class="el" href="classModal.html">Modal</a></p>
+<p>Destrutor da classe <a class="el" href="classModal.html" title="Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta...">Modal</a></p>
 
 </div>
 </div>
@@ -235,7 +246,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retorna a capacidade do veículo de transporte de carga utilizado. Sem argumentos.</p>
+<p>Retorna a capacidade do veículo de transporte de carga utilizado.<br />
+Sem argumentos.</p>
 
 </div>
 </div>
@@ -253,7 +265,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retorna a distância em linha reta entre as localidades de origem e destino da carga. Sem argumentos.</p>
+<p>Retorna a distância em linha reta entre as localidades de origem e destino da carga.<br />
+Sem argumentos.</p>
 
 </div>
 </div>
@@ -271,7 +284,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retorna o preço do serviço de transporte de carga. Sem argumentos.</p>
+<p>Retorna o preço do serviço de transporte de carga.<br />
+Sem argumentos.</p>
 
 </div>
 </div>
@@ -289,7 +303,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retorna o tipo de modal utilizado no transporte. Sem argumentos.</p>
+<p>Retorna o tipo de modal utilizado no transporte.<br />
+Sem argumentos.</p>
 
 </div>
 </div>
@@ -307,7 +322,37 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retorna a velocidade média do veículo de transporte de carga utilizado. Sem argumentos.</p>
+<p>Retorna a velocidade média do veículo de transporte de carga utilizado.<br />
+Sem argumentos.</p>
+
+</div>
+</div>
+<a id="a20cee7247cce33806d681e1d60347cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cee7247cce33806d681e1d60347cc5">&#9670;&nbsp;</a></span>obterCusto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Modal::obterCusto </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>distancia</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Implementado somente nas classes derivadas</p>
+
+<p>Reimplementado em <a class="el" href="classAereo.html#aebe18688abfe40893831960f4a8889d9">Aereo</a>, <a class="el" href="classAquaviario.html#a14803bda14b188a33a8f726d90171746">Aquaviario</a>, <a class="el" href="classRodoviario.html#a907ec064fb54db8a05b480cf58c5fe57">Rodoviario</a> e <a class="el" href="classFerroviario.html#a691452311fe49e6573e47220fa372d15">Ferroviario</a>.</p>
 
 </div>
 </div>
@@ -325,7 +370,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retorna o tempo de viagem entre as localidades de origem e destino da carga, a partir da velocidade média. Sem argumentos.</p>
+<p>Retorna o tempo de viagem entre as localidades de origem e destino da carga, a partir da velocidade média.<br />
+Sem argumentos.</p>
 
 </div>
 </div>
@@ -344,11 +390,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Atribui o valor da variável capacidade. Argumento:</p><ul>
-<li>capacidade: valor da capacidade transporte do modal, em toneladas; Exceção:<ul>
-<li>o valor não pode ser negativo;</li>
-</ul>
+<p>Atribui o valor da variável capacidade.<br />
+ Argumento:</p><ul>
+<li>capacidade: valor da capacidade transporte do modal, em toneladas;<br />
 </li>
+</ul>
+<p>Exceção:<br />
+</p><ul>
+<li>o valor não pode ser negativo;<br />
+ </li>
 </ul>
 
 </div>
@@ -368,8 +418,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Atribui o valor da variável distancia. Argumento:</p><ul>
-<li>distancia: valor da distância entre as localidades de origem e destino da carga. Exceção:<ul>
+<p>Atribui o valor da variável distancia.<br />
+Argumento:</p><ul>
+<li>distancia: valor da distância entre as localidades de origem e destino da carga.<br />
+Exceção:<ul>
 <li>o valor não pode ser negativo;</li>
 </ul>
 </li>
@@ -392,11 +444,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Atribui o valor da variável preço. Argumento:</p><ul>
-<li>preço: valor pago pelo tranporte, em R$; Exceção:<ul>
-<li>o valor não pode ser negativo;</li>
-</ul>
+<p>Atribui o valor da variável preço.<br />
+ Argumento:</p><ul>
+<li>preço: valor pago pelo tranporte, em R$;<br />
 </li>
+</ul>
+<p>Exceção:<br />
+</p><ul>
+<li>o valor não pode ser negativo;<br />
+ </li>
 </ul>
 
 </div>
@@ -416,11 +472,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Atribui o valor da variável velocidade. Argumento:</p><ul>
-<li>velocidade: valor da velocidade do meio de transporte utilizado, em km/h; Exceção:<ul>
-<li>o valor não pode ser negativo;</li>
-</ul>
+<p>Atribui o valor da variável velocidade.<br />
+ Argumento:</p><ul>
+<li>velocidade: valor da velocidade do meio de transporte utilizado, em km/h;<br />
 </li>
+</ul>
+<p>Exceção:<br />
+</p><ul>
+<li>o valor não pode ser negativo;<br />
+ </li>
 </ul>
 
 </div>

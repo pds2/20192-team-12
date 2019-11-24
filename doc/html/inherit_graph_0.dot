@@ -3,7 +3,5 @@ digraph "Representação gráfica da hiearquia da classe"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node11 [label="exception",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
-  Node11 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node0 [label="ArquivoNaoExiste",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classArquivoNaoExiste.html"];
+  Node0 [label="Localidade",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLocalidade.html",tooltip="Esta classe representa uma localidade que possui as seguintes propriedades: 1) Código do município; 2..."];
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rodoviario',['Rodoviario',['../classRodoviario.html#a91f98005c09609f74f4de02c1907481d',1,'Rodoviario::Rodoviario()'],['../classRodoviario.html#a56cdc15643e5d023e2d4c61139ecc16d',1,'Rodoviario::Rodoviario(int, bool, float)']]]
+  ['modal',['Modal',['../classModal.html#a8762a8d9f09cb6a2ec5f54f5d26412c0',1,'Modal::Modal()'],['../classModal.html#a17560766811007d0af99fd6099325d52',1,'Modal::Modal(std::string, float, float, float, int)']]]
 ];

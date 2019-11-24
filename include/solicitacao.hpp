@@ -2,9 +2,9 @@
 #define SOLICITACAO_HPP
 #include <iostream>
 #include <stdexcept> 
-/*
-Esta classe representa uma solicitação de transporte de uma determinada
-quantidade de carga entre duas localidades. 
+/**
+ * Esta classe representa uma solicitação de transporte de uma determinada
+ * quantidade de carga entre duas localidades. 
 */
 
 class Solicitacao {

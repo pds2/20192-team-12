@@ -7,62 +7,58 @@
 #include <vector>
 #include "modal.hpp"
 #include "localidade.hpp"
+/**
+ * A classe Screen manuseia eventos para exibição na tela do terminal 
+*/
 
-class Tipo{
-	public:
-		Tipo(){}
-		~Tipo(){}
-		std::string getTipo(std::string);
-		std::string getTipo(int);
-		std::string getTipo(float);
-		std::string getTipo(double);
-		std::string getTipo(bool);
-		std::string getTipo(std::istream);
-		std::string getTipo(std::ifstream);
-		std::string getTipo(Ferroviario);
-		std::string getTipo(Rodoviario);
-		std::string getTipo(Aquaviario);
-		std::string getTipo(Aereo);
-};
-class Screen{
+class Screen{	
 	private:
 		unsigned int _bar_size = 100;
 		std::vector <Localidade> _vector; // novo vetor
 		unsigned int _padding = 20;
 		unsigned int _columns = 4;
 		unsigned int _spaces = 100;
+
+		// EXCLUIR
 		// std::vector <std::string> _vector; // antigo vetor
 	public:
 		Screen(std::vector <Localidade> &);
 		~Screen();
 		void setPadding(unsigned int);
-		void setColumns(unsigned int);
-		void setSpaces(unsigned int);
-		
-		unsigned int getPadding();
-		unsigned int getColumns();
-		unsigned int getSpaces();
 
-		void setBarSize(unsigned int);
-		void setVector(std::vector <Localidade> &);
 		void showMainMenu(Screen*);
 		void showEntradaDados(float&, int&, int&, int&, int);
 		void showSolicitacao(int, int, float, std::vector <Localidade>);
-		// void showContinueMenu(Screen*);
 		void showSubMenu();
 		void showBar(std::string);
 		void showVector(int);
-		// void showTitle(std::string, unsigned int, std::string);
 		void showTitle(std::string, std::string);
 		void showWarning(std::string);
-		std::string formattString(std::string);
+		// void lerLocalidades(std::istream &, std::vector  <Localidade> &);
+
+		// EXCLUIR
+		// void showContinueMenu(Screen*);
+		// std::string formattString(std::string);
+		// void setColumns(unsigned int);
+		// void setSpaces(unsigned int);
+		
+		// unsigned int getPadding();
+		// unsigned int getColumns();
+		// unsigned int getSpaces();
+
+		// void setBarSize(unsigned int);
+		// void setVector(std::vector <Localidade> &);
 		
 };
 
 Localidade searchMunicipio(int, std::vector  <Localidade>& );
-void lerArquivo(std::istream &, std::vector <std::string> &);
-void lerLocalidades(std::istream &, std::vector <Localidade> &);
+// void lerArquivo(std::istream &, std::vector <std::string> &);
+void lerArquivoLocalidades(std::istream &, std::vector <Localidade> &);
 void menu(std::vector <std::string>&);
+
+
+// EXCLUIR
+
 // class Screen{
 // 	private:
 // 		unsigned int _bar_size = 100;
@@ -80,5 +76,24 @@ void menu(std::vector <std::string>&);
 // 		void showTitle(std::string, unsigned int, std::string);
 // 		void showWarning(std::string);
 		
+// };
+// class Tipo{
+// 	/**
+// 	 * Esta classe obtem os tipos das variavesi. 
+// 	*/	
+// 	public:
+// 		Tipo(){}
+// 		~Tipo(){}
+// 		std::string getTipo(std::string); // retorna para variaveis do tipo string
+// 		std::string getTipo(int); // retorna para variaveis do tipo int
+// 		std::string getTipo(float); // retorna para variaveis do tipo float
+// 		std::string getTipo(double); // retorna para variaveis do tipo double
+// 		std::string getTipo(bool); // retorna para variaveis do tipo bool
+// 		std::string getTipo(std::istream); // retorna para variaveis do tipo std::istream
+// 		std::string getTipo(std::ifstream); // retorna para variaveis do tipo std::ifstream
+// 		std::string getTipo(Ferroviario); // retorna para variaveis do tipo Ferroviario
+// 		std::string getTipo(Rodoviario); // retorna para variaveis do tipo Rodoviario
+// 		std::string getTipo(Aquaviario); // retorna para variaveis do tipo Aquaviario
+// 		std::string getTipo(Aereo); // retorna para variaveis do tipo Aereo
 // };
 #endif

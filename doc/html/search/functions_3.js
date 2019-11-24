@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['modal',['Modal',['../classModal.html#a8762a8d9f09cb6a2ec5f54f5d26412c0',1,'Modal::Modal()'],['../classModal.html#a17560766811007d0af99fd6099325d52',1,'Modal::Modal(std::string, float, float, float, int)']]]
+  ['ispedagio',['isPedagio',['../classRodoviario.html#aa3c5c3b649b9aa4bde43e2154b940c89',1,'Rodoviario']]]
 ];

@@ -1,63 +1,207 @@
 \hypertarget{classScreen}{}\section{Referência à classe Screen}
 \label{classScreen}\index{Screen@{Screen}}
+
+
+A classe \hyperlink{classScreen}{Screen} manuseia eventos para exibição na tela do terminal.  
+
+
+
+
+{\ttfamily \#include $<$tools.\+hpp$>$}
+
 \subsection*{Membros públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classScreen_ac7905724062398213802167f49dbe682}\label{classScreen_ac7905724062398213802167f49dbe682}} 
-{\bfseries Screen} (std\+::vector$<$ \hyperlink{classLocalidade}{Localidade} $>$ \&)
+\hyperlink{classScreen_ac7905724062398213802167f49dbe682}{Screen} (std\+::vector$<$ \hyperlink{classLocalidade}{Localidade} $>$ \&)
 \item 
-\mbox{\Hypertarget{classScreen_a32771ff2a19f570bf35654e11971e938}\label{classScreen_a32771ff2a19f570bf35654e11971e938}} 
-void {\bfseries set\+Padding} (unsigned int)
+\hyperlink{classScreen_a4243bc17596af96415b09ac48205676d}{$\sim$\+Screen} ()
 \item 
-\mbox{\Hypertarget{classScreen_aab086a891bb40b64d695e4f9472f9fb0}\label{classScreen_aab086a891bb40b64d695e4f9472f9fb0}} 
-void {\bfseries set\+Columns} (unsigned int)
+void \hyperlink{classScreen_a32771ff2a19f570bf35654e11971e938}{set\+Padding} (unsigned int)
 \item 
-\mbox{\Hypertarget{classScreen_a48cdb71b110816e691a3ae6b6ae184df}\label{classScreen_a48cdb71b110816e691a3ae6b6ae184df}} 
-void {\bfseries set\+Spaces} (unsigned int)
+void \hyperlink{classScreen_a3ea61b376ace3fa90b16ba31b01a8107}{show\+Main\+Menu} (\hyperlink{classScreen}{Screen} $\ast$)
 \item 
-\mbox{\Hypertarget{classScreen_a47c6aa9d8996f04f79c5214b73b4f5f5}\label{classScreen_a47c6aa9d8996f04f79c5214b73b4f5f5}} 
-unsigned int {\bfseries get\+Padding} ()
+void \hyperlink{classScreen_a7b425f6ea8830066c837f84e09f493a0}{show\+Entrada\+Dados} (float \&, int \&, int \&, int \&, int)
 \item 
-\mbox{\Hypertarget{classScreen_ae99fb8d6447735b4e5a28c365cd0a547}\label{classScreen_ae99fb8d6447735b4e5a28c365cd0a547}} 
-unsigned int {\bfseries get\+Columns} ()
+void \hyperlink{classScreen_a2f514fb5d139b0b6e8d67c95ee6a2596}{show\+Solicitacao} (int, int, float, std\+::vector$<$ \hyperlink{classLocalidade}{Localidade} $>$)
 \item 
-\mbox{\Hypertarget{classScreen_a763d02dde422f2d4fd2fe78a31cf4567}\label{classScreen_a763d02dde422f2d4fd2fe78a31cf4567}} 
-unsigned int {\bfseries get\+Spaces} ()
+void \hyperlink{classScreen_ac974e1d0dc9ab1f4c9be2d8f70d763c7}{show\+Sub\+Menu} ()
 \item 
-\mbox{\Hypertarget{classScreen_a4b0d87fae0ea0d1e45cee3ea2a9aa115}\label{classScreen_a4b0d87fae0ea0d1e45cee3ea2a9aa115}} 
-void {\bfseries set\+Bar\+Size} (unsigned int)
+void \hyperlink{classScreen_a16bd8465322e12b669e26ecccd4a3704}{show\+Bar} (std\+::string)
 \item 
-\mbox{\Hypertarget{classScreen_aa318aff3be88b93b8590e650b26cae2c}\label{classScreen_aa318aff3be88b93b8590e650b26cae2c}} 
-void {\bfseries set\+Vector} (std\+::vector$<$ \hyperlink{classLocalidade}{Localidade} $>$ \&)
+void \hyperlink{classScreen_aca2a46f65496651c74b66e807f7ed421}{show\+Vector} (int)
 \item 
-\mbox{\Hypertarget{classScreen_a3ea61b376ace3fa90b16ba31b01a8107}\label{classScreen_a3ea61b376ace3fa90b16ba31b01a8107}} 
-void {\bfseries show\+Main\+Menu} (\hyperlink{classScreen}{Screen} $\ast$)
+void \hyperlink{classScreen_aefbd91aee5978143823031767159caf7}{show\+Title} (std\+::string, std\+::string)
 \item 
-\mbox{\Hypertarget{classScreen_a7b425f6ea8830066c837f84e09f493a0}\label{classScreen_a7b425f6ea8830066c837f84e09f493a0}} 
-void {\bfseries show\+Entrada\+Dados} (float \&, int \&, int \&, int \&, int)
-\item 
-\mbox{\Hypertarget{classScreen_a2f514fb5d139b0b6e8d67c95ee6a2596}\label{classScreen_a2f514fb5d139b0b6e8d67c95ee6a2596}} 
-void {\bfseries show\+Solicitacao} (int, int, float, std\+::vector$<$ \hyperlink{classLocalidade}{Localidade} $>$)
-\item 
-\mbox{\Hypertarget{classScreen_ac974e1d0dc9ab1f4c9be2d8f70d763c7}\label{classScreen_ac974e1d0dc9ab1f4c9be2d8f70d763c7}} 
-void {\bfseries show\+Sub\+Menu} ()
-\item 
-\mbox{\Hypertarget{classScreen_a16bd8465322e12b669e26ecccd4a3704}\label{classScreen_a16bd8465322e12b669e26ecccd4a3704}} 
-void {\bfseries show\+Bar} (std\+::string)
-\item 
-\mbox{\Hypertarget{classScreen_aca2a46f65496651c74b66e807f7ed421}\label{classScreen_aca2a46f65496651c74b66e807f7ed421}} 
-void {\bfseries show\+Vector} (int)
-\item 
-\mbox{\Hypertarget{classScreen_aefbd91aee5978143823031767159caf7}\label{classScreen_aefbd91aee5978143823031767159caf7}} 
-void {\bfseries show\+Title} (std\+::string, std\+::string)
-\item 
-\mbox{\Hypertarget{classScreen_a5fc8c4449368a8507f03bf3243677f1e}\label{classScreen_a5fc8c4449368a8507f03bf3243677f1e}} 
-void {\bfseries show\+Warning} (std\+::string)
-\item 
-\mbox{\Hypertarget{classScreen_adf71f664da30bb0311e4a5033de5938f}\label{classScreen_adf71f664da30bb0311e4a5033de5938f}} 
-std\+::string {\bfseries formatt\+String} (std\+::string)
+void \hyperlink{classScreen_a5fc8c4449368a8507f03bf3243677f1e}{show\+Warning} (std\+::string)
 \end{DoxyCompactItemize}
 
+
+\subsection{Descrição detalhada}
+A classe \hyperlink{classScreen}{Screen} manuseia eventos para exibição na tela do terminal. 
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\mbox{\Hypertarget{classScreen_ac7905724062398213802167f49dbe682}\label{classScreen_ac7905724062398213802167f49dbe682}} 
+\index{Screen@{Screen}!Screen@{Screen}}
+\index{Screen@{Screen}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{Screen()}{Screen()}}
+{\footnotesize\ttfamily Screen\+::\+Screen (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \hyperlink{classLocalidade}{Localidade} $>$ \&}]{vector }\end{DoxyParamCaption})}
+
+Construtor da classe \hyperlink{classScreen}{Screen}~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item vector\+: vector para armazenamento das localidades;
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_a4243bc17596af96415b09ac48205676d}\label{classScreen_a4243bc17596af96415b09ac48205676d}} 
+\index{Screen@{Screen}!````~Screen@{$\sim$\+Screen}}
+\index{````~Screen@{$\sim$\+Screen}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{$\sim$\+Screen()}{~Screen()}}
+{\footnotesize\ttfamily Screen\+::$\sim$\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor da classe \hyperlink{classScreen}{Screen}
+
+\subsection{Documentação dos métodos}
+\mbox{\Hypertarget{classScreen_a32771ff2a19f570bf35654e11971e938}\label{classScreen_a32771ff2a19f570bf35654e11971e938}} 
+\index{Screen@{Screen}!set\+Padding@{set\+Padding}}
+\index{set\+Padding@{set\+Padding}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{set\+Padding()}{setPadding()}}
+{\footnotesize\ttfamily void Screen\+::set\+Padding (\begin{DoxyParamCaption}\item[{unsigned int}]{padding }\end{DoxyParamCaption})}
+
+Atribui o valor do tamanho do padding.~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item tamanho\+: tamanho da padding em número de caracteres;
+\end{DoxyItemize}
+
+Exceção\+:
+\begin{DoxyItemize}
+\item o valor deve ser maior que zero;
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_a16bd8465322e12b669e26ecccd4a3704}\label{classScreen_a16bd8465322e12b669e26ecccd4a3704}} 
+\index{Screen@{Screen}!show\+Bar@{show\+Bar}}
+\index{show\+Bar@{show\+Bar}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Bar()}{showBar()}}
+{\footnotesize\ttfamily void Screen\+::show\+Bar (\begin{DoxyParamCaption}\item[{std\+::string}]{simbolo }\end{DoxyParamCaption})}
+
+O método show\+Bar mostra a barra na tela.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item title\+: texto do título;
+\item simbolo\+: símbolo da barra.
+\end{DoxyItemize}
+
+Exceções\+:
+\begin{DoxyItemize}
+\item o comprimento da string simbolo não pode ser zero;
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_a7b425f6ea8830066c837f84e09f493a0}\label{classScreen_a7b425f6ea8830066c837f84e09f493a0}} 
+\index{Screen@{Screen}!show\+Entrada\+Dados@{show\+Entrada\+Dados}}
+\index{show\+Entrada\+Dados@{show\+Entrada\+Dados}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Entrada\+Dados()}{showEntradaDados()}}
+{\footnotesize\ttfamily void Screen\+::show\+Entrada\+Dados (\begin{DoxyParamCaption}\item[{float \&}]{quantidade,  }\item[{int \&}]{cod\+\_\+origem,  }\item[{int \&}]{cod\+\_\+destino,  }\item[{int \&}]{num\+\_\+solicitacoes,  }\item[{int}]{num\+\_\+localidades }\end{DoxyParamCaption})}
+
+O método show\+Entrada\+Dados mostra as solicitações de transporte e as opções de entrada de dados do sistema.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item quantidade\+: quantidade de carga a ser transportada;
+\item cod\+\_\+origem\+: código do município de origem;
+\item cod\+\_\+destino\+: código do município de destino;
+\item num\+\_\+solicitacoes\+: número corrente de solicitações; e
+\item num\+\_\+localidades\+: número total de localidades carregadas para controle
+\end{DoxyItemize}
+
+Exceções\+:
+\begin{DoxyItemize}
+\item os valores de quantidade, número de solicitações e número de localidades deve ser maior que zero;
+\item os valores dos códigos dos municípios de origem e destino não podem ser negativos;
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_a3ea61b376ace3fa90b16ba31b01a8107}\label{classScreen_a3ea61b376ace3fa90b16ba31b01a8107}} 
+\index{Screen@{Screen}!show\+Main\+Menu@{show\+Main\+Menu}}
+\index{show\+Main\+Menu@{show\+Main\+Menu}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Main\+Menu()}{showMainMenu()}}
+{\footnotesize\ttfamily void Screen\+::show\+Main\+Menu (\begin{DoxyParamCaption}\item[{\hyperlink{classScreen}{Screen} $\ast$}]{tela }\end{DoxyParamCaption})}
+
+O método show\+Main\+Menu mostra o menu inicial do sistema.~\newline
+Argumento\+:
+\begin{DoxyItemize}
+\item tela\+: objeto do tipo \hyperlink{classScreen}{Screen}
+\end{DoxyItemize}
+
+Exceções\+:
+\begin{DoxyItemize}
+\item argumento vazio
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_a2f514fb5d139b0b6e8d67c95ee6a2596}\label{classScreen_a2f514fb5d139b0b6e8d67c95ee6a2596}} 
+\index{Screen@{Screen}!show\+Solicitacao@{show\+Solicitacao}}
+\index{show\+Solicitacao@{show\+Solicitacao}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Solicitacao()}{showSolicitacao()}}
+{\footnotesize\ttfamily void Screen\+::show\+Solicitacao (\begin{DoxyParamCaption}\item[{int}]{cod\+\_\+origem,  }\item[{int}]{cod\+\_\+destino,  }\item[{float}]{quantidade,  }\item[{std\+::vector$<$ \hyperlink{classLocalidade}{Localidade} $>$}]{vec\+\_\+local }\end{DoxyParamCaption})}
+
+O método show\+Solicitacao mostra a solicitação na tela.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item cod\+\_\+origem\+: código do município de origem;
+\item cod\+\_\+destino\+: código do município de destino;
+\item quantidade\+: quantidade de carga a ser transportada; e
+\item vec\+\_\+local\+: número corrente de solicitações.
+\end{DoxyItemize}
+
+Exceções\+:
+\begin{DoxyItemize}
+\item o valor de quantidade deve ser maior que zero;
+\item os valores dos códigos dos municípios de origem e destino não podem ser negativos;
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_ac974e1d0dc9ab1f4c9be2d8f70d763c7}\label{classScreen_ac974e1d0dc9ab1f4c9be2d8f70d763c7}} 
+\index{Screen@{Screen}!show\+Sub\+Menu@{show\+Sub\+Menu}}
+\index{show\+Sub\+Menu@{show\+Sub\+Menu}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Sub\+Menu()}{showSubMenu()}}
+{\footnotesize\ttfamily void Screen\+::show\+Sub\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+O método show\+Sub\+Menu mostra o submenu com as opções de entrada de dados.~\newline
+Sem argumento.\mbox{\Hypertarget{classScreen_aefbd91aee5978143823031767159caf7}\label{classScreen_aefbd91aee5978143823031767159caf7}} 
+\index{Screen@{Screen}!show\+Title@{show\+Title}}
+\index{show\+Title@{show\+Title}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Title()}{showTitle()}}
+{\footnotesize\ttfamily void Screen\+::show\+Title (\begin{DoxyParamCaption}\item[{std\+::string}]{titulo,  }\item[{std\+::string}]{simbolo }\end{DoxyParamCaption})}
+
+O método show\+Title mostra o título formatado na tela.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item title\+: texto do título;
+\item simbolo\+: símbolo da barra.
+\end{DoxyItemize}
+
+Exceções\+:
+\begin{DoxyItemize}
+\item os comprimentos das strings não podem ser zero;
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_aca2a46f65496651c74b66e807f7ed421}\label{classScreen_aca2a46f65496651c74b66e807f7ed421}} 
+\index{Screen@{Screen}!show\+Vector@{show\+Vector}}
+\index{show\+Vector@{show\+Vector}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Vector()}{showVector()}}
+{\footnotesize\ttfamily void Screen\+::show\+Vector (\begin{DoxyParamCaption}\item[{int}]{columns }\end{DoxyParamCaption})}
+
+O método show\+Vector mostra as localidades carregadas do arquivo de localidades.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item columns\+: número de colunas.
+\end{DoxyItemize}
+
+Exceções\+:
+\begin{DoxyItemize}
+\item o valor da variável columns de ser maior que zero;
+\end{DoxyItemize}\mbox{\Hypertarget{classScreen_a5fc8c4449368a8507f03bf3243677f1e}\label{classScreen_a5fc8c4449368a8507f03bf3243677f1e}} 
+\index{Screen@{Screen}!show\+Warning@{show\+Warning}}
+\index{show\+Warning@{show\+Warning}!Screen@{Screen}}
+\subsubsection{\texorpdfstring{show\+Warning()}{showWarning()}}
+{\footnotesize\ttfamily void Screen\+::show\+Warning (\begin{DoxyParamCaption}\item[{std\+::string}]{aviso }\end{DoxyParamCaption})}
+
+O método show\+Solicitacao mostra a solicitação na tela.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item cod\+\_\+origem\+: código do município de origem;
+\item cod\+\_\+destino\+: código do município de destino;
+\item quantidade\+: quantidade de carga a ser transportada; e
+\item vec\+\_\+local\+: número corrente de solicitações.
+\end{DoxyItemize}
+
+Exceções\+:
+\begin{DoxyItemize}
+\item o valor de quantidade deve ser maior que zero;
+\item os valores dos códigos dos municípios de origem e destino não podem ser negativos;
+\end{DoxyItemize}
 
 A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
 \item 
