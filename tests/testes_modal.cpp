@@ -1,6 +1,12 @@
 #include "doctest.h"
 #include "modal.hpp"
 
+/*
+
+EM DESENVOLVIMENTO
+TESTAR OBTER CUSTO PARA TODAS AS CLASSES
+*/
+
 TEST_CASE("01 - Testes de contorno") {
     // Testar numero no 1o argumento
     CHECK_NOTHROW(Ferroviario()); // argumento vazio
@@ -27,7 +33,7 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_THROWS(r->setPedagio(-1));
     CHECK_THROWS(r->setValorPedagio(-1));
 	
-	// delete r;
+	delete r;
 
     CHECK_NOTHROW(Aquaviario()); // argumento vazio
     CHECK_THROWS(Aquaviario(-1, -1));
@@ -40,7 +46,7 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_THROWS(aq->setDistancia(-1));
     CHECK_THROWS(aq->setValorTerminal(-1));
 	
-	// delete aq;
+	delete aq;
 	
     CHECK_NOTHROW(Aereo()); // argumento vazio
     CHECK_THROWS(Aereo(-1, -1));
@@ -52,7 +58,7 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_THROWS(ar->setVelocidade(-1));
     CHECK_THROWS(ar->setDistancia(-1));
     CHECK_THROWS(ar->setValorTerminal(-1));
-	// delete ar;
+	delete ar;
 }
 TEST_CASE("02 - Classe Ferroviario - Teste positivo"){
 

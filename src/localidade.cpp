@@ -1,11 +1,22 @@
 #include <iostream>
 #include "localidade.hpp"
 
+#define CODMUNIC_DEFAULT 2
+#define LOCAL_DEFAULT "BELO HORIZONTE"
+#define LATITUDE_DEFAULT -19.891053
+#define LONGITUDE_DEFAULT -43.951401
+#define ESTADO_DEFAULT "MG"
+#define PAIS_DEFAULT "BRASIL"
+
 //Construtores da classe Localidades
-Localidade::Localidade():Localidade(2, "BELO HORIZONTE", -19.891053, -43.951401, "MG", "BRASIL"){
+Localidade::Localidade():Localidade(CODMUNIC_DEFAULT,
+                                    LOCAL_DEFAULT,
+                                    LATITUDE_DEFAULT,
+                                    LONGITUDE_DEFAULT,
+                                    ESTADO_DEFAULT,
+                                    PAIS_DEFAULT){
     /** Construtor sem argumentos da classe Localidade 
-    */   
-    
+    */
 }
 Localidade::Localidade(int codigo_municipio,
                        std::string municipio,

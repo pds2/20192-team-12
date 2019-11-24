@@ -1,36 +1,30 @@
-/**
- * Esta classe representa uma conexão entre duas localidades e
-o meio de transporte que as conecta.
-
-O meio de transporte pode ser: rodoviário, ferroviário, aquaviário ou aéreo. 
-Todos esses quatro meios de transporte possuem as seguintes informações:
-1) Tipo do modal: rodoviario, ferroviario, aquaviario ou aéreo;
-2) Preço: Reais/Km;
-3) Capacidade: em Toneladas;
-4) Velocidade: Km/h;
-5) Distância em Km;
-
-O modal rodoviário tem como especificidade o fato de poder ter pedágio; 
-já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal.
- * */
-
 #include <iostream>
 #include <stdexcept>
 #include <cmath>
 #include "modal.hpp"
 #include "tools.hpp"
 
+#define MODAL_DEFAULT "rodoviario"
+#define PRECO_DEFAULT 0.075
+#define CAPACIDADE_DEFAULT 35
+#define VELOCIDADE_DEFAULT 60
+#define DISTANCIA_DEFAULT 0
 
 Modal::Modal(){
-    /** Construtor sem argumentos da classe Modal
-        Padrao: rodoviario;
+    /** Construtor sem argumentos da classe Modal\n
+        Default:
+     *  - nome_modal: rodoviário;
+     *  - preco: 0.075;
+     *  - capacidade: 35;
+     *  - velocidade: 60; e 
+     *  - distancia: 0.\n         
     */
 
-    this->_tipo_modal = "rodoviario";
-    this->_preco = 0.075;
-    this->_capacidade = 35;
-    this->_velocidade = 60;
-    this->_distancia = 100;
+    this->_tipo_modal = MODAL_DEFAULT;
+    this->_preco = PRECO_DEFAULT;
+    this->_capacidade = CAPACIDADE_DEFAULT;
+    this->_velocidade = VELOCIDADE_DEFAULT;
+    this->_distancia = DISTANCIA_DEFAULT;
 }
 
 Modal::Modal(std::string nome_modal, float preco, float capacidade, float velocidade, int distancia){
@@ -151,12 +145,18 @@ float Modal::obterCusto(float distancia) {
 
 //Contrutores da classe Ferroviario
 Ferroviario::Ferroviario(){
-    /** Construtor sem argumentos da classe Ferroviário 
-    */    
+    /** Construtor sem argumentos da classe Ferroviário
+        Default:
+     *  - nome_modal: ferroviario;
+     *  - preco: 0.05;
+     *  - capacidade: 70000;
+     *  - velocidade: 20; e 
+     *  - distancia: 0\n         
+    */ 
     this->_tipo_modal = "ferroviario";
-    this->_preco = 0.05;
-    this->_capacidade = 70000;
-    this->_velocidade = 20;
+    this->_preco = this->ferroviario_preco;
+    this->_capacidade = this->ferroviario_capacidade;
+    this->_velocidade = this->ferroviario_velocidade;
 }
 Ferroviario::Ferroviario(int distancia){
     /**
@@ -273,9 +273,9 @@ float Ferroviario::obterCusto(float quantidade){
 //Construtores da classe Rodoviario
 Rodoviario::Rodoviario(): Rodoviario(0, 0, 0) {
     /** Construtor sem argumentos da classe Rodoviario\n
-     *  Padrão:\n 
+     *  Default:\n 
      *   - distância: 0 km; e 
-     *   - pedagio: false; e 
+     *   - pedagio: 0; e 
      *   - valor_pedágio: 0,00 R$.\n
      * .
      *  Exceção:
@@ -384,7 +384,7 @@ float Rodoviario::obterCusto(float quantidade){
 //Construtores da classe Aquaviario
 Aquaviario::Aquaviario(): Aquaviario(0, 0){
    /** Construtor sem argumentos da classe Aquaviario\n 
-     *  Padrão:\n 
+     *  Default:\n 
      *   - distância: 0 km; e 
      *   - valor_terminal:0,00 R$.\n 
      * .
@@ -411,10 +411,11 @@ Aquaviario::Aquaviario(int distancia, float valor_terminal) {
         throw std::invalid_argument("A distancia e a taxa do terminal nao podem ser negativas.");
     }
     // Modal(nome_modal, preco, capacidade, velocidade);
+
     this->_tipo_modal = "aquaviario";
-    this->_preco = 0.04375;
-    this->_capacidade = 1000;
-    this->_velocidade = 40;
+    this->_preco = aquaviario_preco;
+    this->_capacidade = aquaviario_capacidade;
+    this->_velocidade = aquaviario_velocidade;
     this->_distancia = distancia;
     this->_valor_terminal = valor_terminal;
 
@@ -461,7 +462,7 @@ float Aquaviario::obterCusto(float quantidade){
 //Construtores da classe Aereo
 Aereo::Aereo(): Aereo(0, 0){
     /** Construtor sem argumentos da classe Rodoviario\n 
-     *  Padrão:\n 
+     *  Default:\n 
      *   - distância: 0 km; e 
      *   - valor_terminal:0,00 R$.\n 
     */      
@@ -478,9 +479,9 @@ Aereo::Aereo(int distancia, float valor_terminal){
         throw std::invalid_argument("O valor da taxa do terminal nao pode ser negativo.");
     }
     this->_tipo_modal = "aereo";
-    this->_preco = 0.1;
-    this->_capacidade = 100;
-    this->_velocidade = 800;
+    this->_preco = aereo_preco;
+    this->_capacidade = aereo_capacidade;
+    this->_velocidade = aereo_velocidade;
     this->_distancia = distancia;
     this->_valor_terminal = valor_terminal;
 }

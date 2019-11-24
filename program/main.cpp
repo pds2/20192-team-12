@@ -53,8 +53,7 @@ int main(){
     // std::vector <std::string> vec_local2; // matriz para armazenar os dados de entrada
     std::vector <Localidade> vec_local; // matriz para armazenar os dados de entrada
     std::vector <std::string> vec_arestas; // matriz para armazenar os dados de entrada
-    // std::string nome_usr, senha;
-    // Usuario usr = new Usuario(nome, );
+
     // obtem o nome do arquivo do argumento e abre o arquivo
     std::string caminho = "./data/";
     std::ifstream arq_local(caminho + "localidades.txt");
@@ -131,44 +130,5 @@ int main(){
 
     tela->showWarning("Programa finalizado com sucesso!\n"); 
     delete tela;
-
-    // FIM BLOCO
-
-    /*
-    EXCLUIR????
-    | | | | |
-    V V V V V
-    ENTRADA DO USUARIO
-    std::cout << "Digite o login do usuario: ";
-    std::cout << std::endl;
-    std::cout << "Digite a senha: ";
-    std::cin >> senha;
-    std::cout << std::endl;
-    usr->setNome(nome);
-    usr->setLogin(login);
-    usr->setSenha(senha);
-    usr->cadastrarUsuario();
-    std::cout << (caminho + "localidades.txt") << std::endl;
-    std::cout << (caminho + "arestas.txt") << std::endl;
-    */
-    /*
-        LEITURA DOS ARQUIVOS
-    */     
-    // std::ofstream file;
-    // file.open(caminho + "localidades.txt");
-    // file.seekp (0, file.end);
-    // std::string str = std::to_string(41) + "|TESTE|" + "AUS" + "|AUSTRALIA|" +  std::to_string(-33.875935) +  std::to_string(151.251827)+"\n";
-    // file <<  str;
-
-
-        // Rodoviario *r = new Rodoviario();
-        // std::cout << "Pedagio: " << r->getValorPedagio() << "\n";
-        // // delete r;
-    // delete usr;
-    // std::cout << vec_local.size() << "\n";
-    // for (unsigned int i = 0; i < vec_local.size(); i++){
-    //     std::cout << vec_local[i] << "\n";
-    // }
-
     return 1;
 }
