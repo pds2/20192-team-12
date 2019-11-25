@@ -94,7 +94,7 @@ int main(){
         Operador operador = Operador(vec_local.size());
         operador.addSolicitacao(origem.getCodigoMunicipio(), destino.getCodigoMunicipio(), quantidade);
         operador.popularMatriz();
-        operador.dijkstra(cod_origem, cod_destino, quantidade);
+        operador.dijkstra(cod_origem, cod_destino, quantidade, vec_local);
         
 
         // operador.addSolicitacao()
