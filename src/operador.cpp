@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "../include/operador.hpp"
 #include <stdexcept>
 #include <cmath>
@@ -146,11 +147,17 @@ void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std
      *  - src: origem 
      *  - dest: destino
      *  - vector: vetor de localidades
-    */       
-    std::cout << "ORIGEM\t\tDESTINO\t\tDistance\t\tROTA" << std::endl;
-    std::cout << searchMunicipio(src, vector).getMunicipio() << " -> " <<
-        searchMunicipio(dest, vector).getMunicipio() << " \t " <<
-        dist[dest] << " \t\t" << searchMunicipio(src, vector).getMunicipio() << " ";
+    */
+    int padding = 20;
+    // std::cout << std::setw(padding) << std::left<< "ORIGEM\t\tDESTINO\t\tDistance\t\tROTA" << std::endl;
+    std::cout << std::setw(padding) << std::left << "ORIGEM" 
+              << std::setw(padding) << std::left << "DESTINO"
+              << std::setw(padding) << std::left << "DISTANCIA"
+              << std::setw(padding) << std::left << "ROTA" << std::endl;
+    std::cout << std::setw(padding) << std::left << searchMunicipio(src, vector).getMunicipio()
+              << std::setw(padding) << std::left << searchMunicipio(dest, vector).getMunicipio() 
+              << std::setw(padding) << std::left << dist[dest]
+              << searchMunicipio(src, vector).getMunicipio() << " ";
 
     printPath(parent, dest, vector);
     std::cout << std::endl;
