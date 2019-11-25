@@ -1,8 +1,0 @@
-<map id="Screen::showVector" name="Screen::showVector">
-<area shape="rect" id="node2" href="$classLocalidade.html#a38bb0027272b4b39b88698dc5820fbc6" title="Localidade::setCodigoMunicipio" alt="" coords="193,5,400,32"/>
-<area shape="rect" id="node3" href="$classLocalidade.html#a90ac71109a4954863bb045a57e3fc29d" title="Localidade::setMunicipio" alt="" coords="214,56,379,83"/>
-<area shape="rect" id="node4" href="$classLocalidade.html#a71acb8cadaee73dbdf27a244cc9d5135" title="Localidade::setEstado" alt="" coords="221,107,372,133"/>
-<area shape="rect" id="node5" href="$classLocalidade.html#af8e89f3bdcf8dd7bb1f3f74fdc8bc119" title="Localidade::setPais" alt="" coords="229,157,365,184"/>
-<area shape="rect" id="node6" href="$classLocalidade.html#af9abc70199d4f50cd90add07c6d6e617" title="Localidade::setLat" alt="" coords="233,208,361,235"/>
-<area shape="rect" id="node7" href="$classLocalidade.html#a9b5f805c802337480712bf010669ced8" title="Localidade::setLong" alt="" coords="227,259,366,285"/>
-</map>

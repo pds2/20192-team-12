@@ -1,7 +1,0 @@
-<map id="Representação gráfica da hiearquia da classe" name="Representação gráfica da hiearquia da classe">
-<area shape="rect" id="node1" href="$classModal.html" title="A superclasse Modal representa uma conexão entre duas localidades e o meio de transporte que as conec..." alt="" coords="5,81,63,108"/>
-<area shape="rect" id="node2" href="$classAereo.html" title="A subclasse Aereo representa o modal de transporte ferroviário, herdando os atributos e métodos da cl..." alt="" coords="125,5,181,32"/>
-<area shape="rect" id="node3" href="$classAquaviario.html" title="A subclasse Aquaviario representa o modal de transporte ferroviário, herdando os atributos e métodos ..." alt="" coords="111,56,194,83"/>
-<area shape="rect" id="node4" href="$classFerroviario.html" title="A subclasse Ferroviario representa o modal de transporte ferroviário, herdando os atributos e métodos..." alt="" coords="111,107,194,133"/>
-<area shape="rect" id="node5" href="$classRodoviario.html" title="A subclasse Rodoviario representa o modal de transporte ferroviário, herdando os atributos e métodos ..." alt="" coords="111,157,195,184"/>
-</map>

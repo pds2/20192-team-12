@@ -1,6 +1,0 @@
-<map id="Modal" name="Modal">
-<area shape="rect" id="node2" href="$classAereo.html" title="A subclasse Aereo representa o modal de transporte ferroviário, herdando os atributos e métodos da cl..." alt="" coords="5,80,61,107"/>
-<area shape="rect" id="node3" href="$classAquaviario.html" title="A subclasse Aquaviario representa o modal de transporte ferroviário, herdando os atributos e métodos ..." alt="" coords="85,80,168,107"/>
-<area shape="rect" id="node4" href="$classFerroviario.html" title="A subclasse Ferroviario representa o modal de transporte ferroviário, herdando os atributos e métodos..." alt="" coords="192,80,275,107"/>
-<area shape="rect" id="node5" href="$classRodoviario.html" title="A subclasse Rodoviario representa o modal de transporte ferroviário, herdando os atributos e métodos ..." alt="" coords="299,80,383,107"/>
-</map>

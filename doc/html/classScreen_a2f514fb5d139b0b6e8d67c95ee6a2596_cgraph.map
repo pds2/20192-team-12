@@ -1,8 +1,0 @@
-<map id="Screen::showSolicitacao" name="Screen::showSolicitacao">
-<area shape="rect" id="node2" href="$classScreen.html#aefbd91aee5978143823031767159caf7" title="Screen::showTitle" alt="" coords="260,5,387,32"/>
-<area shape="rect" id="node4" href="$classLocalidade.html#af83a061d36464f5d91fefa5b68206112" title="Localidade::getCodigoMunicipio" alt="" coords="220,56,427,83"/>
-<area shape="rect" id="node5" href="$classLocalidade.html#afd2127dad81d3131016f1dd4bcb9823b" title="Localidade::getMunicipio" alt="" coords="241,107,406,133"/>
-<area shape="rect" id="node6" href="$classLocalidade.html#a3e32ae1802d8bd09568599f5133028d3" title="Localidade::getEstado" alt="" coords="248,157,399,184"/>
-<area shape="rect" id="node7" href="$classLocalidade.html#a03249330040cf75b6a964cced77526cf" title="Localidade::getPais" alt="" coords="255,208,391,235"/>
-<area shape="rect" id="node3" href="$classScreen.html#a16bd8465322e12b669e26ecccd4a3704" title="Screen::showBar" alt="" coords="475,5,597,32"/>
-</map>
