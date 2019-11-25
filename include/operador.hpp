@@ -3,7 +3,10 @@
 
 #include "../include/modal.hpp"
 #include "../include/solicitacao.hpp"
+#include "../include/localidade.hpp"
+#include "../include/tools.hpp"
 #include <vector>
+
 
 /*
 Esta classe representa o Operador Nacional que realiza a logística
@@ -28,8 +31,8 @@ class Operador {
         Modal **_graph;
         std::vector<Solicitacao> _lista_solicitacoes;
    
-        void printPath(int*, int);
-        void printSolutionPath(int*, int*, int, int);
+        void printPath(int*, int, std::vector  <Localidade>&);
+        void printSolutionPath(int*, int*, int, int, std::vector <Localidade>&);
 
         int minDistance(int*, bool*);
     	
@@ -41,7 +44,7 @@ class Operador {
         void popularMatriz();
 
         // Origem, destino e quantidade
-        void dijkstra(int, int, float);
+        void dijkstra(int, int, float, std::vector  <Localidade>&);
 
         // Origem, destino e quantidade
         void addSolicitacao(int, int, float);
