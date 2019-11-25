@@ -12,7 +12,7 @@ Professor: Júlio César(@juliosoaresreis)
 
 ### Introdução
 
-Este Trabalho Prático consiste no desenvolvimento de um sistema em linguagem C++ baseado no paradigma de Orientação à Objetos. Para modelar um sistema de alocação de demanda de transporte utilizamos de classes abstratas e conceitos de OO como modularização, polimorfismo, testes de unidade e boas práticas de programação em geral como refatoração, código comentado e versionamento de código.
+Este Trabalho Prático consiste no desenvolvimento de um sistema em linguagem C++ baseado no paradigma de Orientação à Objetos. Para modelar um sistema de alocação de demanda de transporte utilizamos de classes abstratas e conceitos de OO como modularização, polimorfismo, testes de unidade, encapsulamento e contrato e boas práticas de programação em geral como refatoração, código comentado e versionamento de código.
 
 Desenvolvemos, portanto, um sistema que, dada uma demanda de transporte de uma certa quantidade de determinado produto, para alguma localidade do Brasil ou Exterior, encontra o caminho de menor custo. O custo a ser considerado pode ser monetário ou menor distância ou tempo de percurso, considerando os preços dos serviços, tempo de transporte e capacidade dos diversos modais disponíveis (rodoviário, ferroviário, aéreo e aquaviário).
 
