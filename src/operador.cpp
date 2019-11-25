@@ -111,29 +111,36 @@ int Operador::minDistance(int *dist, bool *sptSet) {
 } 
 
 // Function to print shortest path from source to j using parent array 
-void Operador::printPath(int *parent, int j) { 
+void Operador::printPath(int *parent, int j, std::vector  <Localidade> &vector) { 
       
     // Base Case : If j is source 
     if (parent[j] == - 1) 
         return; 
   
-    Operador::printPath(parent, parent[j]); 
-  
-    printf("%d ", j); 
+    Operador::printPath(parent, parent[j], vector); 
+    std::cout << searchMunicipio(j, vector).getMunicipio() << " ";
+    //printf("%d ", j); 
 } 
   
 // A utility function to print the constructed distance array 
-void Operador::printSolutionPath(int *dist, int *parent, int src, int dest) { 
+void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std::vector  <Localidade> &vector) { 
     printf("Vertex\t Distance\tPath"); 
-    printf("\n%d -> %d \t %d\t\t%d ", 
-                      src, dest, dist[dest], src);
-    printPath(parent, dest);
+    //printf("\n%d -> %d \t %d\t\t%d ", 
+      //                src, dest, dist[dest], src);
+
+    std::cout << searchMunicipio(src, vector).getMunicipio() << " -> " <<
+        searchMunicipio(dest, vector).getMunicipio() << " \t " <<
+        dist[dest] << " \t\t" << searchMunicipio(src, vector).getMunicipio() << " ";
+
+    //printf("\n%s -> %s \t %d\t\t%s ", 
+      //                searchMunicipio(src, vector).getMunicipio(), searchMunicipio(dest, vector).getMunicipio(), dist[dest], searchMunicipio(src, vector).getMunicipio());
+    printPath(parent, dest, vector);
     printf("\n");
 } 
 
 // Function that implements Dijkstra's single source shortest path algorithm 
 // for a graph represented using adjacency matrix representation 
-void Operador::dijkstra(int src, int dest, float quantidade) { 
+void Operador::dijkstra(int src, int dest, float quantidade,  std::vector  <Localidade> &vector) { 
     int *dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
     // distance from src to i 
 
@@ -180,7 +187,7 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
     } 
 
     // print the constructed distance array 
-    Operador::printSolutionPath(dist, parent, src, dest); 
+    Operador::printSolutionPath(dist, parent, src, dest, vector); 
 
     delete[] dist;
     delete[] sptSet;
