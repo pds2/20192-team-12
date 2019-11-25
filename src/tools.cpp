@@ -47,7 +47,6 @@ void Screen::showMainMenu(Screen *tela){
     */
     int entrada; // variável de entrada para controle
     std::string titulo; // título do menu
-    int cls = std::system("clear"); // limpa a tela do terminal
     // estabelece os espaços para centralizar o título
     this->setPadding((unsigned int)this->_spaces + titulo.size()/2); 
     titulo = "SISTEMA DE ALOCACAO DE DEMANDA POR TRANSPORTES";
