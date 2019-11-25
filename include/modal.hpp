@@ -2,7 +2,7 @@
 #define MODAL_HPP
 #include <iostream>
 /**
- * A superclasse Modal representa uma conexão entre duas localidades e
+ * Esta classe representa uma conexão entre duas localidades e
  * o meio de transporte que as conecta.
  * .
  * O meio de transporte pode ser: rodoviário, ferroviário, aquaviário ou aéreo. 
@@ -12,35 +12,25 @@
  * 3) Capacidade: em Toneladas;
  * 4) Velocidade: Km/h;
  * 5) Distância em Km;
+ * 6) flag: indica se o par origem e destino é uma aresta válida
  * .
  * O modal rodoviário tem como especificidade o fato de poder ter pedágio; 
  * já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal.
 */
-class Modal {
 
+class Modal {
     protected: 
-        /** tipo de modal: ferroviário, rodoviário, aquaviário e aéreo*/
         std::string _tipo_modal;
-        /** preço do serviço de transporte*/
         float _preco;
-        /** capacidade do veículo de carga*/
         float _capacidade;
-        /** velocidade do veículo de transporte*/
         float _velocidade;
-        /** distância entre as localidades*/
         int _distancia;
-        /** indicador de aresta válida:
-         *  - válida: 1;
-         *  - inválida: 0.
-        */
         int _flag;
         
     public:  
         Modal();      
         Modal(std::string, float, float, float, int);
         ~Modal();
-
-        // void setTipoModal(std::string);
         void setPreco(float);
         void setCapacidade(float);
         void setVelocidade(float);
@@ -59,9 +49,7 @@ class Modal {
         // retorna tempo em minutos
         float obterTempo();
 };
-/** A subclasse Ferroviario representa o modal de transporte ferroviário,
- * herdando os atributos e métodos da classe Modal.
-*/
+
 class Ferroviario: public Modal {   
     private: 
         // valores dos preços, capacidade média e velocidade média do modal ferrovário
@@ -87,9 +75,7 @@ class Ferroviario: public Modal {
         // recebe a quantidade a ser transportada
         float obterCusto(float) override;
 };
-/** A subclasse Rodoviario representa o modal de transporte ferroviário,
- * herdando os atributos e métodos da classe Modal.
-*/
+
 class Rodoviario: public Modal {
     private:
         // valores dos preços, capacidade média e velocidade média do modal rodoviário 
@@ -113,9 +99,7 @@ class Rodoviario: public Modal {
 
         float obterCusto(float) override;
 };
-/** A subclasse Aquaviario representa o modal de transporte ferroviário,
- * herdando os atributos e métodos da classe Modal.
-*/
+
 class Aquaviario: public Modal {
         // valores dos preços, capacidade média e velocidade média do modal rodoviário
         const float aquaviario_preco = 0.04375;
@@ -134,9 +118,7 @@ class Aquaviario: public Modal {
 
         float obterCusto(float) override;
 };
-/** A subclasse Aereo representa o modal de transporte ferroviário,
- * herdando os atributos e métodos da classe Modal.
-*/
+
 class Aereo: public Modal {
     private:
         // valores dos preços, capacidade média e velocidade média do modal rodoviário

@@ -4,6 +4,7 @@
 #include "modal.hpp"
 #include "tools.hpp"
 
+// DECLARACAO DE CONSTANTES DEFAULT
 #define MODAL_DEFAULT "rodoviario"
 #define PRECO_DEFAULT 0.075
 #define CAPACIDADE_DEFAULT 35
@@ -159,7 +160,7 @@ Ferroviario::Ferroviario(){
      *  - preco: 0.05;
      *  - capacidade: 70000;
      *  - velocidade: 20; e 
-     *  - distancia: 0\n         
+     *  - distancia: 0\n  
     */ 
     this->_tipo_modal = "ferroviario";
     this->_preco = this->ferroviario_preco;

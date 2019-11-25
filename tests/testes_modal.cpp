@@ -18,8 +18,6 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_THROWS(f->setPreco(-1));
     CHECK_THROWS(f->setVelocidade(-1));
     CHECK_THROWS(f->setDistancia(-1));
-
-	delete f;
 	
     CHECK_NOTHROW(Rodoviario()); // argumento vazio
     CHECK_THROWS(Rodoviario(-1, false, -1));
@@ -32,8 +30,6 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_THROWS(r->setDistancia(-1));
     CHECK_THROWS(r->setPedagio(-1));
     CHECK_THROWS(r->setValorPedagio(-1));
-	
-	delete r;
 
     CHECK_NOTHROW(Aquaviario()); // argumento vazio
     CHECK_THROWS(Aquaviario(-1, -1));
@@ -46,8 +42,6 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_THROWS(aq->setDistancia(-1));
     CHECK_THROWS(aq->setValorTerminal(-1));
 	
-	delete aq;
-	
     CHECK_NOTHROW(Aereo()); // argumento vazio
     CHECK_THROWS(Aereo(-1, -1));
 	
@@ -58,7 +52,7 @@ TEST_CASE("01 - Testes de contorno") {
     CHECK_THROWS(ar->setVelocidade(-1));
     CHECK_THROWS(ar->setDistancia(-1));
     CHECK_THROWS(ar->setValorTerminal(-1));
-	delete ar;
+
 }
 TEST_CASE("02 - Classe Ferroviario - Teste positivo"){
 

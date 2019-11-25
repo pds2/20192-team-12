@@ -2,7 +2,7 @@
 #define LOCALIDADE_HPP
 #include <iostream>
 /**
- * A classe Localidade representa uma localidade que possui as seguintes propriedades:
+ * Esta classe representa uma localidade que possui as seguintes propriedades:
  * 1) Código do município;
  * 2) Município;
  * 3) Latitude;

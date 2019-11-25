@@ -149,7 +149,7 @@ void Screen::showEntradaDados(float &quantidade,
 
     cod_origem = -1;
     std::cout << "2. Digite o codigo da localidade de origem da carga: ";    
-    while (cod_origem < 1 ||cod_origem >= num_localidades){
+    while (cod_origem < 0 ||cod_origem >= num_localidades){
         char c ;
         if ( !( std::cin >> cod_origem) || ( std::cin.get(c) && !std::isspace(c))){
             std::cin.clear();
@@ -157,7 +157,7 @@ void Screen::showEntradaDados(float &quantidade,
             this->showWarning("ATENCAO! O codigo da localidade de origem deve ser um valor numerico.\n");
             this->showWarning("2. Digite novamente o codigo da origem: ");
             cod_origem = -1;
-        }else if(cod_origem < 1 || (cod_origem >= num_localidades)){
+        }else if(cod_origem < 0 || (cod_origem >= num_localidades)){
             aviso = "ATENCAO! O codigo da localidade de origem deve ser um valor positivo, menor que " + 
                             std::to_string(num_localidades) + ".\n";
             this->showWarning(aviso);
@@ -168,7 +168,7 @@ void Screen::showEntradaDados(float &quantidade,
 
     cod_destino = -1;
     std::cout << "3. Digite o codigo da localidade de destino da carga: ";    
-    while (cod_destino < 1 || cod_destino >= num_localidades){
+    while (cod_destino < 0 || cod_destino >= num_localidades){
         char c ;
         if ( !( std::cin >> cod_destino) || ( std::cin.get(c) && !std::isspace(c))){
             std::cin.clear();
@@ -176,7 +176,7 @@ void Screen::showEntradaDados(float &quantidade,
             this->showWarning("ATENCAO! O codigo da localidade de destino deve ser um valor numerico.\n");
             this->showWarning("3. Digite novamente o codigo da destino: ");
             cod_destino = -1;
-        }else if(cod_destino < 1 || (cod_destino >= num_localidades)){
+        }else if(cod_destino < 0 || (cod_destino >= num_localidades)){
             aviso = "ATENCAO! O codigo da localidade de destino deve ser um valor positivo, menor que " + 
                             std::to_string(num_localidades) + ".\n";
             this->showWarning(aviso);

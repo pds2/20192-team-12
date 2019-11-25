@@ -3,16 +3,14 @@
 #include <iostream>
 #include <stdexcept> 
 /**
- * A classe Solicitacao representa uma solicitação de transporte de uma determinada
+ * Esta classe representa uma solicitação de transporte de uma determinada
  * quantidade de carga entre duas localidades. 
 */
+
 class Solicitacao {
-    private:
-        /** codigo do município de origem*/
+    private: 
         int _origem;
-        /** codigo do município de destino*/
         int _destino;
-        /** quantidade de carga a ser transportada*/
         float _quantidade;
     	
     public:

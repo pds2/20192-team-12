@@ -21,9 +21,10 @@ O algoritmo para impressão do caminho mínimo está disponível em:
 
 
 //Contrutores da classe Operador
-Operador::Operador() {}
-
 Operador::Operador(int V){
+    /** Contrutor da classe Operador
+     * Sem argumentos.
+    */
     if (V <= 0){
         throw std::invalid_argument("Matriz deve ter numero de vertices positivo!");
     }
@@ -36,6 +37,9 @@ Operador::Operador(int V){
 }
 
 Operador::~Operador(){
+    /** Destrutor da classe Operador
+     * Sem argumentos.
+    */
     for (int i = 0; i < _V; ++i)
         delete [] this->_graph[i];
     delete [] this->_graph;
@@ -43,21 +47,19 @@ Operador::~Operador(){
 
 //Metodos da classe Operador
 void Operador::popularMatriz() {
-    std::cout << "POPULAR MATRIZ\n"; 
+    /** O metodo  popularMatriz povoa a matriz de adjacencias com os vaores dos modais.
+     * Sem argumentos.
+    */
     std::ifstream infile("./data/arestas.txt");
     std::string linha; 
-    int row, col; // substituido pelo codigo de origem e destino
-
-    // contadores auxiliares
-    int counter = 0; // contador de linha do arquivo
-    int rows = 0; // total de arestas
-    int columns = 0; // total de colunas por aresta
-    int column = 0; // coluna especifica
 
     // códigos das localidades, indexação do grafo
-    int origem;
-    int destino;
-    
+    int row, col; 
+
+    // contadores auxiliares
+    int rows = 0; // total de arestas
+    int columns = 0; // total de colunas por aresta
+
     // informações dos modais
     std::string tipo_modal;
     float preco;
@@ -99,7 +101,13 @@ void Operador::popularMatriz() {
 
 // A utility function to find the vertex with minimum distance value, from 
 // the set of vertices not yet included in shortest path tree 
-int Operador::minDistance(int *dist, bool *sptSet) { 
+int Operador::minDistance(int *dist, bool *sptSet) {
+    /** O metodo minDistance encontra o vertice com a menor distancia entre os vertices
+     * .
+     * Argumentos:
+     *  - dist: 
+     *  - sptSet: 
+    */
     // Initialize min value 
     int min = INT_MAX, min_index; 
 
@@ -111,29 +119,63 @@ int Operador::minDistance(int *dist, bool *sptSet) {
 } 
 
 // Function to print shortest path from source to j using parent array 
-void Operador::printPath(int *parent, int j) { 
+void Operador::printPath(int *parent, int j, std::vector  <Localidade> &vector) {
+    /** O metodo printPath imprime o caminho encontrado
+     * .
+     * Argumentos:
+     *  - parent: 
+     *  - j: 
+     *  - vector: vetor de localidades
+    */    
       
     // Base Case : If j is source 
     if (parent[j] == - 1) 
         return; 
   
-    Operador::printPath(parent, parent[j]); 
-  
-    printf("%d ", j); 
+    Operador::printPath(parent, parent[j], vector); 
+    std::cout << searchMunicipio(j, vector).getMunicipio() << " ";
 } 
   
 // A utility function to print the constructed distance array 
-void Operador::printSolutionPath(int *dist, int *parent, int src, int dest) { 
-    printf("Vertex\t Distance\tPath"); 
-    printf("\n%d -> %d \t %d\t\t%d ", 
-                      src, dest, dist[dest], src);
-    printPath(parent, dest);
-    printf("\n");
+void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std::vector  <Localidade> &vector) {
+    /** O metodo printSolutionPath imprime a solucao encontrada
+     * .
+     * Argumentos:
+     *  - dist: 
+     *  - parent: 
+     *  - src: origem 
+     *  - dest: destino
+     *  - vector: vetor de localidades
+    */       
+    std::cout << "ORIGEM\t\tDESTINO\t\tDistance\t\tROTA" << std::endl;
+    std::cout << searchMunicipio(src, vector).getMunicipio() << " -> " <<
+        searchMunicipio(dest, vector).getMunicipio() << " \t " <<
+        dist[dest] << " \t\t" << searchMunicipio(src, vector).getMunicipio() << " ";
+
+    printPath(parent, dest, vector);
+    std::cout << std::endl;
 } 
 
 // Function that implements Dijkstra's single source shortest path algorithm 
 // for a graph represented using adjacency matrix representation 
-void Operador::dijkstra(int src, int dest, float quantidade) { 
+void Operador::dijkstra(int src, int dest, float quantidade,  std::vector  <Localidade> &vector) {
+    /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho
+     * .
+     * Argumentos:  
+     *  - src: origem 
+     *  - dest: destino
+     *  - quantidade: quantidade de carga a ser transportada
+     *  - vector: vetor de localidades
+    */
+
+    if (src < 0 || dest < 0 || quantidade <=0 || vector.size() == 0){
+        std::string aviso = "VERIFIQUE UMA DAS SEGUINTES SITUACOES:\n";
+        aviso += "Os codigos da origem, destino nao podem ser negativos.\n";
+        aviso += " A quantidade de carga nao pode ser menor ou igual a zero.\n";
+        aviso += "O vetor de localidades nao pode ser vazio";
+        throw std::invalid_argument(aviso);
+    }
+
     int *dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
     // distance from src to i 
 
@@ -180,7 +222,7 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
     } 
 
     // print the constructed distance array 
-    Operador::printSolutionPath(dist, parent, src, dest); 
+    Operador::printSolutionPath(dist, parent, src, dest, vector); 
 
     delete[] dist;
     delete[] sptSet;
@@ -188,6 +230,19 @@ void Operador::dijkstra(int src, int dest, float quantidade) {
 } 
 
 void Operador::addSolicitacao(int src, int dest, float quantidade) {
+    /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho
+     * .
+     * Argumentos:
+     *  - src: origem
+     *  - dest: destino
+     *  - quantidade: quantidade de carga a ser transportada
+    */
+    if (src < 0 || dest < 0 || quantidade <=0 ){
+        std::string aviso = "VERIFIQUE UMA DAS SEGUINTES SITUACOES:\n";
+        aviso += "Os codigos da origem, destino nao podem ser negativos.\n";
+        aviso += " A quantidade de carga nao pode ser menor ou igual a zero.\n";
+        throw std::invalid_argument(aviso);
+    }
     Solicitacao s(src, dest, quantidade);
     this->_lista_solicitacoes.push_back(s);
 }
