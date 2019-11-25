@@ -13,17 +13,19 @@
 
 class Screen{	
 	private:
-		unsigned int _bar_size = 100;
-		std::vector <Localidade> _vector; // novo vetor
-		unsigned int _padding = 20;
-		unsigned int _columns = 4;
-		unsigned int _spaces = 100;
+		unsigned int _bar_size = 100; // tamanho da barra em numero de caracteres
+		std::vector <Localidade> _vector; // vetor de localidades
+		unsigned int _padding = 20; // espaco entre as colunas
+		unsigned int _columns = 4; // numero de colunas na tela
+		unsigned int _spaces = 100; // numero de espacos para centralizacao
 
 		// EXCLUIR
 		// std::vector <std::string> _vector; // antigo vetor
 	public:
+		// Construtor e destrutor da classe
 		Screen(std::vector <Localidade> &);
 		~Screen();
+		// Metodos publicos da classe
 		void setPadding(unsigned int);
 
 		void showMainMenu(Screen*);
@@ -51,10 +53,10 @@ class Screen{
 		
 };
 
-Localidade searchMunicipio(int, std::vector  <Localidade>& );
+Localidade searchMunicipio(int, std::vector  <Localidade>&); // funcao para encontrar o nome do municipio dado o codigo
 // void lerArquivo(std::istream &, std::vector <std::string> &);
-void lerArquivoLocalidades(std::istream &, std::vector <Localidade> &);
-void menu(std::vector <std::string>&);
+void lerArquivoLocalidades(std::istream &, std::vector <Localidade> &);// funcao para ler o arquivo de localidades
+// void menu(std::vector <std::string>&);
 
 
 // EXCLUIR
