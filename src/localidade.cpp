@@ -26,15 +26,16 @@ Localidade::Localidade(int codigo_municipio,
     /**
      * Construtor da classe Modal\n
      * Argumentos:
-     *   - codigo_municipio: código do município
-     *   - municipio: nome do município
-     *   - lat: latitude do município
-     *   - lng: longitude do município
-     *   - estado: estado do município
-     *   - pais: país do município
+     *   - codigo_municipio: código do município;
+     *   - municipio: nome do município;
+     *   - lat: latitude do município;
+     *   - lng: longitude do município;
+     *   - estado: estado do município;
+     *   - pais: país do município.
+     * .
      * Exceções:
-     *  - codigo_municipio: não pode ser negativo
-     *  - municipio, estado e pais não podem ter comprimento igual a zero
+     *  - codigo_municipio: não pode ser negativo;
+     *  - municipio, estado e pais não podem ter comprimento igual a zero;
      */
     
     if (codigo_municipio < 0){

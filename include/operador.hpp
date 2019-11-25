@@ -7,9 +7,8 @@
 #include "../include/tools.hpp"
 #include <vector>
 
-
-/*
-Esta classe representa o Operador Nacional que realiza a logística
+/**
+A classe Operador representa o Operador Nacional que realiza a logística
 do transporte de cargas.
 
 Dado uma solicitação de transporte (class Solicitação) de uma certa quantidade entre duas localidades,
@@ -25,15 +24,18 @@ as duas localidades desejadas
 */
 
 class Operador {
-    private: 
+    private:
+        /** número de vértices da matriz de adjacências*/
     	int _V;
-        // Representação em matriz de adjacência
+        /** Representação em matriz de adjacência */
         Modal **_graph;
+        /**Vetor com as solicitações de tranporte */
         std::vector<Solicitacao> _lista_solicitacoes;
-   
+        /** Método privado para imprimir o caminho ótimo */
         void printPath(int*, int, std::vector  <Localidade>&);
+        /** Método privado para imprimir a solução */
         void printSolutionPath(int*, int*, int, int, std::vector <Localidade>&);
-
+        /** Método que retorna a menor distância*/
         int minDistance(int*, bool*);
     	
     public:

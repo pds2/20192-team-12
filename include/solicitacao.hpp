@@ -8,9 +8,12 @@
 */
 
 class Solicitacao {
-    private: 
+    private:
+        /** código do município de origem*/
         int _origem;
+        /** código do município de destino*/
         int _destino;
+        /** quantidade de carga a ser transportada*/
         float _quantidade;
     	
     public:
@@ -27,11 +30,4 @@ class Solicitacao {
         int getDestino();
         float getQuantidade();
 };
-// class ParametroNaoNumerico : public std::exception {
-//     public:
-//     virtual const char* what() const noexcept override;
-// };
-// const char* ParametroNaoNumerico::what() const noexcept {
-// return "O parametro deve ser numerico!";
-// }
 #endif

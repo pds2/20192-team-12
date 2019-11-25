@@ -267,7 +267,12 @@ float Ferroviario::getVelocidade(){
     */    
     return this->_velocidade;
 }
-
+int Ferroviario::getDistancia(){
+    /** Retorna a distância entre duas localidades.\n
+     *  Sem argumentos.
+    */    
+    return this->_distancia;
+}
 float Ferroviario::obterCusto(float quantidade){
     /** Retorna o custo da viagem entre as localidades de origem e destino da carga, a partir da quantidade de carga, em toneladas,,
      * capacidade do veículo de transporte do modal, distância entre as localidades de origem e destino

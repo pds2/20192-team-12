@@ -166,8 +166,7 @@ void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std
 // Function that implements Dijkstra's single source shortest path algorithm 
 // for a graph represented using adjacency matrix representation 
 void Operador::dijkstra(int src, int dest, float quantidade,  std::vector  <Localidade> &vector) {
-    /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho
-     * .
+    /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho.\n 
      * Argumentos:  
      *  - src: origem 
      *  - dest: destino
@@ -237,8 +236,7 @@ void Operador::dijkstra(int src, int dest, float quantidade,  std::vector  <Loca
 } 
 
 void Operador::addSolicitacao(int src, int dest, float quantidade) {
-    /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho
-     * .
+    /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho.\n 
      * Argumentos:
      *  - src: origem
      *  - dest: destino
