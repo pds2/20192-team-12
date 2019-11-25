@@ -1,0 +1,181 @@
+\hypertarget{classRodoviario}{}\section{Referência à classe Rodoviario}
+\label{classRodoviario}\index{Rodoviario@{Rodoviario}}
+
+
+A subclasse \hyperlink{classRodoviario}{Rodoviario} representa o modal de transporte ferroviário, herdando os atributos e métodos da classe \hyperlink{classModal}{Modal}.  
+
+
+
+
+{\ttfamily \#include $<$modal.\+hpp$>$}
+
+
+
+Diagrama de heranças da classe Rodoviario
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{classRodoviario__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Diagrama de colaboração para Rodoviario\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=143pt]{classRodoviario__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRodoviario_a91f98005c09609f74f4de02c1907481d}{Rodoviario} ()
+\item 
+\hyperlink{classRodoviario_a56cdc15643e5d023e2d4c61139ecc16d}{Rodoviario} (int, bool, float)
+\item 
+\hyperlink{classRodoviario_a11df25b437139f12013adc0d861b7970}{$\sim$\+Rodoviario} ()
+\item 
+void \hyperlink{classRodoviario_a14273f1bc7d5a0b237846749fbe2221e}{set\+Pedagio} (int)
+\item 
+void \hyperlink{classRodoviario_a920f911349153ac9e95df101fe1afe0c}{set\+Valor\+Pedagio} (float)
+\item 
+int \hyperlink{classRodoviario_aa3c5c3b649b9aa4bde43e2154b940c89}{is\+Pedagio} ()
+\item 
+float \hyperlink{classRodoviario_a4c62b1d1a5e924a60b185b2023034943}{get\+Valor\+Pedagio} ()
+\item 
+float \hyperlink{classRodoviario_a907ec064fb54db8a05b480cf58c5fe57}{obter\+Custo} (float) override
+\end{DoxyCompactItemize}
+\subsection*{Outros membros herdados}
+
+
+\subsection{Descrição detalhada}
+A subclasse \hyperlink{classRodoviario}{Rodoviario} representa o modal de transporte ferroviário, herdando os atributos e métodos da classe \hyperlink{classModal}{Modal}. 
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\mbox{\Hypertarget{classRodoviario_a91f98005c09609f74f4de02c1907481d}\label{classRodoviario_a91f98005c09609f74f4de02c1907481d}} 
+\index{Rodoviario@{Rodoviario}!Rodoviario@{Rodoviario}}
+\index{Rodoviario@{Rodoviario}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{Rodoviario()}{Rodoviario()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Rodoviario\+::\+Rodoviario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Construtor sem argumentos da classe \hyperlink{classRodoviario}{Rodoviario}~\newline
+ Default\+:~\newline
+
+\begin{DoxyItemize}
+\item distância\+: 0 km; e
+\item pedagio\+: 0; e
+\item valor\+\_\+pedágio\+: 0,00 R\$.~\newline
+
+\end{DoxyItemize}
+
+Exceção\+:
+\begin{DoxyItemize}
+\item os valores não podem ser negativos;
+\end{DoxyItemize}\mbox{\Hypertarget{classRodoviario_a56cdc15643e5d023e2d4c61139ecc16d}\label{classRodoviario_a56cdc15643e5d023e2d4c61139ecc16d}} 
+\index{Rodoviario@{Rodoviario}!Rodoviario@{Rodoviario}}
+\index{Rodoviario@{Rodoviario}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{Rodoviario()}{Rodoviario()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Rodoviario\+::\+Rodoviario (\begin{DoxyParamCaption}\item[{int}]{distancia,  }\item[{bool}]{pedagio,  }\item[{float}]{valor\+\_\+pedagio }\end{DoxyParamCaption})}
+
+Construtor da classe \hyperlink{classRodoviario}{Rodoviario}~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item distancia\+: distancia em km entre as localidades de origem e destino;
+\item pedagio\+: indicativo da existência de pedágio.
+\begin{DoxyItemize}
+\item 1\+: existe pedágio;
+\item 0\+: não existe pedágio.
+\end{DoxyItemize}
+\item valor\+\_\+pedágio\+: valor a ser pago do pedágio, em R\$.~\newline
+
+\end{DoxyItemize}\mbox{\Hypertarget{classRodoviario_a11df25b437139f12013adc0d861b7970}\label{classRodoviario_a11df25b437139f12013adc0d861b7970}} 
+\index{Rodoviario@{Rodoviario}!````~Rodoviario@{$\sim$\+Rodoviario}}
+\index{````~Rodoviario@{$\sim$\+Rodoviario}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{$\sim$\+Rodoviario()}{~Rodoviario()}}
+{\footnotesize\ttfamily Rodoviario\+::$\sim$\+Rodoviario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destrutor da classe \hyperlink{classRodoviario}{Rodoviario}
+
+\subsection{Documentação dos métodos}
+\mbox{\Hypertarget{classRodoviario_a4c62b1d1a5e924a60b185b2023034943}\label{classRodoviario_a4c62b1d1a5e924a60b185b2023034943}} 
+\index{Rodoviario@{Rodoviario}!get\+Valor\+Pedagio@{get\+Valor\+Pedagio}}
+\index{get\+Valor\+Pedagio@{get\+Valor\+Pedagio}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{get\+Valor\+Pedagio()}{getValorPedagio()}}
+{\footnotesize\ttfamily float Rodoviario\+::get\+Valor\+Pedagio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna o valor do pedágio a ser pago no transporte.~\newline
+Sem argumentos.\mbox{\Hypertarget{classRodoviario_aa3c5c3b649b9aa4bde43e2154b940c89}\label{classRodoviario_aa3c5c3b649b9aa4bde43e2154b940c89}} 
+\index{Rodoviario@{Rodoviario}!is\+Pedagio@{is\+Pedagio}}
+\index{is\+Pedagio@{is\+Pedagio}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{is\+Pedagio()}{isPedagio()}}
+{\footnotesize\ttfamily int Rodoviario\+::is\+Pedagio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna se existe ou não pedágio na rodovia.~\newline
+Sem argumentos.~\newline
+Retorno\+:
+\begin{DoxyItemize}
+\item 1\+: existe pedágio;
+\item 0\+: não existe pedágio.
+\end{DoxyItemize}\mbox{\Hypertarget{classRodoviario_a907ec064fb54db8a05b480cf58c5fe57}\label{classRodoviario_a907ec064fb54db8a05b480cf58c5fe57}} 
+\index{Rodoviario@{Rodoviario}!obter\+Custo@{obter\+Custo}}
+\index{obter\+Custo@{obter\+Custo}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{obter\+Custo()}{obterCusto()}}
+{\footnotesize\ttfamily float Rodoviario\+::obter\+Custo (\begin{DoxyParamCaption}\item[{float}]{quantidade }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna o custo da viagem entre as localidades de origem e destino da carga, a partir da quantidade de carga, em toneladas,, capacidade do veículo de transporte do modal, distância entre as localidades de origem e destino e do preço do serviço.~\newline
+Argumentos\+:
+\begin{DoxyItemize}
+\item quantidade\+: valor da quantidade de carga a ser transportada.
+\end{DoxyItemize}
+
+Exceção\+:
+\begin{DoxyItemize}
+\item os valores não podem ser negativos;
+\end{DoxyItemize}
+
+Reimplementado de \hyperlink{classModal_a20cee7247cce33806d681e1d60347cc5}{Modal}.
+
+\mbox{\Hypertarget{classRodoviario_a14273f1bc7d5a0b237846749fbe2221e}\label{classRodoviario_a14273f1bc7d5a0b237846749fbe2221e}} 
+\index{Rodoviario@{Rodoviario}!set\+Pedagio@{set\+Pedagio}}
+\index{set\+Pedagio@{set\+Pedagio}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{set\+Pedagio()}{setPedagio()}}
+{\footnotesize\ttfamily void Rodoviario\+::set\+Pedagio (\begin{DoxyParamCaption}\item[{int}]{pedagio }\end{DoxyParamCaption})}
+
+Atribui o valor 1 ou 0 à variável pedagio.~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item pedagio\+: indica se no trajeto do transporte há ou não pedágio na rodovia
+\begin{DoxyItemize}
+\item 1\+: existe pedágio;
+\item 0\+: não existe pedágio.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Exceção\+:
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;
+\end{DoxyItemize}\mbox{\Hypertarget{classRodoviario_a920f911349153ac9e95df101fe1afe0c}\label{classRodoviario_a920f911349153ac9e95df101fe1afe0c}} 
+\index{Rodoviario@{Rodoviario}!set\+Valor\+Pedagio@{set\+Valor\+Pedagio}}
+\index{set\+Valor\+Pedagio@{set\+Valor\+Pedagio}!Rodoviario@{Rodoviario}}
+\subsubsection{\texorpdfstring{set\+Valor\+Pedagio()}{setValorPedagio()}}
+{\footnotesize\ttfamily void Rodoviario\+::set\+Valor\+Pedagio (\begin{DoxyParamCaption}\item[{float}]{valor\+\_\+pedagio }\end{DoxyParamCaption})}
+
+Atribui o valor do pedágio da rodovia à variável valor\+\_\+pedagio.~\newline
+ Argumento\+:
+\begin{DoxyItemize}
+\item valor\+\_\+pedágio\+: valor a ser pago do pedágio, em R\$.~\newline
+
+\end{DoxyItemize}
+
+Exceção\+:
+\begin{DoxyItemize}
+\item o valor não pode ser negativo;
+\end{DoxyItemize}
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/modal.\+hpp\item 
+src/modal.\+cpp\end{DoxyCompactItemize}
