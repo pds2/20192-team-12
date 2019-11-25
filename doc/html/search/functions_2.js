@@ -5,6 +5,7 @@ var searchData=
   ['getdestino',['getDestino',['../classSolicitacao.html#a8448e5d5b0ca18b7e8ff022415ec6836',1,'Solicitacao']]],
   ['getdistancia',['getDistancia',['../classModal.html#a1eedb4dfdddd81a5a7c7b3203e50e68c',1,'Modal']]],
   ['getestado',['getEstado',['../classLocalidade.html#a3e32ae1802d8bd09568599f5133028d3',1,'Localidade']]],
+  ['getflagaresta',['getFlagAresta',['../classModal.html#a6fcee61fe1de7099605ff95707edaaa4',1,'Modal']]],
   ['getlat',['getLat',['../classLocalidade.html#a1548cf9f09eca346af5bdcc4c6f222b6',1,'Localidade']]],
   ['getlong',['getLong',['../classLocalidade.html#a97a3f7eabe1cf45e3f0bed721d4641d4',1,'Localidade']]],
   ['getmunicipio',['getMunicipio',['../classLocalidade.html#afd2127dad81d3131016f1dd4bcb9823b',1,'Localidade']]],

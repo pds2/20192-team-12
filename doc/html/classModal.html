@@ -68,7 +68,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta.  
+<p>A superclasse <a class="el" href="classModal.html" title="A superclasse Modal representa uma conexão entre duas localidades e o meio de transporte que as conec...">Modal</a> representa uma conexão entre duas localidades e o meio de transporte que as conecta.  
  <a href="classModal.html#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="modal_8hpp_source.html">modal.hpp</a>&gt;</code></p>
@@ -76,7 +76,12 @@ $(function() {
 Diagrama de heranças da classe Modal</div>
 <div class="dyncontent">
 <div class="center"><img src="classModal__inherit__graph.png" border="0" usemap="#Modal_inherit__map" alt="Inheritance graph"/></div>
-<!-- MAP 0 -->
+<map name="Modal_inherit__map" id="Modal_inherit__map">
+<area shape="rect" id="node2" href="classAereo.html" title="A subclasse Aereo representa o modal de transporte ferroviário, herdando os atributos e métodos da cl..." alt="" coords="5,80,61,107"/>
+<area shape="rect" id="node3" href="classAquaviario.html" title="A subclasse Aquaviario representa o modal de transporte ferroviário, herdando os atributos e métodos ..." alt="" coords="85,80,168,107"/>
+<area shape="rect" id="node4" href="classFerroviario.html" title="A subclasse Ferroviario representa o modal de transporte ferroviário, herdando os atributos e métodos..." alt="" coords="192,80,275,107"/>
+<area shape="rect" id="node5" href="classRodoviario.html" title="A subclasse Rodoviario representa o modal de transporte ferroviário, herdando os atributos e métodos ..." alt="" coords="299,80,383,107"/>
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legenda</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -105,6 +110,8 @@ Membros públicos</h2></td></tr>
 <tr class="separator:acac9a4b13c4596842253e25f84872b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eedb4dfdddd81a5a7c7b3203e50e68c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a1eedb4dfdddd81a5a7c7b3203e50e68c">getDistancia</a> ()</td></tr>
 <tr class="separator:a1eedb4dfdddd81a5a7c7b3203e50e68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fcee61fe1de7099605ff95707edaaa4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a6fcee61fe1de7099605ff95707edaaa4">getFlagAresta</a> ()</td></tr>
+<tr class="separator:a6fcee61fe1de7099605ff95707edaaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20cee7247cce33806d681e1d60347cc5"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a20cee7247cce33806d681e1d60347cc5">obterCusto</a> (float)</td></tr>
 <tr class="separator:a20cee7247cce33806d681e1d60347cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71e2bda54694608c149ae0d72b3693a4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a71e2bda54694608c149ae0d72b3693a4">obterTempo</a> ()</td></tr>
@@ -113,23 +120,31 @@ Membros públicos</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Atributos Protegidos</h2></td></tr>
 <tr class="memitem:aef40834202f0fe655d4c1d3478a41d0f"><td class="memItemLeft" align="right" valign="top"><a id="aef40834202f0fe655d4c1d3478a41d0f"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_tipo_modal</b></td></tr>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#aef40834202f0fe655d4c1d3478a41d0f">_tipo_modal</a></td></tr>
+<tr class="memdesc:aef40834202f0fe655d4c1d3478a41d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">tipo de modal: ferroviário, rodoviário, aquaviário e aéreo <br /></td></tr>
 <tr class="separator:aef40834202f0fe655d4c1d3478a41d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a487c4263e492750fbaac789e0e3feef3"><td class="memItemLeft" align="right" valign="top"><a id="a487c4263e492750fbaac789e0e3feef3"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>_preco</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a487c4263e492750fbaac789e0e3feef3">_preco</a></td></tr>
+<tr class="memdesc:a487c4263e492750fbaac789e0e3feef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">preço do serviço de transporte <br /></td></tr>
 <tr class="separator:a487c4263e492750fbaac789e0e3feef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61a2da94d2f76fc7f761928d78d51196"><td class="memItemLeft" align="right" valign="top"><a id="a61a2da94d2f76fc7f761928d78d51196"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>_capacidade</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a61a2da94d2f76fc7f761928d78d51196">_capacidade</a></td></tr>
+<tr class="memdesc:a61a2da94d2f76fc7f761928d78d51196"><td class="mdescLeft">&#160;</td><td class="mdescRight">capacidade do veículo de carga <br /></td></tr>
 <tr class="separator:a61a2da94d2f76fc7f761928d78d51196"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adebafa0b04fbf2c065bb6ebcf84f1524"><td class="memItemLeft" align="right" valign="top"><a id="adebafa0b04fbf2c065bb6ebcf84f1524"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>_velocidade</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#adebafa0b04fbf2c065bb6ebcf84f1524">_velocidade</a></td></tr>
+<tr class="memdesc:adebafa0b04fbf2c065bb6ebcf84f1524"><td class="mdescLeft">&#160;</td><td class="mdescRight">velocidade do veículo de transporte <br /></td></tr>
 <tr class="separator:adebafa0b04fbf2c065bb6ebcf84f1524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39f95d6378c8794c91bca2efbbf11337"><td class="memItemLeft" align="right" valign="top"><a id="a39f95d6378c8794c91bca2efbbf11337"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a39f95d6378c8794c91bca2efbbf11337">_distancia</a></td></tr>
+<tr class="memdesc:a39f95d6378c8794c91bca2efbbf11337"><td class="mdescLeft">&#160;</td><td class="mdescRight">distância entre as localidades <br /></td></tr>
 <tr class="separator:a39f95d6378c8794c91bca2efbbf11337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16ceb7e80a80e658c438afe79da01f09"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModal.html#a16ceb7e80a80e658c438afe79da01f09">_flag</a></td></tr>
+<tr class="memdesc:a16ceb7e80a80e658c438afe79da01f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">indicador de aresta válida:  <a href="#a16ceb7e80a80e658c438afe79da01f09">Mais...</a><br /></td></tr>
+<tr class="separator:a16ceb7e80a80e658c438afe79da01f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta. </p>
+<div class="textblock"><p>A superclasse <a class="el" href="classModal.html" title="A superclasse Modal representa uma conexão entre duas localidades e o meio de transporte que as conec...">Modal</a> representa uma conexão entre duas localidades e o meio de transporte que as conecta. </p>
 <p>O meio de transporte pode ser: rodoviário, ferroviário, aquaviário ou aéreo. Todos esses quatro meios de transporte possuem as seguintes informações: 1) Tipo do modal: rodoviario, ferroviario, aquaviario ou aéreo; 2) Preço: Reais/Km; 3) Capacidade: em Toneladas; 4) Velocidade: Km/h; 5) Distância em Km;O modal rodoviário tem como especificidade o fato de poder ter pedágio; já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal. </p>
 </div><h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
 <a id="a8762a8d9f09cb6a2ec5f54f5d26412c0"></a>
@@ -146,7 +161,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>_distancia</b></td></t
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construtor sem argumentos da classe <a class="el" href="classModal.html" title="Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta...">Modal</a><br />
+<p>Construtor sem argumentos da classe <a class="el" href="classModal.html" title="A superclasse Modal representa uma conexão entre duas localidades e o meio de transporte que as conec...">Modal</a><br />
 Default:</p><ul>
 <li>nome_modal: rodoviário;</li>
 <li>preco: 0.075;</li>
@@ -201,7 +216,7 @@ Default:</p><ul>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construtor da classe <a class="el" href="classModal.html" title="Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta...">Modal</a><br />
+<p>Construtor da classe <a class="el" href="classModal.html" title="A superclasse Modal representa uma conexão entre duas localidades e o meio de transporte que as conec...">Modal</a><br />
  Argumentos:</p><ul>
 <li>nome_modal: nome do modal de transporte;</li>
 <li>preco: preço do modal de transporte em R$;</li>
@@ -227,7 +242,7 @@ Default:</p><ul>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Destrutor da classe <a class="el" href="classModal.html" title="Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta...">Modal</a></p>
+<p>Destrutor da classe <a class="el" href="classModal.html" title="A superclasse Modal representa uma conexão entre duas localidades e o meio de transporte que as conec...">Modal</a></p>
 
 </div>
 </div>
@@ -267,6 +282,24 @@ Sem argumentos.</p>
 </div><div class="memdoc">
 <p>Retorna a distância em linha reta entre as localidades de origem e destino da carga.<br />
 Sem argumentos.</p>
+
+</div>
+</div>
+<a id="a6fcee61fe1de7099605ff95707edaaa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fcee61fe1de7099605ff95707edaaa4">&#9670;&nbsp;</a></span>getFlagAresta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Modal::getFlagAresta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Retorna se há uma aresta entre duas localidades</p>
 
 </div>
 </div>
@@ -481,6 +514,35 @@ Exceção:<ul>
 </p><ul>
 <li>o valor não pode ser negativo;<br />
  </li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação dos dados membro</h2>
+<a id="a16ceb7e80a80e658c438afe79da01f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16ceb7e80a80e658c438afe79da01f09">&#9670;&nbsp;</a></span>_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Modal::_flag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>indicador de aresta válida: </p>
+<ul>
+<li>válida: 1;</li>
+<li>inválida: 0. </li>
 </ul>
 
 </div>

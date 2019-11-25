@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "afgilmorst~",
+  0: "_afgilmors~",
   1: "aflmors",
   2: "afgilmors~",
-  3: "t"
+  3: "_"
 };
 
 var indexSectionNames =
@@ -11,7 +11,7 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "functions",
-  3: "pages"
+  3: "variables"
 };
 
 var indexSectionLabels =
@@ -19,6 +19,6 @@ var indexSectionLabels =
   0: "Tudo",
   1: "Classes",
   2: "Funções",
-  3: "Páginas"
+  3: "Variáveis"
 };
 

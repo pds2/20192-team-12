@@ -1,0 +1,5 @@
+<map id="Screen::showEntradaDados" name="Screen::showEntradaDados">
+<area shape="rect" id="node2" href="$classScreen.html#aefbd91aee5978143823031767159caf7" title="Screen::showTitle" alt="" coords="251,5,377,32"/>
+<area shape="rect" id="node3" href="$classScreen.html#a16bd8465322e12b669e26ecccd4a3704" title="Screen::showBar" alt="" coords="437,31,560,57"/>
+<area shape="rect" id="node4" href="$classScreen.html#a5fc8c4449368a8507f03bf3243677f1e" title="Screen::showWarning" alt="" coords="239,107,389,133"/>
+</map>

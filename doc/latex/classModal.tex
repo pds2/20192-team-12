@@ -2,7 +2,7 @@
 \label{classModal}\index{Modal@{Modal}}
 
 
-Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta.  
+A superclasse \hyperlink{classModal}{Modal} representa uma conexão entre duas localidades e o meio de transporte que as conecta.  
 
 
 
@@ -11,8 +11,13 @@ Esta classe representa uma conexão entre duas localidades e o meio de transport
 
 
 
-Diagrama de heranças da classe Modal
-% FIG 0
+Diagrama de heranças da classe Modal\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classModal__inherit__graph}
+\end{center}
+\end{figure}
 \subsection*{Membros públicos}
 \begin{DoxyCompactItemize}
 \item 
@@ -40,6 +45,8 @@ float \hyperlink{classModal_acac9a4b13c4596842253e25f84872b32}{get\+Velocidade} 
 \item 
 int \hyperlink{classModal_a1eedb4dfdddd81a5a7c7b3203e50e68c}{get\+Distancia} ()
 \item 
+int \hyperlink{classModal_a6fcee61fe1de7099605ff95707edaaa4}{get\+Flag\+Aresta} ()
+\item 
 virtual float \hyperlink{classModal_a20cee7247cce33806d681e1d60347cc5}{obter\+Custo} (float)
 \item 
 float \hyperlink{classModal_a71e2bda54694608c149ae0d72b3693a4}{obter\+Tempo} ()
@@ -48,24 +55,26 @@ float \hyperlink{classModal_a71e2bda54694608c149ae0d72b3693a4}{obter\+Tempo} ()
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classModal_aef40834202f0fe655d4c1d3478a41d0f}\label{classModal_aef40834202f0fe655d4c1d3478a41d0f}} 
-std\+::string {\bfseries \+\_\+tipo\+\_\+modal}
-\item 
+std\+::string \hyperlink{classModal_aef40834202f0fe655d4c1d3478a41d0f}{\+\_\+tipo\+\_\+modal}
+\begin{DoxyCompactList}\small\item\em tipo de modal\+: ferroviário, rodoviário, aquaviário e aéreo \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classModal_a487c4263e492750fbaac789e0e3feef3}\label{classModal_a487c4263e492750fbaac789e0e3feef3}} 
-float {\bfseries \+\_\+preco}
-\item 
+float \hyperlink{classModal_a487c4263e492750fbaac789e0e3feef3}{\+\_\+preco}
+\begin{DoxyCompactList}\small\item\em preço do serviço de transporte \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classModal_a61a2da94d2f76fc7f761928d78d51196}\label{classModal_a61a2da94d2f76fc7f761928d78d51196}} 
-float {\bfseries \+\_\+capacidade}
-\item 
+float \hyperlink{classModal_a61a2da94d2f76fc7f761928d78d51196}{\+\_\+capacidade}
+\begin{DoxyCompactList}\small\item\em capacidade do veículo de carga \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classModal_adebafa0b04fbf2c065bb6ebcf84f1524}\label{classModal_adebafa0b04fbf2c065bb6ebcf84f1524}} 
-float {\bfseries \+\_\+velocidade}
-\item 
+float \hyperlink{classModal_adebafa0b04fbf2c065bb6ebcf84f1524}{\+\_\+velocidade}
+\begin{DoxyCompactList}\small\item\em velocidade do veículo de transporte \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classModal_a39f95d6378c8794c91bca2efbbf11337}\label{classModal_a39f95d6378c8794c91bca2efbbf11337}} 
-int {\bfseries \+\_\+distancia}
-\end{DoxyCompactItemize}
+int \hyperlink{classModal_a39f95d6378c8794c91bca2efbbf11337}{\+\_\+distancia}
+\begin{DoxyCompactList}\small\item\em distância entre as localidades \end{DoxyCompactList}\item 
+int \hyperlink{classModal_a16ceb7e80a80e658c438afe79da01f09}{\+\_\+flag}
+\begin{DoxyCompactList}\small\item\em indicador de aresta válida\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descrição detalhada}
-Esta classe representa uma conexão entre duas localidades e o meio de transporte que as conecta. 
+A superclasse \hyperlink{classModal}{Modal} representa uma conexão entre duas localidades e o meio de transporte que as conecta. 
 
 O meio de transporte pode ser\+: rodoviário, ferroviário, aquaviário ou aéreo. Todos esses quatro meios de transporte possuem as seguintes informações\+: 1) Tipo do modal\+: rodoviario, ferroviario, aquaviario ou aéreo; 2) Preço\+: Reais/\+Km; 3) Capacidade\+: em Toneladas; 4) Velocidade\+: Km/h; 5) Distância em Km;O modal rodoviário tem como especificidade o fato de poder ter pedágio; já os modais aquaviário e aéreo tem como especificidade o fato de ter tarifa do terminal. 
 
@@ -123,7 +132,13 @@ Sem argumentos.\mbox{\Hypertarget{classModal_a1eedb4dfdddd81a5a7c7b3203e50e68c}\
 {\footnotesize\ttfamily int Modal\+::get\+Distancia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Retorna a distância em linha reta entre as localidades de origem e destino da carga.~\newline
-Sem argumentos.\mbox{\Hypertarget{classModal_ae124094018f5e049d5137a8eec893a79}\label{classModal_ae124094018f5e049d5137a8eec893a79}} 
+Sem argumentos.\mbox{\Hypertarget{classModal_a6fcee61fe1de7099605ff95707edaaa4}\label{classModal_a6fcee61fe1de7099605ff95707edaaa4}} 
+\index{Modal@{Modal}!get\+Flag\+Aresta@{get\+Flag\+Aresta}}
+\index{get\+Flag\+Aresta@{get\+Flag\+Aresta}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{get\+Flag\+Aresta()}{getFlagAresta()}}
+{\footnotesize\ttfamily int Modal\+::get\+Flag\+Aresta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna se há uma aresta entre duas localidades\mbox{\Hypertarget{classModal_ae124094018f5e049d5137a8eec893a79}\label{classModal_ae124094018f5e049d5137a8eec893a79}} 
 \index{Modal@{Modal}!get\+Preco@{get\+Preco}}
 \index{get\+Preco@{get\+Preco}!Modal@{Modal}}
 \subsubsection{\texorpdfstring{get\+Preco()}{getPreco()}}
@@ -229,6 +244,23 @@ Exceção\+:~\newline
 \begin{DoxyItemize}
 \item o valor não pode ser negativo;~\newline
  
+\end{DoxyItemize}
+
+\subsection{Documentação dos dados membro}
+\mbox{\Hypertarget{classModal_a16ceb7e80a80e658c438afe79da01f09}\label{classModal_a16ceb7e80a80e658c438afe79da01f09}} 
+\index{Modal@{Modal}!\+\_\+flag@{\+\_\+flag}}
+\index{\+\_\+flag@{\+\_\+flag}!Modal@{Modal}}
+\subsubsection{\texorpdfstring{\+\_\+flag}{\_flag}}
+{\footnotesize\ttfamily int Modal\+::\+\_\+flag\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+indicador de aresta válida\+: 
+
+
+\begin{DoxyItemize}
+\item válida\+: 1;
+\item inválida\+: 0. 
 \end{DoxyItemize}
 
 A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
