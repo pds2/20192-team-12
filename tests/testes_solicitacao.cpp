@@ -1,12 +1,9 @@
-#include "doctest.h"
-#include "solicitacao.hpp"
-// #include <string>
-/* EM DESENVOLVIMENTO */
+#include  "../third_party/doctest.h"
+#include "../include/solicitacao.hpp"
 
 TEST_CASE("01 - Testes de contorno") {
     CHECK_NOTHROW(Solicitacao()); // argumento vazio
     CHECK_THROWS(Solicitacao(-1, 1, 2)); // argumento negativo
-    // CHECK_NOTHROW(Embarcador("a", 1, 2)); // quantidade literal  (VERIFICAR)
 
     Solicitacao s(1000, 1, 2);
 

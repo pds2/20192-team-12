@@ -1,11 +1,6 @@
 #include <vector>
 #include "../third_party/doctest.h"
 #include "../include/operador.hpp"
-/*
-
-EM DESENVOLVIMENTO
-TESTAR OBTER CUSTO PARA TODAS AS CLASSES
-*/
 
 TEST_CASE("01 - Testes de contorno") {
     // Testar numero no 1o argumento
@@ -41,7 +36,7 @@ TEST_CASE("02 - Testes positivos"){
     CHECK_NOTHROW(o.addSolicitacao(16,17,90));
     CHECK_NOTHROW(o.addSolicitacao(18,19,100));
     CHECK_NOTHROW(o.addSolicitacao(20,21,110));
-    CHECK_NOTHROW(o.addSolicitacao(22,23,120));
+    CHECK_NOTHROW(o.addSolicitacao(22,23,120));         
     CHECK_NOTHROW(o.addSolicitacao(2,3,100000));
 
     CHECK_NOTHROW(o.dijkstra(2,3,1, vec_local));

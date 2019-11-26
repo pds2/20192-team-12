@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include "../include/operador.hpp"
 #include <stdexcept>
 #include <cmath>
 #include <limits.h>
@@ -7,8 +8,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include "../include/operador.hpp"
-
+// #include <iomanip>
 /*
 O código que implementa o algoritmo Dijsktra's single source 
 shortest path algorithm está disponível em:
@@ -104,17 +104,6 @@ void Operador::popularMatriz() {
 }
 
 bool Operador::ehAlcancavel(int src, int dest) { 
-    /** O metodo ehAlcancavel detecta se há um caminho entre dois vértices (origem e destino).\n
-     * Argumentos:
-     *  - src: origem
-     *  - dest: destino
-     * Excecao:
-     *  - os valores dos argumentos devem ser maiores que zero.
-    */
-    if (src < 0 || dest < 0){
-        std::string aviso = "Os codigos da origem, destino nao podem ser negativos.\n";
-        throw std::invalid_argument(aviso);
-    }
     // Base case 
     if (src == dest) {
       return true;   

@@ -1,11 +1,5 @@
 #include "doctest.h"
-#include "modal.hpp"
-
-/*
-
-EM DESENVOLVIMENTO
-TESTAR OBTER CUSTO PARA TODAS AS CLASSES
-*/
+#include "../include/modal.hpp"
 
 TEST_CASE("01 - Testes de contorno") {
     // Testar numero no 1o argumento
@@ -69,16 +63,18 @@ TEST_CASE("03 - Classe Rodoviario - Teste positivo"){
 	// Testando a classe Rodoviario
 	Rodoviario *r = new Rodoviario();
 
-	r->setPedagio(true);
+	CHECK(r->isPedagio() == 0);
+	CHECK(r->getValorPedagio() == 0);
+
+	r->setPedagio(1);
 	r->setValorPedagio(30);
 
 	CHECK(r->getTipoModal() == "rodoviario");
 	CHECK(r->getPreco() == (float) 0.075);
 	CHECK(r->getCapacidade() == 35);
 	CHECK(r->getVelocidade() == 60);
-	CHECK(r->isPedagio() == true);
+	CHECK(r->isPedagio() == 1);
 	CHECK(r->getValorPedagio() == 30);
-	std::cout << "Here\n";
 
 }
 TEST_CASE("04 - Classe Aquaviario - Teste positivo"){
@@ -90,24 +86,24 @@ TEST_CASE("04 - Classe Aquaviario - Teste positivo"){
 	CHECK(aq->getPreco() == (float) 0.04375);
 	CHECK(aq->getCapacidade() == 1000);
 	CHECK(aq->getVelocidade() == 40);
+	CHECK(aq->getValorTerminal() == 0);
 
-	// Testando a classe Aereo
-	Aereo *ar = new Aereo();
-
-	CHECK(ar->getTipoModal() == "aereo");
-	CHECK(ar->getPreco() == (float) 0.1);
-	CHECK(ar->getCapacidade() == 100);
-	CHECK(ar->getVelocidade() == 800);
+	aq->setValorTerminal(100);
+	CHECK(aq->getValorTerminal() == 100);
 }
 TEST_CASE("05 - Classe Aereo - Teste positivo"){
 
 	// Testando a classe Aereo
 	Aereo *ar = new Aereo();
-
+	
 	CHECK(ar->getTipoModal() == "aereo");
 	CHECK(ar->getPreco() == (float) 0.1);
 	CHECK(ar->getCapacidade() == 100);
 	CHECK(ar->getVelocidade() == 800);
+	CHECK(ar->getValorTerminal() == 0);
+
+	ar->setValorTerminal(100);
+	CHECK(ar->getValorTerminal() == 100);
 
 	
 }

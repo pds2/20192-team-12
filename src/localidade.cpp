@@ -1,5 +1,5 @@
 #include <iostream>
-#include "localidade.hpp"
+#include "../include/localidade.hpp"
 
 #define CODMUNIC_DEFAULT 2
 #define LOCAL_DEFAULT "BELO HORIZONTE"

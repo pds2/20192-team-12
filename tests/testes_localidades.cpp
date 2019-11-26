@@ -1,7 +1,6 @@
 #include "doctest.h"
-#include "localidade.hpp"
-// #include <string>
-/* EM DESENVOLVIMENTO */
+#include "../include/localidade.hpp"
+
 
 TEST_CASE("01 - Testes de contorno") {
     CHECK_NOTHROW(Localidade()); // argumento vazio

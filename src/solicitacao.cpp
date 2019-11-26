@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <exception>
 #include <typeinfo>
-#include "solicitacao.hpp"
+#include "../include/solicitacao.hpp"
 Solicitacao::Solicitacao(): Solicitacao(2, 24, 35.0){
     /** Construtor sem argumentos da classe Rodoviario 
     */       

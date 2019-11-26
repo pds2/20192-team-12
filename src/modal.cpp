@@ -1,8 +1,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <cmath>
-#include "modal.hpp"
-#include "tools.hpp"
+#include "../include/modal.hpp"
 
 // DECLARACAO DE CONSTANTES DEFAULT
 #define MODAL_DEFAULT "rodoviario"
