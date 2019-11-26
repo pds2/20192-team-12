@@ -22,8 +22,9 @@ Desenvolvemos, portanto, um sistema que, dada uma demanda de transporte de uma c
 - Wagner Abreu (@weabreu)
 
 ### Documentação
-Para ler a documentação baixe a pasta [aqui](https://drive.google.com/open?id=1cH1sI1XxKwoC2Bqh_4pUOQYRCpcK8d1m) em html e abra o arquivo index.html.
-
+A documentação está disponível em dois formatos:
+- [PDF](https://github.com/pds2/20192-team-12/blob/master/other/Documentacao.pdf)
+- Html produzido por Doxygen: para ler a documentação baixe a pasta [aqui](https://drive.google.com/open?id=1cH1sI1XxKwoC2Bqh_4pUOQYRCpcK8d1m) em html e abra o arquivo index.html.
 
 ### User Stories
 
