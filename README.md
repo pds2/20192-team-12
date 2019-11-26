@@ -5,8 +5,8 @@ Professor: Júlio César(@juliosoaresreis)
 
 ## Sistema de Alocação de Demanda de Transporte
 
-| [Introdução](#introdução) | [Integrantes](#integrantes) | [Documentação](#documentação) |[Slides](#slides) | [User Stories](#user-stories) | [Como usar](#como-usar) |  
-| ----------- | -------------- | -------------- | ----------- | ----------- | ----------- | 
+| [Introdução](#introdução) | [Integrantes](#integrantes) | [Documentação](#documentação) | [User Stories](#user-stories) | [Como usar](#como-usar) |  
+| ----------- | -------------- | -------------- | ----------- | ----------- | 
 
 ---
 
@@ -25,17 +25,13 @@ Desenvolvemos, portanto, um sistema que, dada uma demanda de transporte de uma c
 Para ler a documentação baixe a pasta [aqui](https://drive.google.com/open?id=1cH1sI1XxKwoC2Bqh_4pUOQYRCpcK8d1m) em html e abra o arquivo index.html.
 
 
-
-### Slides
-Disponível [aqui]() em PPT
-
 ### User Stories
 
-Disponível em [aqui](https://github.com/pds2/20192-team-12/wiki/User-Stories)
+Disponível [aqui](https://github.com/pds2/20192-team-12/wiki/User-Stories)
 
 ### CRC
 
-Disponível em  [aqui](https://github.com/pds2/20192-team-12/wiki/CRC)
+Disponível [aqui](https://github.com/pds2/20192-team-12/wiki/CRC)
 
 ### Como usar
 
