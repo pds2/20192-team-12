@@ -12,6 +12,9 @@
 #include "../include/solicitacao.hpp"
 #include "../include/localidade.hpp"
 
+#define CONTINUAR 1
+#define SAIR 2
+
 Screen::Screen(std::vector <Localidade> &vector){
     /**
      * Construtor da classe Screen\n
@@ -57,7 +60,7 @@ void Screen::showMainMenu(Screen *tela){
     this->showWarning("2. Sair.\n\n"); // mostra um aviso na tela
     this->showWarning("Digite uma opcao do menu: "); // mostra um aviso na tela   
     entrada = -1;
-    while (entrada < 1 || entrada >2){
+    while (entrada < CONTINUAR || entrada > SAIR){
         // Escolhe as opções do Menu
         char c ;
         // verifica se as entradas sao validas
@@ -74,7 +77,7 @@ void Screen::showMainMenu(Screen *tela){
             this->showWarning("Digite uma opcao do menu: ");   // mostra um aviso na tela          
         }
     }
-    if (entrada == 1){
+    if (entrada == CONTINUAR){
         // opcao 1: mostra o submenu com as localidades
         this->showSubMenu();
         

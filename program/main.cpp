@@ -13,6 +13,8 @@
 #include "../include/tools.hpp"
 #include "../include/operador.hpp"
 
+#define CONTINUAR 1
+#define SAIR 2
 /**
  * # Descrição
  * Este Trabalho Prático consiste no desenvolvimento de um sistema em linguagem C++ baseado no paradigma de 
@@ -65,7 +67,7 @@ int main(){
     Screen *tela = new Screen(vec_local); // criar um objeto tela para apresentar os dados
     tela->showMainMenu(tela); // mostra o menu principal na tela
     
-    while(entrada != 2){
+    while(entrada != SAIR){// 2 - Opcao para sair
         // ENTRADA DE DADOS
 
         // mostra as localidades de origem/destino e os respectivos codigos
@@ -91,7 +93,7 @@ int main(){
 
         entrada = -1; // parametro de controle
         
-        while (entrada < 1 || entrada > 2){
+        while (entrada < CONTINUAR || entrada > SAIR){
             // enquanto o usuario nao informar uma entrada valida, o programa entra loop
             // entradas validas:
             //  - 1. para entrar;
