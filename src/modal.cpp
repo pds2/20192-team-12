@@ -9,16 +9,16 @@
 #define CAPACIDADE_DEFAULT 35
 #define VELOCIDADE_DEFAULT 60
 #define DISTANCIA_DEFAULT 0
-
+/** Construtor sem argumentos da classe Modal\n
+    Default:
+    *  - nome_modal: rodoviário;
+    *  - preco: 0.075;
+    *  - capacidade: 35;
+    *  - velocidade: 60; e 
+    *  - distancia: 0.\n         
+*/
 Modal::Modal(){
-    /** Construtor sem argumentos da classe Modal\n
-        Default:
-     *  - nome_modal: rodoviário;
-     *  - preco: 0.075;
-     *  - capacidade: 35;
-     *  - velocidade: 60; e 
-     *  - distancia: 0.\n         
-    */
+
 
     this->_tipo_modal = MODAL_DEFAULT;
     this->_preco = PRECO_DEFAULT;
@@ -465,19 +465,18 @@ float Aquaviario::obterCusto(float quantidade){
     return ceil(quantidade / this->_capacidade) * (this->_distancia * this->_preco + this->_valor_terminal);
 }
 
-//Construtores da classe Aereo
+/* Construtores da classe Aereo*/
+
 Aereo::Aereo(): Aereo(0, 0){
-    /** Construtor sem argumentos da classe Rodoviario\n 
-     *  Default:\n 
+    /** Default:\n 
      *   - distância: 0 km; e 
      *   - valor_terminal:0,00 R$.\n 
     */      
 }
 
+/** Construtor da classe Aereo*/
 Aereo::Aereo(int distancia, float valor_terminal){
-    /**
-     * Construtor da classe Aereo\n 
-     *  Argumento: 
+    /** Argumentos: 
      *  - distancia: distancia em km entre as localidades de origem e destino; e 
      *  - valor_terminal: valor da taxa de embarque da carga no terminal, em R$.\n 
     */  

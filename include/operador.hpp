@@ -29,20 +29,23 @@ class Operador {
     	int _V;
         /** Representação em matriz de adjacência */
         Modal **_graph;
-        /**Vetor com as solicitações de tranporte */
+        /** Vetor com as solicitações de tranporte */
         std::vector<Solicitacao> _lista_solicitacoes;
-        /** Método privado para imprimir o caminho ótimo */
+        /* Método privado para imprimir o caminho ótimo */
         void printPath(int*, int, int, std::vector  <Localidade>&);
-        /** Método privado para imprimir a solução */
+        /* Método privado para imprimir a solução */
         void printSolutionPath(int*, int*, int, int, std::vector <Localidade>&);
-        /** Método que retorna a menor distância*/
+        /* Método que retorna a menor distância*/
         int minDistance(int*, bool*);
     	
     public:
 
-    	// Operador();
+    	/** Contrutor da classe Operador*/
         Operador(int);
+        /** Destrutor da classe Operador*/
         ~Operador();
+
+        /** Constroi a matriz de adjacencias*/
         void popularMatriz();
 
         /** Algoritmo Dijkstra para caminho mínimo entre vértice origem e destino */
@@ -51,7 +54,7 @@ class Operador {
         /** Detecta se há um caminho entre dois vértices (origem e destino) */
         bool ehAlcancavel(int, int);
 
-        // Origem, destino e quantidade
+        /** Adiciona uma solicitação de transporte*/
         void addSolicitacao(int, int, float);
 };
 

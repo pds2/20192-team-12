@@ -40,7 +40,6 @@ class Screen{
 };
 
 Localidade searchMunicipio(int, std::vector  <Localidade>& );
-// void lerArquivo(std::istream &, std::vector <std::string> &);
 void lerArquivoLocalidades(std::istream &, std::vector <Localidade> &);
 void menu(std::vector <std::string>&);
 #endif

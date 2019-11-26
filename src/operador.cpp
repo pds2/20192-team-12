@@ -181,7 +181,7 @@ int Operador::minDistance(int *dist, bool *sptSet) {
 
 // Function to print shortest path from source to j using parent array 
 void Operador::printPath(int *parent, int j, int src, std::vector  <Localidade> &vector) {
-    /** O metodo printPath imprime o caminho encontrado.\n
+    /* O metodo printPath imprime o caminho encontrado.\n
      * Argumentos:
      *  - parent: árvore de caminho mínimo;
      *  - j: vértice destino;
@@ -199,7 +199,7 @@ void Operador::printPath(int *parent, int j, int src, std::vector  <Localidade> 
   
 // A utility function to print the constructed distance array 
 void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std::vector  <Localidade> &vector) {
-    /** O metodo printSolutionPath imprime a solucao encontrada.\n
+    /* O metodo printSolutionPath imprime a solucao encontrada.\n
      * Argumentos:
      *  - dist: vetor com as distâncias entre os vértices
      *  - parent: árvore de caminho mínimo

@@ -32,28 +32,38 @@ class Modal {
         */
         int _flag;
         
-    public:  
+    public:
+
+        /** Construtor sem argumento da classe Modal*/
         Modal();      
+        /** Construtor da classe Modal*/
         Modal(std::string, float, float, float, int);
+        /** Destrutor da classe Modal*/
         ~Modal();
 
-        // void setTipoModal(std::string);
+        /* Configura o preco do servico*/
         void setPreco(float);
+        /* Configura a capacidade padrao do veiculo do modal*/
         void setCapacidade(float);
+        /* Configura a velocidade padrao do veiculo do modal*/
         void setVelocidade(float);
+        /** Configura entre as arestas*/
         void setDistancia(int);
-
+        /* Obtem o tipo de modal*/
         std::string getTipoModal();
+        /* Obtem o preco do servico*/
         float getPreco();
+        /* Obtem a capacidade padrao do veiculo do modal*/
         float getCapacidade();
+        /* Obtem a velocidade padrao do veiculo do modal*/
         float getVelocidade();
-        int getDistancia();
+        // int getDistancia();
         int getFlagAresta();
-
-        // recebe a quantidade a ser transportada
+        /** Distancia entre as arestas*/
+        int getDistancia();
+        /** obtem o custo do transporte */
         virtual float obterCusto(float);
-
-        // retorna tempo em minutos
+        /** Obtem o tempo do transporte */
         float obterTempo();
 };
 /** A subclasse Ferroviario representa o modal de transporte ferroviário,
@@ -65,23 +75,34 @@ class Ferroviario: public Modal {
         const float ferroviario_preco = 0.05; 
         const float ferroviario_capacidade = 70000;   
         const float ferroviario_velocidade = 20;
-    public:  
+    public:
+        /** Construtor sem argumento da classe Ferroviario*/
         Ferroviario();      
+        /** Construtor da classe Ferroviario*/
         Ferroviario(int);
+        /** Destrutor da classe Ferroviario*/
         ~Ferroviario();
-
+        
+        /* Configura o preco do servico*/
         void setPreco(float);
+        /* Configura a capacidade padrao do veiculo do modal*/        
         void setCapacidade(float);
+        /* Configura a velocidade padrao do veiculo do modal*/
         void setVelocidade(float);
+        /** Configura entre as arestas*/
         void setDistancia(int);
-
+        /* Obtem o tipo de modal*/
         std::string getTipoModal();
+        /* Obtem o preco do servico*/
         float getPreco();
+        /* Obtem a capacidade padrao do veiculo do modal*/
         float getCapacidade();
+        /* Obtem a velocidade padrao do veiculo do modal*/
         float getVelocidade();
+        /** Obtem o custo do transporte */
+        /** Distancia entre as arestas*/
         int getDistancia();
-
-        // recebe a quantidade a ser transportada
+        /** obtem o custo do transporte */
         float obterCusto(float) override;
 };
 /** A subclasse Rodoviario representa o modal de transporte ferroviário,
@@ -98,16 +119,24 @@ class Rodoviario: public Modal {
         float _valor_pedagio;
 
     public:
+        /** Construtor sem argumento da classe Rodoviario*/
         Rodoviario();
+        /** Construtor da classe Rodoviario*/
         Rodoviario(int, bool, float);
+        /** Destrutor da classe Rodoviario*/
         ~Rodoviario();
 
+        /** Configura se existe pedagio*/
         void setPedagio(int);
+        /** Configura o valor do pedagio*/
         void setValorPedagio(float);
-
+        /** Retorna se existe pedagio no trajeto*/
         int isPedagio();
+        /** Obtem o valor do pedagio*/
         float getValorPedagio();
-
+        /** Distancia entre as arestas*/
+        int getDistancia();
+        /** Obtem o custo do transporte */
         float obterCusto(float) override;
 };
 /** A subclasse Aquaviario representa o modal de transporte ferroviário,
@@ -119,16 +148,21 @@ class Aquaviario: public Modal {
         const float aquaviario_capacidade = 1000;
         const float aquaviario_velocidade = 40;
     private:
+        /** Valor da taxa do terminal*/
         float _valor_terminal;
 
     public:
+        /** Construtor sem argumento da classe Aquaviario*/
         Aquaviario();
+        /** Construtor da classe Aquaviario*/
         Aquaviario(int, float);
+        /** Destrutor da classe Aquaviario*/
         ~Aquaviario();
-
+        /** Configura o valor da tarifa do terminal */
         void setValorTerminal(float);
+        /** Obtem o valor da tarifa do terminal */
         float getValorTerminal();
-
+        /** Obtem o custo do transporte */
         float obterCusto(float) override;
 };
 /** A subclasse Aereo representa o modal de transporte ferroviário,
@@ -143,13 +177,17 @@ class Aereo: public Modal {
         float _valor_terminal;
 
     public:
+        /** Construtor sem argumento da classe Aereo*/
         Aereo();
+        /** Construtor com argumentos da classe Aereo*/
         Aereo(int, float);
+        /** Destrutor da classe Aereo*/
         ~Aereo();
-
+        /** Configura o valor da tarifa do terminal */
         void setValorTerminal(float);
+        /** Obtem o valor da tarifa do terminal */
         float getValorTerminal();
-
+        /** Obtem o custo do transporte */
         float obterCusto(float) override;
 };
 #endif
