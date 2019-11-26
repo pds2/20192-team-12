@@ -173,7 +173,7 @@ class Aereo: public Modal {
         // valores dos preços, capacidade média e velocidade média do modal rodoviário
         const float aereo_preco = 0.1;
         const float aereo_capacidade = 100;
-        const float aereo_velocidade = 800;    
+        const float aereo_velocidade = 500;    
         float _valor_terminal;
 
     public:
