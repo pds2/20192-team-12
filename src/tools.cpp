@@ -299,15 +299,15 @@ void lerArquivoLocalidades(std::istream &arquivo, std::vector  <Localidade> &vec
      *   - o arquivo deve existir;
      *   - vector deve estar vazio ao ser recebido;
     */
-    std::string linha;   
-    std::string entrada;
-    arquivo.clear();
-    arquivo.seekg(0, std::ios::beg);
-    int counter = 0;
-    int rows = 0,
-        column = 0,
-        columns = 0;
+    std::string linha; // linha para leitura do arquivo
+    std::string entrada; // variavel para leitura de palavra
+    int counter = 0; // contador para controle
+    int rows = 0, // numero de linhas do arquivo
+        columns = 0, // numero de colunas do arquivo
+        column = 0; // coluna corrente
     Localidade local;
+    arquivo.clear();
+    arquivo.seekg(0, std::ios::beg); // volta ao inicio do arquivo
 
     while(!arquivo.eof()){
         // percorre o arquivo
