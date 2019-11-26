@@ -10,14 +10,18 @@
 #include <string>
 // #include <iomanip>
 /*
-O algoritmo Dijsktra's single source shortest path algorithm está disponível em:
+O código que implementa o algoritmo Dijsktra's single source 
+shortest path algorithm está disponível em:
 <https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/>
 
-E foi parcialmente alterado para responder às necessidades do 
-Sistema de Alocação de Transporte.
-
-O algoritmo para impressão do caminho mínimo está disponível em:
+O código para impressão do caminho mínimo está disponível em:
 <https://www.geeksforgeeks.org/printing-paths-dijkstras-shortest-path-algorithm/>
+
+O código que implementa o algoritmo Breadth First Search está disponível em:
+<https://www.geeksforgeeks.org/implementation-of-bfs-using-adjacency-matrix/>
+
+Todos os códigos foram parcialmente alterados para responder às necessidades do 
+Sistema de Alocação de Transporte.
 */
 
 
