@@ -106,8 +106,8 @@ int Operador::minDistance(int *dist, bool *sptSet) {
     /** O metodo minDistance encontra o vertice com a menor distancia entre os vertices
      * .
      * Argumentos:
-     *  - dist: vetor com as distâncias entres os vértices
-     *  - sptSet: vetor com vértices incluídos ou não na árvore de caminho mínimo
+     *  - dist: vetor com as distâncias entres os vértices;
+     *  - sptSet: vetor com vértices incluídos ou não na árvore de caminho mínimo;
     */
     // Initialize min value 
     int min = INT_MAX, min_index; 
@@ -121,12 +121,11 @@ int Operador::minDistance(int *dist, bool *sptSet) {
 
 // Function to print shortest path from source to j using parent array 
 void Operador::printPath(int *parent, int j, std::vector  <Localidade> &vector) {
-    /** O metodo printPath imprime o caminho encontrado
-     * .
+    /** O metodo printPath imprime o caminho encontrado.\n
      * Argumentos:
-     *  - parent: árvore de caminho mínimo 
-     *  - j: vértice destino
-     *  - vector: vetor de localidades
+     *  - parent: árvore de caminho mínimo;
+     *  - j: vértice destino;
+     *  - vector: vetor de localidades;
     */    
       
     // Base Case : If j is source 
@@ -139,8 +138,7 @@ void Operador::printPath(int *parent, int j, std::vector  <Localidade> &vector) 
   
 // A utility function to print the constructed distance array 
 void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std::vector  <Localidade> &vector) {
-    /** O metodo printSolutionPath imprime a solucao encontrada
-     * .
+    /** O metodo printSolutionPath imprime a solucao encontrada.\n
      * Argumentos:
      *  - dist: vetor com as distâncias entre os vértices
      *  - parent: árvore de caminho mínimo
@@ -167,11 +165,11 @@ void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std
 // for a graph represented using adjacency matrix representation 
 void Operador::dijkstra(int src, int dest, float quantidade,  std::vector  <Localidade> &vector) {
     /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho.\n 
-     * Argumentos:
-     *  - src: vértice origem
-     *  - dest: vértice destino
-     *  - quantidade: quantidade de carga a ser transportada
-     *  - vector: vetor de localidades
+     * Argumentos:  
+     *  - src: origem;
+     *  - dest: destino;
+     *  - quantidade: quantidade de carga a ser transportada;
+     *  - vector: vetor de localidades.
     */
 
     if (src < 0 || dest < 0 || quantidade <=0 || vector.size() == 0){

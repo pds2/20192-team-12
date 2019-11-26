@@ -341,17 +341,11 @@ void Rodoviario::setPedagio(int pedagio){
      *  Exceção:
      *       - o valor não pode ser negativo;
     */  
-    // Tipo tipo;
-    // std::cout << "pedagio: " << pedagio << " " << tipo.getTipo(pedagio) << " " 
-    //           << " teste1 " << (pedagio != true) << " teste2 " << (pedagio != false) << std::endl;
-    // if (tipo.getTipo(pedagio) != "boolean"){
+
     if (pedagio != 1 && pedagio != 0){
         throw std::invalid_argument("A variavel pedagio deve ser true ou false.");
     }
-    // else{
-        this->_pedagio = pedagio;
-
-    // }
+    this->_pedagio = pedagio;
 }
 void Rodoviario::setValorPedagio(float valor_pedagio){
     /** Atribui o valor do pedágio da rodovia à variável valor_pedagio.\n
@@ -420,14 +414,9 @@ Aquaviario::Aquaviario(int distancia, float valor_terminal) {
      *  Exceção:
      *       - os valores não podem ser negativos;
     */  
-
-    // if (preco < 0 || capacidade < 0 || velocidade < 0 || valor_terminal < 0){
-    //     throw std::invalid_argument("As variaveis preco, capacidade e velocidade nao podem ser negativas!");
-    // }
     if (distancia < 0 || valor_terminal < 0){
         throw std::invalid_argument("A distancia e a taxa do terminal nao podem ser negativas.");
     }
-    // Modal(nome_modal, preco, capacidade, velocidade);
 
     this->_tipo_modal = "aquaviario";
     this->_preco = aquaviario_preco;
