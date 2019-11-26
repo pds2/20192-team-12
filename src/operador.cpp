@@ -106,8 +106,8 @@ int Operador::minDistance(int *dist, bool *sptSet) {
     /** O metodo minDistance encontra o vertice com a menor distancia entre os vertices
      * .
      * Argumentos:
-     *  - dist: 
-     *  - sptSet: 
+     *  - dist: vetor com as distâncias entres os vértices
+     *  - sptSet: vetor com vértices incluídos ou não na árvore de caminho mínimo
     */
     // Initialize min value 
     int min = INT_MAX, min_index; 
@@ -124,8 +124,8 @@ void Operador::printPath(int *parent, int j, std::vector  <Localidade> &vector) 
     /** O metodo printPath imprime o caminho encontrado
      * .
      * Argumentos:
-     *  - parent: 
-     *  - j: 
+     *  - parent: árvore de caminho mínimo 
+     *  - j: vértice destino
      *  - vector: vetor de localidades
     */    
       
@@ -142,10 +142,10 @@ void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std
     /** O metodo printSolutionPath imprime a solucao encontrada
      * .
      * Argumentos:
-     *  - dist: 
-     *  - parent: 
-     *  - src: origem 
-     *  - dest: destino
+     *  - dist: vetor com as distâncias entre os vértices
+     *  - parent: árvore de caminho mínimo
+     *  - src: vértice origem
+     *  - dest: vértice destino
      *  - vector: vetor de localidades
     */
     int padding = 20;
@@ -167,9 +167,9 @@ void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std
 // for a graph represented using adjacency matrix representation 
 void Operador::dijkstra(int src, int dest, float quantidade,  std::vector  <Localidade> &vector) {
     /** O metodo dijkstra  implementa o algoritmo de Dijkstra para encontrar o menor caminho.\n 
-     * Argumentos:  
-     *  - src: origem 
-     *  - dest: destino
+     * Argumentos:
+     *  - src: vértice origem
+     *  - dest: vértice destino
      *  - quantidade: quantidade de carga a ser transportada
      *  - vector: vetor de localidades
     */
