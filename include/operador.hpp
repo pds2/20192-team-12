@@ -32,7 +32,7 @@ class Operador {
         /**Vetor com as solicitações de tranporte */
         std::vector<Solicitacao> _lista_solicitacoes;
         /** Método privado para imprimir o caminho ótimo */
-        void printPath(int*, int, std::vector  <Localidade>&);
+        void printPath(int*, int, int, std::vector  <Localidade>&);
         /** Método privado para imprimir a solução */
         void printSolutionPath(int*, int*, int, int, std::vector <Localidade>&);
         /** Método que retorna a menor distância*/
