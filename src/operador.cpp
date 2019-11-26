@@ -99,6 +99,51 @@ void Operador::popularMatriz() {
     }
 }
 
+bool Operador::ehAlcancavel(int src, int dest) { 
+    // Base case 
+    if (src == dest) {
+      return true;   
+    } 
+      
+    // Mark all the vertices as not visited 
+    bool *visited = new bool[this->_V]; 
+    for (int i = 0; i < this->_V; i++) {
+        visited[i] = false; 
+    }
+
+    std::vector<int> q; 
+    q.push_back(src); 
+  
+    // Set source as visited 
+    visited[src] = true; 
+  
+    int vis; 
+    while (!q.empty()) { 
+        vis = q[0]; 
+        q.erase(q.begin()); 
+        // For every adjacent vertex to the current vertex 
+        for (int i = 0; i < this->_V; i++) { 
+            if (this->_graph[vis][i].getFlagAresta() == 1 && (!visited[i])) { 
+                
+                // If this adjacent node is the destination node, then  
+                // return true 
+                if (i == dest) {
+                    return true; 
+                }
+  
+                // Push the adjacent node to the queue 
+                q.push_back(i); 
+  
+                // Set 
+                visited[i] = true; 
+            } 
+        } 
+    } 
+
+    // If BFS is complete without visiting dest
+    return false; 
+} 
+
 
 // A utility function to find the vertex with minimum distance value, from 
 // the set of vertices not yet included in shortest path tree 
@@ -180,57 +225,60 @@ void Operador::dijkstra(int src, int dest, float quantidade,  std::vector  <Loca
         throw std::invalid_argument(aviso);
     }
 
-    int *dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
-    // distance from src to i 
+    if(!ehAlcancavel(src, dest)) {
+        std::cout << "Nao existe rota entre origem e destino" << std::endl;
+    } else{
+        int *dist = new int[this->_V]; // The output array. dist[i] will hold the shortest 
+        // distance from src to i 
 
-    bool *sptSet = new bool[this->_V]; // sptSet[i] will be true if vertex i is included in shortest 
-    // path tree or shortest distance from src to i is finalized 
+        bool *sptSet = new bool[this->_V]; // sptSet[i] will be true if vertex i is included in shortest 
+        // path tree or shortest distance from src to i is finalized 
 
-    // Parent array to store shortest path tree 
-    int *parent = new int[this->_V]; 
+        // Parent array to store shortest path tree 
+        int *parent = new int[this->_V]; 
 
-    // Initialize all distances as INFINITE and stpSet[] as false 
-    for (int i = 0; i < this->_V; i++) 
-        dist[i] = INT_MAX, sptSet[i] = false; 
+        // Initialize all distances as INFINITE and stpSet[] as false 
+        for (int i = 0; i < this->_V; i++) 
+            dist[i] = INT_MAX, sptSet[i] = false; 
 
-    // Distance of source vertex from itself is always 0 
-    dist[src] = 0; 
+        // Distance of source vertex from itself is always 0 
+        dist[src] = 0; 
 
-    // Parent of root (or source vertex) is -1. 
-    parent[src] = -1; 
+        // Parent of root (or source vertex) is -1. 
+        parent[src] = -1; 
 
-    // Find shortest path for all vertices 
-    for (int count = 0; count < this->_V - 1; count++) { 
-        // Pick the minimum distance vertex from the set of vertices not 
-        // yet processed. u is always equal to src in the first iteration. 
-        int u = Operador::minDistance(dist, sptSet); 
+        // Find shortest path for all vertices 
+        for (int count = 0; count < this->_V - 1; count++) { 
+            // Pick the minimum distance vertex from the set of vertices not 
+            // yet processed. u is always equal to src in the first iteration. 
+            int u = Operador::minDistance(dist, sptSet); 
 
-        // Mark the picked vertex as processed 
-        sptSet[u] = true; 
+            // Mark the picked vertex as processed 
+            sptSet[u] = true; 
 
-        if(u == dest) {
-            break;
-        }
-        
-        // Update dist value of the adjacent vertices of the picked vertex. 
-        for (int v = 0; v < this->_V; v++) 
-
-            // Update dist[v] only if is not in sptSet, there is an edge from 
-            // u to v, and total weight of path from src to v through u is 
-            // smaller than current value of dist[v] 
-            if (!sptSet[v] && _graph[u][v].getFlagAresta() && dist[u] != INT_MAX 
-                && dist[u] + _graph[u][v].obterTempo() < dist[v]) {
-                dist[v] = dist[u] + _graph[u][v].obterTempo();     
-                parent[v] = u;
+            if(u == dest) {
+                break;
             }
-    } 
+        
+            // Update dist value of the adjacent vertices of the picked vertex. 
+            for (int v = 0; v < this->_V; v++) 
+                // Update dist[v] only if is not in sptSet, there is an edge from 
+                // u to v, and total weight of path from src to v through u is 
+                // smaller than current value of dist[v] 
+                if (!sptSet[v] && _graph[u][v].getFlagAresta() && dist[u] != INT_MAX 
+                    && dist[u] + _graph[u][v].obterTempo() < dist[v]) {
+                    dist[v] = dist[u] + _graph[u][v].obterTempo();     
+                    parent[v] = u;
+                }
+        } 
 
-    // print the constructed distance array 
-    Operador::printSolutionPath(dist, parent, src, dest, vector); 
+        // print the constructed distance array 
+        Operador::printSolutionPath(dist, parent, src, dest, vector); 
 
-    delete[] dist;
-    delete[] sptSet;
-    delete[] parent;
+        delete[] dist;
+        delete[] sptSet;
+        delete[] parent;
+    }
 } 
 
 void Operador::addSolicitacao(int src, int dest, float quantidade) {

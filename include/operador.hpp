@@ -45,8 +45,11 @@ class Operador {
         ~Operador();
         void popularMatriz();
 
-        // Origem, destino e quantidade
+        /** Algoritmo Dijkstra para caminho mínimo entre vértice origem e destino */
         void dijkstra(int, int, float, std::vector  <Localidade>&);
+
+        /** Detecta se há um caminho entre dois vértices (origem e destino) */
+        bool ehAlcancavel(int, int);
 
         // Origem, destino e quantidade
         void addSolicitacao(int, int, float);
