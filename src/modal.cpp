@@ -144,7 +144,7 @@ float Modal::obterTempo(){
     /** Retorna o tempo de viagem entre as localidades de origem e destino da carga, a partir da velocidade média.\n
      *  Sem argumentos.
     */             
-    return this->_distancia / this->_velocidade * 60;
+    return this->_distancia / this->_velocidade;
 }
 float Modal::obterCusto(float distancia) {
     /** Implementado somente nas classes derivadas

@@ -180,7 +180,7 @@ int Operador::minDistance(int *dist, bool *sptSet) {
 } 
 
 // Function to print shortest path from source to j using parent array 
-void Operador::printPath(int *parent, int j, std::vector  <Localidade> &vector) {
+void Operador::printPath(int *parent, int j, int src, std::vector  <Localidade> &vector) {
     /** O metodo printPath imprime o caminho encontrado.\n
      * Argumentos:
      *  - parent: árvore de caminho mínimo;
@@ -192,7 +192,8 @@ void Operador::printPath(int *parent, int j, std::vector  <Localidade> &vector) 
     if (parent[j] == - 1) 
         return; 
   
-    Operador::printPath(parent, parent[j], vector); 
+    Operador::printPath(parent, parent[j], src, vector); 
+    std::cout << "(" <<  this->_graph[src][j].getTipoModal() << ")" << " ";
     std::cout << searchMunicipio(j, vector).getMunicipio() << " ";
 } 
   
@@ -210,14 +211,14 @@ void Operador::printSolutionPath(int *dist, int *parent, int src, int dest,  std
     // std::cout << std::setw(padding) << std::left<< "ORIGEM\t\tDESTINO\t\tDistance\t\tROTA" << std::endl;
     std::cout << std::setw(padding) << std::left << "ORIGEM" 
               << std::setw(padding) << std::left << "DESTINO"
-              << std::setw(padding) << std::left << "DISTANCIA"
+              << std::setw(padding) << std::left << "TEMPO (h)"
               << std::setw(padding) << std::left << "ROTA" << std::endl;
     std::cout << std::setw(padding) << std::left << searchMunicipio(src, vector).getMunicipio()
               << std::setw(padding) << std::left << searchMunicipio(dest, vector).getMunicipio() 
               << std::setw(padding) << std::left << dist[dest]
               << searchMunicipio(src, vector).getMunicipio() << " ";
 
-    printPath(parent, dest, vector);
+    printPath(parent, dest, src, vector);
     std::cout << std::endl;
 } 
 
